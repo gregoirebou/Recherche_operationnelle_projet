@@ -1,0 +1,3266 @@
+
+============================================================
+  PROBLÈME 1
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 8000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(1, 1), (0, 0)} | proposition=[[100, 0], [0, 100]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Ajout case dégénérée : P2C1 = 0
+Proposition connexe
+Potentiels u : [0, -20]
+Potentiels v : [30, 70]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 70]
+P2 : [10, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -50]
+P2 : [0, 0]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -50)
+Arête P1C2 ajoutée à la proposition
+Cycle : C1 -> P1 -> C0 -> P0 -> C1
+  P2C2 = 100 (-)
+  P2C1 = 0 (+)
+  P1C1 = 100 (-)
+  P1C2 = 0 (+)
+Delta = 100
+Arête supprimée : P2C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [0, 50]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       100      0
+Coût total optimal : 3000
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [10, 40]
+Pénalités colonnes : [20, 30]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 100
+Pénalités lignes : [0, -1]
+Pénalités colonnes : [-1, 0]
+Pénalité maximale : 0
+Candidats lignes : [0], Candidats colonnes : [1]
+Ligne P1 sélectionnée → P1C2 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       100      0
+Coût total : 3000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (1, 0)} | proposition=[[0, 100], [100, 0]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P0'}
+  Sous-graphe 2 : {'P1', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P0'}
+  Sous-graphe 2 : {'P1', 'C0'}
+Ajout case dégénérée : P1C1 = 0
+Proposition connexe
+Potentiels u : [0, -20]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [0, 50]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       100      0
+Coût total optimal : 3000
+
+============================================================
+  PROBLÈME 2
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 2000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(1, 1), (0, 0)} | proposition=[[100, 0], [0, 100]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Ajout case dégénérée : P2C1 = 0
+Proposition connexe
+Potentiels u : [0, 20]
+Potentiels v : [10, -10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, -10]
+P2 : [30, 10]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 30]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total optimal : 2000
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [10, 20]
+Pénalités colonnes : [20, 10]
+Pénalité maximale : 20
+Candidats lignes : [1], Candidats colonnes : [0]
+Ligne P2 sélectionnée → P2C2 = 100
+Pénalités lignes : [0, -1]
+Pénalités colonnes : [0, -1]
+Pénalité maximale : 0
+Candidats lignes : [0], Candidats colonnes : [0]
+Ligne P1 sélectionnée → P1C1 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 2000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(1, 1), (0, 0)} | proposition=[[100, 0], [0, 100]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+Ajout case dégénérée : P2C1 = 0
+Proposition connexe
+Potentiels u : [0, 20]
+Potentiels v : [10, -10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, -10]
+P2 : [30, 10]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 30]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total optimal : 2000
+
+============================================================
+  PROBLÈME 3
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1       100    500
+P2         0    500
+Coût total : 38000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (1, 1), (0, 0)} | proposition=[[100, 500], [0, 500]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [60, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [-50, 0]
+
+Meilleure arête améliorante : P2C1 (coût marginal = -50)
+Arête P2C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P1 -> C0
+  P1C1 = 100 (-)
+  P1C2 = 500 (+)
+  P2C2 = 500 (-)
+  P2C1 = 0 (+)
+Delta = 100
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30]
+Potentiels v : [-20, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-20, 20]
+P2 : [10, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [50, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 33000
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [10, 40]
+Pénalités colonnes : [20, 30]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 100
+Pénalités lignes : [0, 0]
+Pénalités colonnes : [-1, 30]
+Pénalité maximale : 30
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F1C2 = 600
+Pénalités lignes : [-1, 0]
+Pénalités colonnes : [-1, 0]
+Pénalité maximale : 0
+Candidats lignes : [1], Candidats colonnes : [1]
+Ligne P2 sélectionnée → P2C2 = 400
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total : 33000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (1, 0), (1, 1)} | proposition=[[0, 600], [100, 400]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30]
+Potentiels v : [-20, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-20, 20]
+P2 : [10, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [50, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 33000
+
+============================================================
+  PROBLÈME 4
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1       100    500
+P2         0    500
+Coût total : 18500
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (1, 1), (0, 0)} | proposition=[[100, 500], [0, 500]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 29]
+Potentiels v : [30, 1]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 1]
+P2 : [59, 30]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [-58, 0]
+
+Meilleure arête améliorante : P2C1 (coût marginal = -58)
+Arête P2C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P1 -> C0
+  P1C1 = 100 (-)
+  P1C2 = 500 (+)
+  P2C2 = 500 (-)
+  P2C1 = 0 (+)
+Delta = 100
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 29]
+Potentiels v : [-28, 1]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-28, 1]
+P2 : [1, 30]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [58, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 12700
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [29, 29]
+Pénalités colonnes : [29, 29]
+Pénalité maximale : 29
+Candidats lignes : [0], Candidats colonnes : [0]
+Ligne P1 sélectionnée → P1C2 = 600
+Pénalités lignes : [-1, 29]
+Pénalités colonnes : [0, 0]
+Pénalité maximale : 29
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 100
+Pénalités lignes : [-1, 0]
+Pénalités colonnes : [-1, 0]
+Pénalité maximale : 0
+Candidats lignes : [1], Candidats colonnes : [1]
+Ligne P2 sélectionnée → P2C2 = 400
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total : 12700
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (1, 0), (1, 1)} | proposition=[[0, 600], [100, 400]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 29]
+Potentiels v : [-28, 1]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-28, 1]
+P2 : [1, 30]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [58, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 12700
+
+============================================================
+  PROBLÈME 5
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2        10     15      0
+P3         0      5     20
+Coût total : 480
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(2, 1), (0, 0), (1, 1), (2, 2), (1, 0)} | proposition=[[25, 0, 0], [10, 15, 0], [0, 5, 20]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 1, 0]
+Potentiels v : [5, 7, 7]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [5, 7, 7]
+P2 : [6, 8, 8]
+P3 : [5, 7, 7]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 1]
+P2 : [0, 0, -3]
+P3 : [1, 0, 0]
+
+Meilleure arête améliorante : P2C3 (coût marginal = -3)
+Arête P2C3 ajoutée à la proposition
+Cycle : C1 -> P1 -> C2 -> P2 -> C1
+  P2C2 = 15 (-)
+  P2C3 = 0 (+)
+  P3C3 = 20 (-)
+  P3C2 = 5 (+)
+Delta = 15
+Arête supprimée : P2C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 1, 3]
+Potentiels v : [5, 4, 4]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [5, 4, 4]
+P2 : [6, 5, 5]
+P3 : [8, 7, 7]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 3, 4]
+P2 : [0, 3, 0]
+P3 : [-2, 0, 0]
+
+Meilleure arête améliorante : P3C1 (coût marginal = -2)
+Arête P3C1 ajoutée à la proposition
+Cycle : C0 -> P1 -> C2 -> P2 -> C0
+  P2C1 = 10 (-)
+  P2C3 = 15 (+)
+  P3C3 = 5 (-)
+  P3C1 = 0 (+)
+Delta = 5
+Arête supprimée : P3C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 1, 1]
+Potentiels v : [5, 6, 4]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [5, 6, 4]
+P2 : [6, 7, 5]
+P3 : [6, 7, 5]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 1, 4]
+P2 : [0, 1, 0]
+P3 : [0, 0, 2]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total optimal : 425
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [2, 1, 1]
+Pénalités colonnes : [1, 0, 2]
+Pénalité maximale : 2
+Candidats lignes : [0], Candidats colonnes : [2]
+Ligne P1 sélectionnée → P1C1 = 25
+Pénalités lignes : [-1, 1, 1]
+Pénalités colonnes : [0, 1, 2]
+Pénalité maximale : 2
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée → F2C3 = 20
+Pénalités lignes : [-1, 2, 1]
+Pénalités colonnes : [0, 1, -1]
+Pénalité maximale : 2
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 5
+Pénalités lignes : [-1, -1, 1]
+Pénalités colonnes : [0, 0, -1]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C1 = 5
+Pénalités lignes : [-1, -1, 0]
+Pénalités colonnes : [-1, 0, -1]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [1]
+Ligne P3 sélectionnée → P3C2 = 20
+
+--- Proposition initiale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total : 425
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(1, 2), (2, 1), (0, 0), (2, 0), (1, 0)} | proposition=[[25, 0, 0], [5, 0, 20], [5, 20, 0]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 1, 1]
+Potentiels v : [5, 6, 4]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [5, 6, 4]
+P2 : [6, 7, 5]
+P3 : [6, 7, 5]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 1, 4]
+P2 : [0, 1, 0]
+P3 : [0, 0, 2]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total optimal : 425
+
+============================================================
+  PROBLÈME 6
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1        50     10      0      0
+P2         0     30      0      0
+P3         0     35     30     25
+Coût total : 3035
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (2, 1), (0, 0), (1, 1), (2, 3), (2, 2)} | proposition=[[50, 10, 0, 0], [0, 30, 0, 0], [0, 35, 30, 25]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 4, 9]
+Potentiels v : [11, 12, 11, 13]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 12, 11, 13]
+P2 : [15, 16, 15, 17]
+P3 : [20, 21, 20, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, -1, -3]
+P2 : [2, 0, 0, 1]
+P3 : [-1, 0, 0, 0]
+
+Meilleure arête améliorante : P1C4 (coût marginal = -3)
+Arête P1C4 ajoutée à la proposition
+Cycle : C3 -> P0 -> C1 -> P2 -> C3
+  P1C4 = 0 (+)
+  P1C2 = 10 (-)
+  P3C2 = 35 (+)
+  P3C4 = 25 (-)
+Delta = 10
+Arête supprimée : P1C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 7, 12]
+Potentiels v : [11, 9, 8, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 9, 8, 10]
+P2 : [18, 16, 15, 17]
+P3 : [23, 21, 20, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 3, 2, 0]
+P2 : [-1, 0, 0, 1]
+P3 : [-4, 0, 0, 0]
+
+Meilleure arête améliorante : P3C1 (coût marginal = -4)
+Arête P3C1 ajoutée à la proposition
+Cycle : C3 -> P2 -> C0 -> P0 -> C3
+  P3C4 = 15 (-)
+  P3C1 = 0 (+)
+  P1C1 = 50 (-)
+  P1C4 = 10 (+)
+Delta = 15
+Arête supprimée : P3C4
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 12, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 12, 10]
+P2 : [14, 16, 15, 13]
+P3 : [19, 21, 20, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, -2, 0]
+P2 : [3, 0, 0, 5]
+P3 : [0, 0, 0, 4]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -2)
+Arête P1C3 ajoutée à la proposition
+Cycle : C2 -> P2 -> C0 -> P0 -> C2
+  P3C3 = 30 (-)
+  P3C1 = 15 (+)
+  P1C1 = 35 (-)
+  P1C3 = 0 (+)
+Delta = 30
+Arête supprimée : P3C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 10, 10]
+P2 : [14, 16, 13, 13]
+P3 : [19, 21, 18, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, 0, 0]
+P2 : [3, 0, 2, 5]
+P3 : [0, 0, 2, 4]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -1)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P2 -> C0
+  P1C1 = 5 (-)
+  P1C2 = 0 (+)
+  P3C2 = 45 (-)
+  P3C1 = 45 (+)
+Delta = 5
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 4, 9]
+Potentiels v : [10, 12, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 12, 10, 10]
+P2 : [14, 16, 14, 14]
+P3 : [19, 21, 19, 19]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [1, 0, 0, 0]
+P2 : [3, 0, 1, 4]
+P3 : [0, 0, 1, 3]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1         0      5     30     25
+P2         0     30      0      0
+P3        50     40      0      0
+Coût total optimal : 2880
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [0, 1, 1]
+Pénalités colonnes : [6, 4, 5, 8]
+Pénalité maximale : 8
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F1C4 = 25
+Pénalités lignes : [1, 1, 1]
+Pénalités colonnes : [6, 4, 5, -1]
+Pénalité maximale : 6
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F1C1 = 35
+Pénalités lignes : [-1, 1, 1]
+Pénalités colonnes : [2, 5, 5, -1]
+Pénalité maximale : 5
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F2C2 = 30
+Pénalités lignes : [-1, -1, 1]
+Pénalités colonnes : [0, 0, 0, -1]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C1 = 15
+Pénalités lignes : [-1, -1, 1]
+Pénalités colonnes : [-1, 0, 0, -1]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C3 = 30
+Pénalités lignes : [-1, -1, 0]
+Pénalités colonnes : [-1, 0, -1, -1]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [1]
+Ligne P3 sélectionnée → P3C2 = 45
+
+--- Proposition initiale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1        35      0      0     25
+P2         0     30      0      0
+P3        15     45     30      0
+Coût total : 2945
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(2, 1), (0, 0), (1, 1), (0, 3), (2, 0), (2, 2)} | proposition=[[35, 0, 0, 25], [0, 30, 0, 0], [15, 45, 30, 0]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 12, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 12, 10]
+P2 : [14, 16, 15, 13]
+P3 : [19, 21, 20, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, -2, 0]
+P2 : [3, 0, 0, 5]
+P3 : [0, 0, 0, 4]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -2)
+Arête P1C3 ajoutée à la proposition
+Cycle : C2 -> P2 -> C0 -> P0 -> C2
+  P3C3 = 30 (-)
+  P3C1 = 15 (+)
+  P1C1 = 35 (-)
+  P1C3 = 0 (+)
+Delta = 30
+Arête supprimée : P3C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 10, 10]
+P2 : [14, 16, 13, 13]
+P3 : [19, 21, 18, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, 0, 0]
+P2 : [3, 0, 2, 5]
+P3 : [0, 0, 2, 4]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -1)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P2 -> C0
+  P1C1 = 5 (-)
+  P1C2 = 0 (+)
+  P3C2 = 45 (-)
+  P3C1 = 45 (+)
+Delta = 5
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 4, 9]
+Potentiels v : [10, 12, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 12, 10, 10]
+P2 : [14, 16, 14, 14]
+P3 : [19, 21, 19, 19]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [1, 0, 0, 0]
+P2 : [3, 0, 1, 4]
+P3 : [0, 0, 1, 3]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1         0      5     30     25
+P2         0     30      0      0
+P3        50     40      0      0
+Coût total optimal : 2880
+
+============================================================
+  PROBLÈME 7
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1       100      0
+P2       200      0
+P3         0    100
+P4         0    200
+Coût total : 18000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(1, 0), (3, 1), (2, 1), (0, 0)} | proposition=[[100, 0], [200, 0], [0, 100], [0, 200]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P2', 'P3'}
+  Sous-graphe 2 : {'P1', 'P0', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P2', 'P3'}
+  Sous-graphe 2 : {'P1', 'P0', 'C0'}
+Ajout case dégénérée : P3C1 = 0
+Proposition connexe
+Potentiels u : [0, -40, 0, -5]
+Potentiels v : [50, 40]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [50, 40]
+P2 : [10, 0]
+P3 : [50, 40]
+P4 : [45, 35]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -20]
+P2 : [0, 50]
+P3 : [0, 0]
+P4 : [0, 0]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -20)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P2 -> C0
+  P1C1 = 100 (-)
+  P1C2 = 0 (+)
+  P3C2 = 100 (-)
+  P3C1 = 0 (+)
+Delta = 100
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, 20, 15]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+P3 : [50, 40]
+P4 : [45, 35]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [20, 0]
+P2 : [0, 50]
+P3 : [0, 0]
+P4 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3       100      0
+P4         0    200
+Coût total optimal : 16000
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [30, 40, 10, 10]
+Pénalités colonnes : [35, 15]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 200
+Pénalités lignes : [30, -1, 10, 10]
+Pénalités colonnes : [5, 15]
+Pénalité maximale : 30
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée → P1C2 = 100
+Pénalités lignes : [-1, -1, 10, 10]
+Pénalités colonnes : [5, 5]
+Pénalité maximale : 10
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C2 = 100
+Pénalités lignes : [-1, -1, -1, 10]
+Pénalités colonnes : [0, 0]
+Pénalité maximale : 10
+Candidats lignes : [3], Candidats colonnes : []
+Ligne P4 sélectionnée → P4C2 = 100
+Pénalités lignes : [-1, -1, -1, 0]
+Pénalités colonnes : [0, -1]
+Pénalité maximale : 0
+Candidats lignes : [3], Candidats colonnes : [0]
+Ligne P4 sélectionnée → P4C1 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+Coût total : 16000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (2, 1), (3, 1), (3, 0), (1, 0)} | proposition=[[0, 100], [200, 0], [0, 100], [100, 100]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, 20, 15]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+P3 : [50, 40]
+P4 : [45, 35]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [20, 0]
+P2 : [0, 50]
+P3 : [0, 0]
+P4 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+Coût total optimal : 16000
+
+============================================================
+  PROBLÈME 8
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1       100      0
+P2       200      0
+P3         0    100
+P4         0    200
+P5         0    200
+Coût total : 21600
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(2, 1), (0, 0), (3, 1), (1, 0), (4, 1)} | proposition=[[100, 0], [200, 0], [0, 100], [0, 200], [0, 200]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P2', 'P3', 'P4'}
+  Sous-graphe 2 : {'P1', 'P0', 'C0'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P2', 'P3', 'P4'}
+  Sous-graphe 2 : {'P1', 'P0', 'C0'}
+Ajout case dégénérée : P3C1 = 0
+Proposition connexe
+Potentiels u : [0, -40, 5, 10, -27]
+Potentiels v : [50, 35]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [50, 35]
+P2 : [10, -5]
+P3 : [55, 40]
+P4 : [60, 45]
+P5 : [23, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -15]
+P2 : [0, 55]
+P3 : [0, 0]
+P4 : [-25, 0]
+P5 : [-11, 0]
+
+Meilleure arête améliorante : P4C1 (coût marginal = -25)
+Arête P4C1 ajoutée à la proposition
+Cycle : C0 -> P2 -> C1 -> P3 -> C0
+  P3C1 = 0 (-)
+  P3C2 = 100 (+)
+  P4C2 = 200 (-)
+  P4C1 = 0 (+)
+Delta = 0
+Arête supprimée : P3C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -40, -20, -15, -52]
+Potentiels v : [50, 60]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [50, 60]
+P2 : [10, 20]
+P3 : [30, 40]
+P4 : [35, 45]
+P5 : [-2, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -40]
+P2 : [0, 30]
+P3 : [25, 0]
+P4 : [0, 0]
+P5 : [14, 0]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -40)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P3 -> C0
+  P1C1 = 100 (-)
+  P1C2 = 0 (+)
+  P4C2 = 200 (-)
+  P4C1 = 0 (+)
+Delta = 100
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 0, 20, 25, -12]
+Potentiels v : [10, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 20]
+P2 : [10, 20]
+P3 : [30, 40]
+P4 : [35, 45]
+P5 : [-2, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [40, 0]
+P2 : [0, 30]
+P3 : [25, 0]
+P4 : [0, 0]
+P5 : [14, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total optimal : 17600
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [2, 12]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 200
+Pénalités lignes : [30, -1, 15, 10, 4]
+Pénalités colonnes : [23, 12]
+Pénalité maximale : 30
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée → P1C2 = 100
+Pénalités lignes : [-1, -1, 15, 10, 4]
+Pénalités colonnes : [23, 32]
+Pénalité maximale : 32
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F5C2 = 200
+Pénalités lignes : [-1, -1, 15, 10, -1]
+Pénalités colonnes : [20, 5]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F4C1 = 100
+Pénalités lignes : [-1, -1, 0, 0, -1]
+Pénalités colonnes : [-1, 5]
+Pénalité maximale : 5
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F3C2 = 100
+Pénalités lignes : [-1, -1, -1, 0, -1]
+Pénalités colonnes : [-1, 0]
+Pénalité maximale : 0
+Candidats lignes : [3], Candidats colonnes : [1]
+Ligne P4 sélectionnée → P4C2 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total : 17600
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (2, 1), (3, 1), (3, 0), (1, 0), (4, 1)} | proposition=[[0, 100], [200, 0], [0, 100], [100, 100], [0, 200]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 0, 20, 25, -12]
+Potentiels v : [10, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 20]
+P2 : [10, 20]
+P3 : [30, 40]
+P4 : [35, 45]
+P5 : [-2, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [40, 0]
+P2 : [0, 30]
+P3 : [25, 0]
+P4 : [0, 0]
+P5 : [14, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total optimal : 17600
+
+============================================================
+  PROBLÈME 9
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1        30     20     15  | 100
+P2        10     50      2  | 100
+P3         9     10     30  | 100
+P4         6      2     29  | 100
+P5        50     40      3  | 100
+P6         5     38     27  | 100
+P7        50      4     22  | 100
+----------------------------------------
+Cmd      400    200    100
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1        30     20     15  | 100
+P2        10     50      2  | 100
+P3         9     10     30  | 100
+P4         6      2     29  | 100
+P5        50     40      3  | 100
+P6         5     38     27  | 100
+P7        50      4     22  | 100
+----------------------------------------
+Cmd      400    200    100
+
+Proposition :
+          C1     C2     C3
+P1       100      0      0
+P2       100      0      0
+P3       100      0      0
+P4       100      0      0
+P5         0    100      0
+P6         0    100      0
+P7         0      0    100
+Coût total : 15500
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(6, 2), (0, 0), (2, 0), (5, 1), (3, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [0, 100, 0], [0, 0, 100]] ---
+Proposition acyclique
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P4', 'P5'}
+  Sous-graphe 2 : {'P1', 'P0', 'P3', 'C0', 'P2'}
+  Sous-graphe 3 : {'P6', 'C2'}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P4', 'P5'}
+  Sous-graphe 2 : {'P1', 'P0', 'P3', 'C0', 'P2'}
+  Sous-graphe 3 : {'P6', 'C2'}
+Ajout case dégénérée : P5C1 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'P3', 'C0', 'P2', 'P5', 'P4'}
+  Sous-graphe 2 : {'P6', 'C2'}
+Ajout case dégénérée : P2C3 = 0
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, 20, 18, 0]
+Potentiels v : [30, 20, 22]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20, 22]
+P2 : [10, 0, 2]
+P3 : [9, -1, 1]
+P4 : [6, -4, -2]
+P5 : [50, 40, 42]
+P6 : [48, 38, 40]
+P7 : [30, 20, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, -7]
+P2 : [0, 50, 0]
+P3 : [0, 11, 29]
+P4 : [0, 6, 31]
+P5 : [0, 0, -39]
+P6 : [-43, 0, -13]
+P7 : [20, -16, 0]
+
+Meilleure arête améliorante : P6C1 (coût marginal = -43)
+Arête P6C1 ajoutée à la proposition
+Cycle : P5 -> C0 -> P4 -> C1 -> P5
+  P6C1 = 0 (+)
+  P5C1 = 0 (-)
+  P5C2 = 100 (+)
+  P6C2 = 100 (-)
+Delta = 0
+Arête supprimée : P5C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, -23, -25, 0]
+Potentiels v : [30, 63, 22]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 63, 22]
+P2 : [10, 43, 2]
+P3 : [9, 42, 1]
+P4 : [6, 39, -2]
+P5 : [7, 40, -1]
+P6 : [5, 38, -3]
+P7 : [30, 63, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -43, -7]
+P2 : [0, 7, 0]
+P3 : [0, -32, 29]
+P4 : [0, -37, 31]
+P5 : [43, 0, 4]
+P6 : [0, 0, 30]
+P7 : [20, -59, 0]
+
+Meilleure arête améliorante : P7C2 (coût marginal = -59)
+Arête P7C2 ajoutée à la proposition
+Cycle : P5 -> C1 -> P6 -> C2 -> P1 -> C0 -> P5
+  P6C2 = 100 (-)
+  P7C2 = 0 (+)
+  P7C3 = 100 (-)
+  P2C3 = 0 (+)
+  P2C1 = 100 (-)
+  P6C1 = 0 (+)
+Delta = 100
+Arête supprimée : P6C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, 36, -25, 0]
+Potentiels v : [30, 4, 22]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 4, 22]
+P2 : [10, -16, 2]
+P3 : [9, -17, 1]
+P4 : [6, -20, -2]
+P5 : [66, 40, 58]
+P6 : [5, -21, -3]
+P7 : [30, 4, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 16, -7]
+P2 : [0, 66, 0]
+P3 : [0, 27, 29]
+P4 : [0, 22, 31]
+P5 : [-16, 0, -55]
+P6 : [0, 59, 30]
+P7 : [20, 0, 0]
+
+Meilleure arête améliorante : P5C3 (coût marginal = -55)
+Arête P5C3 ajoutée à la proposition
+Cycle : C1 -> P6 -> C2 -> P4 -> C1
+  P7C2 = 100 (+)
+  P7C3 = 0 (-)
+  P5C3 = 0 (+)
+  P5C2 = 100 (-)
+Delta = 0
+Arête supprimée : P7C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, -19, -25, -55]
+Potentiels v : [30, 59, 22]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 59, 22]
+P2 : [10, 39, 2]
+P3 : [9, 38, 1]
+P4 : [6, 35, -2]
+P5 : [11, 40, 3]
+P6 : [5, 34, -3]
+P7 : [-25, 4, -33]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -39, -7]
+P2 : [0, 11, 0]
+P3 : [0, -28, 29]
+P4 : [0, -33, 31]
+P5 : [39, 0, 0]
+P6 : [0, 4, 30]
+P7 : [75, 0, 55]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -39)
+Arête P1C2 ajoutée à la proposition
+Cycle : P1 -> C0 -> P0 -> C1 -> P4 -> C2 -> P1
+  P2C1 = 0 (+)
+  P1C1 = 100 (-)
+  P1C2 = 0 (+)
+  P5C2 = 100 (-)
+  P5C3 = 0 (+)
+  P2C3 = 100 (-)
+Delta = 100
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 19, 18, 15, 20, 14, -16]
+Potentiels v : [-9, 20, -17]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-9, 20, -17]
+P2 : [10, 39, 2]
+P3 : [9, 38, 1]
+P4 : [6, 35, -2]
+P5 : [11, 40, 3]
+P6 : [5, 34, -3]
+P7 : [-25, 4, -33]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [39, 0, 32]
+P2 : [0, 11, 0]
+P3 : [0, -28, 29]
+P4 : [0, -33, 31]
+P5 : [39, 0, 0]
+P6 : [0, 4, 30]
+P7 : [75, 0, 55]
+
+Meilleure arête améliorante : P4C2 (coût marginal = -33)
+Arête P4C2 ajoutée à la proposition
+Cycle : C2 -> P4 -> C1 -> P3 -> C0 -> P1 -> C2
+  P5C3 = 100 (+)
+  P5C2 = 0 (-)
+  P4C2 = 0 (+)
+  P4C1 = 100 (-)
+  P2C1 = 100 (+)
+  P2C3 = 0 (-)
+Delta = 0
+Arête supprimée : P5C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -14, -15, -18, -13, -19, -16]
+Potentiels v : [24, 20, 16]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [24, 20, 16]
+P2 : [10, 6, 2]
+P3 : [9, 5, 1]
+P4 : [6, 2, -2]
+P5 : [11, 7, 3]
+P6 : [5, 1, -3]
+P7 : [8, 4, 0]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [6, 0, -1]
+P2 : [0, 44, 0]
+P3 : [0, 5, 29]
+P4 : [0, 0, 31]
+P5 : [39, 33, 0]
+P6 : [0, 37, 30]
+P7 : [42, 0, 22]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -1)
+Arête P1C3 ajoutée à la proposition
+Cycle : P1 -> C2 -> P0 -> C1 -> P3 -> C0 -> P1
+  P2C3 = 0 (-)
+  P1C3 = 0 (+)
+  P1C2 = 100 (-)
+  P4C2 = 0 (+)
+  P4C1 = 100 (-)
+  P2C1 = 100 (+)
+Delta = 0
+Arête supprimée : P2C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -14, -15, -18, -12, -19, -16]
+Potentiels v : [24, 20, 15]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [24, 20, 15]
+P2 : [10, 6, 1]
+P3 : [9, 5, 0]
+P4 : [6, 2, -3]
+P5 : [12, 8, 3]
+P6 : [5, 1, -4]
+P7 : [8, 4, -1]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [6, 0, 0]
+P2 : [0, 44, 1]
+P3 : [0, 5, 30]
+P4 : [0, 0, 32]
+P5 : [38, 32, 0]
+P6 : [0, 37, 31]
+P7 : [42, 0, 23]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1        30     20     15  | 100
+P2        10     50      2  | 100
+P3         9     10     30  | 100
+P4         6      2     29  | 100
+P5        50     40      3  | 100
+P6         5     38     27  | 100
+P7        50      4     22  | 100
+----------------------------------------
+Cmd      400    200    100
+
+Proposition :
+          C1     C2     C3
+P1         0    100      0
+P2       100      0      0
+P3       100      0      0
+P4       100      0      0
+P5         0      0    100
+P6       100      0      0
+P7         0    100      0
+Coût total optimal : 5700
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [5, 8, 1, 4, 37, 22, 18]
+Pénalités colonnes : [1, 2, 1]
+Pénalité maximale : 37
+Candidats lignes : [4], Candidats colonnes : []
+Ligne P5 sélectionnée → P5C3 = 100
+Pénalités lignes : [10, 40, 1, 4, -1, 33, 46]
+Pénalités colonnes : [1, 2, -1]
+Pénalité maximale : 46
+Candidats lignes : [6], Candidats colonnes : []
+Ligne P7 sélectionnée → P7C2 = 100
+Pénalités lignes : [10, 40, 1, 4, -1, 33, -1]
+Pénalités colonnes : [1, 8, -1]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée → P2C1 = 100
+Pénalités lignes : [10, -1, 1, 4, -1, 33, -1]
+Pénalités colonnes : [1, 8, -1]
+Pénalité maximale : 33
+Candidats lignes : [5], Candidats colonnes : []
+Ligne P6 sélectionnée → P6C1 = 100
+Pénalités lignes : [10, -1, 1, 4, -1, -1, -1]
+Pénalités colonnes : [3, 8, -1]
+Pénalité maximale : 10
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée → P1C2 = 100
+Pénalités lignes : [-1, -1, 0, 0, -1, -1, -1]
+Pénalités colonnes : [3, -1, -1]
+Pénalité maximale : 3
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F4C1 = 100
+Pénalités lignes : [-1, -1, 0, -1, -1, -1, -1]
+Pénalités colonnes : [0, -1, -1]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [0]
+Ligne P3 sélectionnée → P3C1 = 100
+
+--- Proposition initiale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1        30     20     15  | 100
+P2        10     50      2  | 100
+P3         9     10     30  | 100
+P4         6      2     29  | 100
+P5        50     40      3  | 100
+P6         5     38     27  | 100
+P7        50      4     22  | 100
+----------------------------------------
+Cmd      400    200    100
+
+Proposition :
+          C1     C2     C3
+P1         0    100      0
+P2       100      0      0
+P3       100      0      0
+P4       100      0      0
+P5         0      0    100
+P6       100      0      0
+P7         0    100      0
+Coût total : 5700
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
+Proposition acyclique
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P6', 'P0'}
+  Sous-graphe 2 : {'P1', 'P3', 'C0', 'P2', 'P5'}
+  Sous-graphe 3 : {'C2', 'P4'}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P6', 'P0'}
+  Sous-graphe 2 : {'P1', 'P3', 'C0', 'P2', 'P5'}
+  Sous-graphe 3 : {'C2', 'P4'}
+Ajout case dégénérée : P7C1 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'P3', 'C0', 'P2', 'P6', 'P5'}
+  Sous-graphe 2 : {'C2', 'P4'}
+Ajout case dégénérée : P2C3 = 0
+Proposition connexe
+Potentiels u : [0, -56, -57, -60, -55, -61, -16]
+Potentiels v : [66, 20, 58]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [66, 20, 58]
+P2 : [10, -36, 2]
+P3 : [9, -37, 1]
+P4 : [6, -40, -2]
+P5 : [11, -35, 3]
+P6 : [5, -41, -3]
+P7 : [50, 4, 42]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [-36, 0, -43]
+P2 : [0, 86, 0]
+P3 : [0, 47, 29]
+P4 : [0, 42, 31]
+P5 : [39, 75, 0]
+P6 : [0, 79, 30]
+P7 : [0, 0, -20]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -43)
+Arête P1C3 ajoutée à la proposition
+Cycle : P1 -> C2 -> P0 -> C1 -> P6 -> C0 -> P1
+  P2C3 = 0 (-)
+  P1C3 = 0 (+)
+  P1C2 = 100 (-)
+  P7C2 = 100 (+)
+  P7C1 = 0 (-)
+  P2C1 = 100 (+)
+Delta = 0
+Arête supprimée : P2C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -56, -57, -60, -12, -61, -16]
+Potentiels v : [66, 20, 15]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [66, 20, 15]
+P2 : [10, -36, -41]
+P3 : [9, -37, -42]
+P4 : [6, -40, -45]
+P5 : [54, 8, 3]
+P6 : [5, -41, -46]
+P7 : [50, 4, -1]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [-36, 0, 0]
+P2 : [0, 86, 43]
+P3 : [0, 47, 72]
+P4 : [0, 42, 74]
+P5 : [-4, 32, 0]
+P6 : [0, 79, 73]
+P7 : [0, 0, 23]
+
+Meilleure arête améliorante : P1C1 (coût marginal = -36)
+Arête P1C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P6 -> C0
+  P1C1 = 0 (+)
+  P1C2 = 100 (-)
+  P7C2 = 100 (+)
+  P7C1 = 0 (-)
+Delta = 0
+Arête supprimée : P7C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, -12, -25, -16]
+Potentiels v : [30, 20, 15]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20, 15]
+P2 : [10, 0, -5]
+P3 : [9, -1, -6]
+P4 : [6, -4, -9]
+P5 : [18, 8, 3]
+P6 : [5, -5, -10]
+P7 : [14, 4, -1]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 0]
+P2 : [0, 50, 7]
+P3 : [0, 11, 36]
+P4 : [0, 6, 38]
+P5 : [32, 32, 0]
+P6 : [0, 43, 37]
+P7 : [36, 0, 23]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1        30     20     15  | 100
+P2        10     50      2  | 100
+P3         9     10     30  | 100
+P4         6      2     29  | 100
+P5        50     40      3  | 100
+P6         5     38     27  | 100
+P7        50      4     22  | 100
+----------------------------------------
+Cmd      400    200    100
+
+Proposition :
+          C1     C2     C3
+P1         0    100      0
+P2       100      0      0
+P3       100      0      0
+P4       100      0      0
+P5         0      0    100
+P6       100      0      0
+P7         0    100      0
+Coût total optimal : 5700
+
+============================================================
+  PROBLÈME 10
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1       500      0      0      0      0      0      0
+P2         0    500      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 218500
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(2, 4), (0, 0), (1, 1), (2, 3), (2, 6), (2, 2), (2, 5)} | proposition=[[500, 0, 0, 0, 0, 0, 0], [0, 500, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
+Proposition acyclique
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+  Sous-graphe 3 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1'}
+  Sous-graphe 2 : {'P0', 'C0'}
+  Sous-graphe 3 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Ajout case dégénérée : P2C1 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'C0'}
+  Sous-graphe 2 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Ajout case dégénérée : P2C4 = 0
+Proposition connexe
+Potentiels u : [0, -299, -326]
+Potentiels v : [300, 349, 356, 329, 351, 352, 329]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [300, 349, 356, 329, 351, 352, 329]
+P2 : [1, 50, 57, 30, 52, 53, 30]
+P3 : [-26, 23, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -329, -341, -313, -334, -334, -309]
+P2 : [0, 0, -33, 0, -30, -26, -11]
+P3 : [101, 17, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -341)
+Arête P1C3 ajoutée à la proposition
+Cycle : P0 -> C2 -> P2 -> C3 -> P1 -> C0 -> P0
+  P1C3 = 0 (+)
+  P3C3 = 500 (-)
+  P3C4 = 500 (+)
+  P2C4 = 0 (-)
+  P2C1 = 0 (+)
+  P1C1 = 500 (-)
+Delta = 0
+Arête supprimée : P2C4
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -299, 15]
+Potentiels v : [300, 349, 15, -12, 10, 11, -12]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [300, 349, 15, -12, 10, 11, -12]
+P2 : [1, 50, -284, -311, -289, -288, -311]
+P3 : [315, 364, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -329, 0, 28, 7, 7, 32]
+P2 : [0, 0, 308, 341, 311, 315, 330]
+P3 : [-240, -324, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -329)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P1 -> C0
+  P1C1 = 500 (-)
+  P1C2 = 0 (+)
+  P2C2 = 500 (-)
+  P2C1 = 0 (+)
+Delta = 500
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30, 15]
+Potentiels v : [-29, 20, 15, -12, 10, 11, -12]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-29, 20, 15, -12, 10, 11, -12]
+P2 : [1, 50, 45, 18, 40, 41, 18]
+P3 : [-14, 35, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [329, 0, 0, 28, 7, 7, 32]
+P2 : [0, 0, -21, 12, -18, -14, 1]
+P3 : [89, 5, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P2C3 (coût marginal = -21)
+Arête P2C3 ajoutée à la proposition
+Cycle : C2 -> P0 -> C1 -> P1 -> C2
+  P1C3 = 0 (-)
+  P1C2 = 500 (+)
+  P2C2 = 0 (-)
+  P2C3 = 0 (+)
+Delta = 0
+Arête supprimée : P1C3
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30, 36]
+Potentiels v : [-29, 20, -6, -33, -11, -10, -33]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-29, 20, -6, -33, -11, -10, -33]
+P2 : [1, 50, 24, -3, 19, 20, -3]
+P3 : [7, 56, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [329, 0, 21, 49, 28, 28, 53]
+P2 : [0, 0, 0, 33, 3, 7, 22]
+P3 : [68, -16, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P3C2 (coût marginal = -16)
+Arête P3C2 ajoutée à la proposition
+Cycle : P1 -> C1 -> P2 -> C2 -> P1
+  P2C2 = 0 (-)
+  P3C2 = 0 (+)
+  P3C3 = 500 (-)
+  P2C3 = 0 (+)
+Delta = 0
+Arête supprimée : P2C2
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 14, 20]
+Potentiels v : [-13, 20, 10, -17, 5, 6, -17]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-13, 20, 10, -17, 5, 6, -17]
+P2 : [1, 34, 24, -3, 19, 20, -3]
+P3 : [7, 40, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [313, 0, 5, 33, 12, 12, 37]
+P2 : [0, 16, 0, 33, 3, 7, 22]
+P3 : [68, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total optimal : 54000
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [1, 18, 0]
+Pénalités colonnes : [74, 20, 9, 13, 5, 8, 16]
+Pénalité maximale : 74
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F2C1 = 500
+Pénalités lignes : [1, -1, 0]
+Pénalités colonnes : [-1, 20, 15, 13, 8, 8, 17]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F1C2 = 500
+Pénalités lignes : [-1, -1, 0]
+Pénalités colonnes : [-1, -1, 0, 0, 0, 0, 0]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [2]
+Ligne P3 sélectionnée → P3C4 = 500
+Pénalités lignes : [-1, -1, 22]
+Pénalités colonnes : [-1, -1, 0, -1, 0, 0, 0]
+Pénalité maximale : 22
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C7 = 500
+Pénalités lignes : [-1, -1, 1]
+Pénalités colonnes : [-1, -1, 0, -1, 0, 0, -1]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C5 = 500
+Pénalités lignes : [-1, -1, 4]
+Pénalités colonnes : [-1, -1, 0, -1, -1, 0, -1]
+Pénalité maximale : 4
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée → P3C6 = 500
+Pénalités lignes : [-1, -1, 0]
+Pénalités colonnes : [-1, -1, 0, -1, -1, -1, -1]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [2]
+Ligne P3 sélectionnée → P3C3 = 500
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 54000
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(0, 1), (2, 4), (2, 3), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
+Proposition acyclique
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P0'}
+  Sous-graphe 2 : {'P1', 'C0'}
+  Sous-graphe 3 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {'C1', 'P0'}
+  Sous-graphe 2 : {'P1', 'C0'}
+  Sous-graphe 3 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Ajout case dégénérée : P1C1 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'C0'}
+  Sous-graphe 2 : {'C3', 'C5', 'P2', 'C2', 'C6', 'C4'}
+Ajout case dégénérée : P2C4 = 0
+Proposition connexe
+Potentiels u : [0, -299, -326]
+Potentiels v : [300, 20, 356, 329, 351, 352, 329]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [300, 20, 356, 329, 351, 352, 329]
+P2 : [1, -279, 57, 30, 52, 53, 30]
+P3 : [-26, -306, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, -341, -313, -334, -334, -309]
+P2 : [0, 329, -33, 0, -30, -26, -11]
+P3 : [101, 346, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -341)
+Arête P1C3 ajoutée à la proposition
+Cycle : P2 -> C2 -> P0 -> C0 -> P1 -> C3 -> P2
+  P3C3 = 500 (-)
+  P1C3 = 0 (+)
+  P1C1 = 0 (-)
+  P2C1 = 500 (+)
+  P2C4 = 0 (-)
+  P3C4 = 500 (+)
+Delta = 0
+Arête supprimée : P1C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 42, 15]
+Potentiels v : [-41, 20, 15, -12, 10, 11, -12]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-41, 20, 15, -12, 10, 11, -12]
+P2 : [1, 62, 57, 30, 52, 53, 30]
+P3 : [-26, 35, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [341, 0, 0, 28, 7, 7, 32]
+P2 : [0, -12, -33, 0, -30, -26, -11]
+P3 : [101, 5, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P2C3 (coût marginal = -33)
+Arête P2C3 ajoutée à la proposition
+Cycle : P2 -> C2 -> P1 -> C3 -> P2
+  P3C3 = 500 (-)
+  P2C3 = 0 (+)
+  P2C4 = 0 (-)
+  P3C4 = 500 (+)
+Delta = 0
+Arête supprimée : P2C4
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 9, 15]
+Potentiels v : [-8, 20, 15, -12, 10, 11, -12]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-8, 20, 15, -12, 10, 11, -12]
+P2 : [1, 29, 24, -3, 19, 20, -3]
+P3 : [7, 35, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [308, 0, 0, 28, 7, 7, 32]
+P2 : [0, 21, 0, 33, 3, 7, 22]
+P3 : [68, 5, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total optimal : 54000
+
+============================================================
+  PROBLÈME 11
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10  | Provisions
+-----------------------------------------------------------------------------------------
+P1         1      2      3      4      5      6      7      8      9     10  | 10
+P2        11     12     13     14     15     16     17     18     19     20  | 20
+P3        21     22     23     24     25     26     27     28     29     30  | 30
+P4        31     32     33     34     35     36     37     38     39     40  | 40
+P5        41     41     43     44     45     46     47     48     49     50  | 50
+P6        51     52     53     54     55     56     57     58     59     60  | 60
+P7        61     62     63     64     65     66     67     68     69     70  | 70
+P8        71     72     73     74     75     76     77     78     79     80  | 80
+P9        81     82     83     84     85     86     87     88     89     90  | 90
+P10       91     92     93     94     95     96     97     98     99    100  | 100
+P11      101    102    103    104    105    106    107    108    109    110  | 110
+P12      111    112    113    114    115    116    117    118    119    120  | 120
+P13      121    122    123    124    125    126    127    128    129    130  | 130
+P14      131    132    133    134    135    136    137    138    139    140  | 140
+P15      141    142    143    144    145    146    147    148    149    150  | 150
+P16      151    152    153    154    155    156    157    158    159    160  | 160
+P17      161    162    163    164    165    166    167    168    169    170  | 170
+P18      171    172    173    174    175    176    177    178    179    180  | 180
+P19      181    182    183    184    185    186    187    188    189    190  | 190
+P20      191    192    193    194    195    196    197    198    199    200  | 200
+-----------------------------------------------------------------------------------------
+Cmd      120    140    160    180    200    220    240    260    280    300
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10  | Provisions
+-----------------------------------------------------------------------------------------
+P1         1      2      3      4      5      6      7      8      9     10  | 10
+P2        11     12     13     14     15     16     17     18     19     20  | 20
+P3        21     22     23     24     25     26     27     28     29     30  | 30
+P4        31     32     33     34     35     36     37     38     39     40  | 40
+P5        41     41     43     44     45     46     47     48     49     50  | 50
+P6        51     52     53     54     55     56     57     58     59     60  | 60
+P7        61     62     63     64     65     66     67     68     69     70  | 70
+P8        71     72     73     74     75     76     77     78     79     80  | 80
+P9        81     82     83     84     85     86     87     88     89     90  | 90
+P10       91     92     93     94     95     96     97     98     99    100  | 100
+P11      101    102    103    104    105    106    107    108    109    110  | 110
+P12      111    112    113    114    115    116    117    118    119    120  | 120
+P13      121    122    123    124    125    126    127    128    129    130  | 130
+P14      131    132    133    134    135    136    137    138    139    140  | 140
+P15      141    142    143    144    145    146    147    148    149    150  | 150
+P16      151    152    153    154    155    156    157    158    159    160  | 160
+P17      161    162    163    164    165    166    167    168    169    170  | 170
+P18      171    172    173    174    175    176    177    178    179    180  | 180
+P19      181    182    183    184    185    186    187    188    189    190  | 190
+P20      191    192    193    194    195    196    197    198    199    200  | 200
+-----------------------------------------------------------------------------------------
+Cmd      120    140    160    180    200    220    240    260    280    300
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10
+P1        10      0      0      0      0      0      0      0      0      0
+P2        20      0      0      0      0      0      0      0      0      0
+P3        30      0      0      0      0      0      0      0      0      0
+P4        40      0      0      0      0      0      0      0      0      0
+P5        20     30      0      0      0      0      0      0      0      0
+P6         0     60      0      0      0      0      0      0      0      0
+P7         0     50     20      0      0      0      0      0      0      0
+P8         0      0     80      0      0      0      0      0      0      0
+P9         0      0     60     30      0      0      0      0      0      0
+P10        0      0      0    100      0      0      0      0      0      0
+P11        0      0      0     50     60      0      0      0      0      0
+P12        0      0      0      0    120      0      0      0      0      0
+P13        0      0      0      0     20    110      0      0      0      0
+P14        0      0      0      0      0    110     30      0      0      0
+P15        0      0      0      0      0      0    150      0      0      0
+P16        0      0      0      0      0      0     60    100      0      0
+P17        0      0      0      0      0      0      0    160     10      0
+P18        0      0      0      0      0      0      0      0    180      0
+P19        0      0      0      0      0      0      0      0     90    100
+P20        0      0      0      0      0      0      0      0      0    200
+Coût total : 279170
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(12, 4), (4, 0), (5, 1), (8, 3), (19, 9), (10, 3), (1, 0), (13, 5), (16, 7), (6, 2), (3, 0), (14, 6), (8, 2), (17, 8), (11, 4), (6, 1), (15, 7), (18, 9), (12, 5), (4, 1), (9, 3), (0, 0), (10, 4), (2, 0), (15, 6), (13, 6), (7, 2), (16, 8), (18, 8)} | proposition=[[10, 0, 0, 0, 0, 0, 0, 0, 0, 0], [20, 0, 0, 0, 0, 0, 0, 0, 0, 0], [30, 0, 0, 0, 0, 0, 0, 0, 0, 0], [40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [20, 30, 0, 0, 0, 0, 0, 0, 0, 0], [0, 60, 0, 0, 0, 0, 0, 0, 0, 0], [0, 50, 20, 0, 0, 0, 0, 0, 0, 0], [0, 0, 80, 0, 0, 0, 0, 0, 0, 0], [0, 0, 60, 30, 0, 0, 0, 0, 0, 0], [0, 0, 0, 100, 0, 0, 0, 0, 0, 0], [0, 0, 0, 50, 60, 0, 0, 0, 0, 0], [0, 0, 0, 0, 120, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 110, 0, 0, 0, 0], [0, 0, 0, 0, 0, 110, 30, 0, 0, 0], [0, 0, 0, 0, 0, 0, 150, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0], [0, 0, 0, 0, 0, 0, 0, 160, 10, 0], [0, 0, 0, 0, 0, 0, 0, 0, 180, 0], [0, 0, 0, 0, 0, 0, 0, 0, 90, 100], [0, 0, 0, 0, 0, 0, 0, 0, 0, 200]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 10, 20, 30, 40, 51, 61, 71, 81, 91, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]
+Potentiels v : [1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [1, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+P2 : [11, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+P3 : [21, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+P4 : [31, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+P5 : [41, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+P6 : [52, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+P7 : [62, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+P8 : [72, 72, 73, 74, 75, 76, 77, 78, 79, 80]
+P9 : [82, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+P10 : [92, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+P11 : [102, 102, 103, 104, 105, 106, 107, 108, 109, 110]
+P12 : [112, 112, 113, 114, 115, 116, 117, 118, 119, 120]
+P13 : [122, 122, 123, 124, 125, 126, 127, 128, 129, 130]
+P14 : [132, 132, 133, 134, 135, 136, 137, 138, 139, 140]
+P15 : [142, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+P16 : [152, 152, 153, 154, 155, 156, 157, 158, 159, 160]
+P17 : [162, 162, 163, 164, 165, 166, 167, 168, 169, 170]
+P18 : [172, 172, 173, 174, 175, 176, 177, 178, 179, 180]
+P19 : [182, 182, 183, 184, 185, 186, 187, 188, 189, 190]
+P20 : [192, 192, 193, 194, 195, 196, 197, 198, 199, 200]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+P2 : [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+P3 : [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+P4 : [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+P5 : [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+P6 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P7 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P8 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P9 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P10 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P11 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P12 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P13 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P14 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P15 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P16 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P17 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P18 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P19 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P20 : [-1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P6C1 (coût marginal = -1)
+Arête P6C1 ajoutée à la proposition
+Cycle : P4 -> C1 -> P5 -> C0 -> P4
+  P5C2 = 30 (+)
+  P6C2 = 60 (-)
+  P6C1 = 0 (+)
+  P5C1 = 20 (-)
+Delta = 20
+Arête supprimée : P5C1
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 10, 20, 30, 39, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190]
+Potentiels v : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+P2 : [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+P3 : [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+P4 : [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+P5 : [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+P6 : [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+P7 : [61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+P8 : [71, 72, 73, 74, 75, 76, 77, 78, 79, 80]
+P9 : [81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+P10 : [91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+P11 : [101, 102, 103, 104, 105, 106, 107, 108, 109, 110]
+P12 : [111, 112, 113, 114, 115, 116, 117, 118, 119, 120]
+P13 : [121, 122, 123, 124, 125, 126, 127, 128, 129, 130]
+P14 : [131, 132, 133, 134, 135, 136, 137, 138, 139, 140]
+P15 : [141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+P16 : [151, 152, 153, 154, 155, 156, 157, 158, 159, 160]
+P17 : [161, 162, 163, 164, 165, 166, 167, 168, 169, 170]
+P18 : [171, 172, 173, 174, 175, 176, 177, 178, 179, 180]
+P19 : [181, 182, 183, 184, 185, 186, 187, 188, 189, 190]
+P20 : [191, 192, 193, 194, 195, 196, 197, 198, 199, 200]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P2 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P3 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P4 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P5 : [1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+P6 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P7 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P8 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P9 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P10 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P11 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P12 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P13 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P14 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P15 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P16 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P17 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P18 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P19 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P20 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10  | Provisions
+-----------------------------------------------------------------------------------------
+P1         1      2      3      4      5      6      7      8      9     10  | 10
+P2        11     12     13     14     15     16     17     18     19     20  | 20
+P3        21     22     23     24     25     26     27     28     29     30  | 30
+P4        31     32     33     34     35     36     37     38     39     40  | 40
+P5        41     41     43     44     45     46     47     48     49     50  | 50
+P6        51     52     53     54     55     56     57     58     59     60  | 60
+P7        61     62     63     64     65     66     67     68     69     70  | 70
+P8        71     72     73     74     75     76     77     78     79     80  | 80
+P9        81     82     83     84     85     86     87     88     89     90  | 90
+P10       91     92     93     94     95     96     97     98     99    100  | 100
+P11      101    102    103    104    105    106    107    108    109    110  | 110
+P12      111    112    113    114    115    116    117    118    119    120  | 120
+P13      121    122    123    124    125    126    127    128    129    130  | 130
+P14      131    132    133    134    135    136    137    138    139    140  | 140
+P15      141    142    143    144    145    146    147    148    149    150  | 150
+P16      151    152    153    154    155    156    157    158    159    160  | 160
+P17      161    162    163    164    165    166    167    168    169    170  | 170
+P18      171    172    173    174    175    176    177    178    179    180  | 180
+P19      181    182    183    184    185    186    187    188    189    190  | 190
+P20      191    192    193    194    195    196    197    198    199    200  | 200
+-----------------------------------------------------------------------------------------
+Cmd      120    140    160    180    200    220    240    260    280    300
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10
+P1        10      0      0      0      0      0      0      0      0      0
+P2        20      0      0      0      0      0      0      0      0      0
+P3        30      0      0      0      0      0      0      0      0      0
+P4        40      0      0      0      0      0      0      0      0      0
+P5         0     50      0      0      0      0      0      0      0      0
+P6        20     40      0      0      0      0      0      0      0      0
+P7         0     50     20      0      0      0      0      0      0      0
+P8         0      0     80      0      0      0      0      0      0      0
+P9         0      0     60     30      0      0      0      0      0      0
+P10        0      0      0    100      0      0      0      0      0      0
+P11        0      0      0     50     60      0      0      0      0      0
+P12        0      0      0      0    120      0      0      0      0      0
+P13        0      0      0      0     20    110      0      0      0      0
+P14        0      0      0      0      0    110     30      0      0      0
+P15        0      0      0      0      0      0    150      0      0      0
+P16        0      0      0      0      0      0     60    100      0      0
+P17        0      0      0      0      0      0      0    160     10      0
+P18        0      0      0      0      0      0      0      0    180      0
+P19        0      0      0      0      0      0      0      0     90    100
+P20        0      0      0      0      0      0      0      0      0    200
+Coût total optimal : 279150
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F1C1 = 10
+Pénalités lignes : [-1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F2C1 = 20
+Pénalités lignes : [-1, -1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F3C1 = 30
+Pénalités lignes : [-1, -1, -1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 9, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F4C1 = 40
+Pénalités lignes : [-1, -1, -1, -1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 11, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 11
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F5C2 = 50
+Pénalités lignes : [-1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F6C1 = 20
+Pénalités lignes : [-1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F6C2 = 40
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F7C2 = 50
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée → F7C3 = 20
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée → F8C3 = 80
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée → F9C3 = 60
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F9C4 = 30
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F10C4 = 100
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F11C4 = 50
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [4]
+Colonne C5 sélectionnée → F11C5 = 60
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [4]
+Colonne C5 sélectionnée → F12C5 = 120
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [4]
+Colonne C5 sélectionnée → F13C5 = 20
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [5]
+Colonne C6 sélectionnée → F13C6 = 110
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [5]
+Colonne C6 sélectionnée → F14C6 = 110
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [6]
+Colonne C7 sélectionnée → F14C7 = 30
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [6]
+Colonne C7 sélectionnée → F15C7 = 150
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [6]
+Colonne C7 sélectionnée → F16C7 = 60
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [7]
+Colonne C8 sélectionnée → F16C8 = 100
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [7]
+Colonne C8 sélectionnée → F17C8 = 160
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [8]
+Colonne C9 sélectionnée → F17C9 = 10
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [8]
+Colonne C9 sélectionnée → F18C9 = 180
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1, 1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [8]
+Colonne C9 sélectionnée → F19C9 = 90
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [9]
+Colonne C10 sélectionnée → F19C10 = 100
+Pénalités lignes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, 0]
+Pénalité maximale : 0
+Candidats lignes : [19], Candidats colonnes : [9]
+Ligne P20 sélectionnée → P20C10 = 200
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10  | Provisions
+-----------------------------------------------------------------------------------------
+P1         1      2      3      4      5      6      7      8      9     10  | 10
+P2        11     12     13     14     15     16     17     18     19     20  | 20
+P3        21     22     23     24     25     26     27     28     29     30  | 30
+P4        31     32     33     34     35     36     37     38     39     40  | 40
+P5        41     41     43     44     45     46     47     48     49     50  | 50
+P6        51     52     53     54     55     56     57     58     59     60  | 60
+P7        61     62     63     64     65     66     67     68     69     70  | 70
+P8        71     72     73     74     75     76     77     78     79     80  | 80
+P9        81     82     83     84     85     86     87     88     89     90  | 90
+P10       91     92     93     94     95     96     97     98     99    100  | 100
+P11      101    102    103    104    105    106    107    108    109    110  | 110
+P12      111    112    113    114    115    116    117    118    119    120  | 120
+P13      121    122    123    124    125    126    127    128    129    130  | 130
+P14      131    132    133    134    135    136    137    138    139    140  | 140
+P15      141    142    143    144    145    146    147    148    149    150  | 150
+P16      151    152    153    154    155    156    157    158    159    160  | 160
+P17      161    162    163    164    165    166    167    168    169    170  | 170
+P18      171    172    173    174    175    176    177    178    179    180  | 180
+P19      181    182    183    184    185    186    187    188    189    190  | 190
+P20      191    192    193    194    195    196    197    198    199    200  | 200
+-----------------------------------------------------------------------------------------
+Cmd      120    140    160    180    200    220    240    260    280    300
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10
+P1        10      0      0      0      0      0      0      0      0      0
+P2        20      0      0      0      0      0      0      0      0      0
+P3        30      0      0      0      0      0      0      0      0      0
+P4        40      0      0      0      0      0      0      0      0      0
+P5         0     50      0      0      0      0      0      0      0      0
+P6        20     40      0      0      0      0      0      0      0      0
+P7         0     50     20      0      0      0      0      0      0      0
+P8         0      0     80      0      0      0      0      0      0      0
+P9         0      0     60     30      0      0      0      0      0      0
+P10        0      0      0    100      0      0      0      0      0      0
+P11        0      0      0     50     60      0      0      0      0      0
+P12        0      0      0      0    120      0      0      0      0      0
+P13        0      0      0      0     20    110      0      0      0      0
+P14        0      0      0      0      0    110     30      0      0      0
+P15        0      0      0      0      0      0    150      0      0      0
+P16        0      0      0      0      0      0     60    100      0      0
+P17        0      0      0      0      0      0      0    160     10      0
+P18        0      0      0      0      0      0      0      0    180      0
+P19        0      0      0      0      0      0      0      0     90    100
+P20        0      0      0      0      0      0      0      0      0    200
+Coût total : 279150
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(12, 4), (5, 1), (8, 3), (19, 9), (10, 3), (1, 0), (13, 5), (16, 7), (6, 2), (3, 0), (14, 6), (5, 0), (8, 2), (17, 8), (11, 4), (6, 1), (15, 7), (18, 9), (12, 5), (4, 1), (9, 3), (0, 0), (10, 4), (2, 0), (15, 6), (13, 6), (7, 2), (16, 8), (18, 8)} | proposition=[[10, 0, 0, 0, 0, 0, 0, 0, 0, 0], [20, 0, 0, 0, 0, 0, 0, 0, 0, 0], [30, 0, 0, 0, 0, 0, 0, 0, 0, 0], [40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 50, 0, 0, 0, 0, 0, 0, 0, 0], [20, 40, 0, 0, 0, 0, 0, 0, 0, 0], [0, 50, 20, 0, 0, 0, 0, 0, 0, 0], [0, 0, 80, 0, 0, 0, 0, 0, 0, 0], [0, 0, 60, 30, 0, 0, 0, 0, 0, 0], [0, 0, 0, 100, 0, 0, 0, 0, 0, 0], [0, 0, 0, 50, 60, 0, 0, 0, 0, 0], [0, 0, 0, 0, 120, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 110, 0, 0, 0, 0], [0, 0, 0, 0, 0, 110, 30, 0, 0, 0], [0, 0, 0, 0, 0, 0, 150, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0], [0, 0, 0, 0, 0, 0, 0, 160, 10, 0], [0, 0, 0, 0, 0, 0, 0, 0, 180, 0], [0, 0, 0, 0, 0, 0, 0, 0, 90, 100], [0, 0, 0, 0, 0, 0, 0, 0, 0, 200]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 10, 20, 30, 39, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190]
+Potentiels v : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+P2 : [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+P3 : [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+P4 : [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+P5 : [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+P6 : [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+P7 : [61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
+P8 : [71, 72, 73, 74, 75, 76, 77, 78, 79, 80]
+P9 : [81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+P10 : [91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
+P11 : [101, 102, 103, 104, 105, 106, 107, 108, 109, 110]
+P12 : [111, 112, 113, 114, 115, 116, 117, 118, 119, 120]
+P13 : [121, 122, 123, 124, 125, 126, 127, 128, 129, 130]
+P14 : [131, 132, 133, 134, 135, 136, 137, 138, 139, 140]
+P15 : [141, 142, 143, 144, 145, 146, 147, 148, 149, 150]
+P16 : [151, 152, 153, 154, 155, 156, 157, 158, 159, 160]
+P17 : [161, 162, 163, 164, 165, 166, 167, 168, 169, 170]
+P18 : [171, 172, 173, 174, 175, 176, 177, 178, 179, 180]
+P19 : [181, 182, 183, 184, 185, 186, 187, 188, 189, 190]
+P20 : [191, 192, 193, 194, 195, 196, 197, 198, 199, 200]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P2 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P3 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P4 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P5 : [1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+P6 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P7 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P8 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P9 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P10 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P11 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P12 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P13 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P14 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P15 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P16 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P17 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P18 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P19 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P20 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10  | Provisions
+-----------------------------------------------------------------------------------------
+P1         1      2      3      4      5      6      7      8      9     10  | 10
+P2        11     12     13     14     15     16     17     18     19     20  | 20
+P3        21     22     23     24     25     26     27     28     29     30  | 30
+P4        31     32     33     34     35     36     37     38     39     40  | 40
+P5        41     41     43     44     45     46     47     48     49     50  | 50
+P6        51     52     53     54     55     56     57     58     59     60  | 60
+P7        61     62     63     64     65     66     67     68     69     70  | 70
+P8        71     72     73     74     75     76     77     78     79     80  | 80
+P9        81     82     83     84     85     86     87     88     89     90  | 90
+P10       91     92     93     94     95     96     97     98     99    100  | 100
+P11      101    102    103    104    105    106    107    108    109    110  | 110
+P12      111    112    113    114    115    116    117    118    119    120  | 120
+P13      121    122    123    124    125    126    127    128    129    130  | 130
+P14      131    132    133    134    135    136    137    138    139    140  | 140
+P15      141    142    143    144    145    146    147    148    149    150  | 150
+P16      151    152    153    154    155    156    157    158    159    160  | 160
+P17      161    162    163    164    165    166    167    168    169    170  | 170
+P18      171    172    173    174    175    176    177    178    179    180  | 180
+P19      181    182    183    184    185    186    187    188    189    190  | 190
+P20      191    192    193    194    195    196    197    198    199    200  | 200
+-----------------------------------------------------------------------------------------
+Cmd      120    140    160    180    200    220    240    260    280    300
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10
+P1        10      0      0      0      0      0      0      0      0      0
+P2        20      0      0      0      0      0      0      0      0      0
+P3        30      0      0      0      0      0      0      0      0      0
+P4        40      0      0      0      0      0      0      0      0      0
+P5         0     50      0      0      0      0      0      0      0      0
+P6        20     40      0      0      0      0      0      0      0      0
+P7         0     50     20      0      0      0      0      0      0      0
+P8         0      0     80      0      0      0      0      0      0      0
+P9         0      0     60     30      0      0      0      0      0      0
+P10        0      0      0    100      0      0      0      0      0      0
+P11        0      0      0     50     60      0      0      0      0      0
+P12        0      0      0      0    120      0      0      0      0      0
+P13        0      0      0      0     20    110      0      0      0      0
+P14        0      0      0      0      0    110     30      0      0      0
+P15        0      0      0      0      0      0    150      0      0      0
+P16        0      0      0      0      0      0     60    100      0      0
+P17        0      0      0      0      0      0      0    160     10      0
+P18        0      0      0      0      0      0      0      0    180      0
+P19        0      0      0      0      0      0      0      0     90    100
+P20        0      0      0      0      0      0      0      0      0    200
+Coût total optimal : 279150
+
+============================================================
+  PROBLÈME 12
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16  | Provisions
+-----------------------------------------------------------------------------------------------------------------------------------
+P1       186    185    184    183    182    181    180    179    178    177    176    175    174    173    172    171  | 160
+P2       166    165    164    163    162    161    160    159    158    157    156    155    154    153    152    151  | 160
+P3       156    155    154    153    152    151    150    149    148    147    146    145    144    143    142    141  | 160
+P4       136    135    134    133    132    131    130    129    128    127    126    125    124    123    122    121  | 160
+P5       116    115    114    113    112    111    110    109    108    107    106    105    104    103    102    101  | 160
+P6        96     95     94     93     92     91     90     89     88     87     86     85     84     83     82     81  | 160
+P7        76     75     74     73     72     71     70     69     68     67     66     65     64     63     62     61  | 160
+P8        56     55     54     53     52     51     50     49     48     47     46     45     44     43     42     41  | 160
+P9        36     35     34     33     32     31     30     29     28     27     26     25     24     23     22     21  | 160
+P10       16     15     14     13     12     11     10      9      8      7      6      5      4      3      2      1  | 160
+-----------------------------------------------------------------------------------------------------------------------------------
+Cmd      100    100    100    100    100    100    100    100    100    100    100    100    100    100    100    100
+
+========================================
+  Algorithme : Nord-Ouest
+========================================
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16  | Provisions
+-----------------------------------------------------------------------------------------------------------------------------------
+P1       186    185    184    183    182    181    180    179    178    177    176    175    174    173    172    171  | 160
+P2       166    165    164    163    162    161    160    159    158    157    156    155    154    153    152    151  | 160
+P3       156    155    154    153    152    151    150    149    148    147    146    145    144    143    142    141  | 160
+P4       136    135    134    133    132    131    130    129    128    127    126    125    124    123    122    121  | 160
+P5       116    115    114    113    112    111    110    109    108    107    106    105    104    103    102    101  | 160
+P6        96     95     94     93     92     91     90     89     88     87     86     85     84     83     82     81  | 160
+P7        76     75     74     73     72     71     70     69     68     67     66     65     64     63     62     61  | 160
+P8        56     55     54     53     52     51     50     49     48     47     46     45     44     43     42     41  | 160
+P9        36     35     34     33     32     31     30     29     28     27     26     25     24     23     22     21  | 160
+P10       16     15     14     13     12     11     10      9      8      7      6      5      4      3      2      1  | 160
+-----------------------------------------------------------------------------------------------------------------------------------
+Cmd      100    100    100    100    100    100    100    100    100    100    100    100    100    100    100    100
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16
+P1       100     60      0      0      0      0      0      0      0      0      0      0      0      0      0      0
+P2         0     40    100     20      0      0      0      0      0      0      0      0      0      0      0      0
+P3         0      0      0     80     80      0      0      0      0      0      0      0      0      0      0      0
+P4         0      0      0      0     20    100     40      0      0      0      0      0      0      0      0      0
+P5         0      0      0      0      0      0     60    100      0      0      0      0      0      0      0      0
+P6         0      0      0      0      0      0      0      0    100     60      0      0      0      0      0      0
+P7         0      0      0      0      0      0      0      0      0     40    100     20      0      0      0      0
+P8         0      0      0      0      0      0      0      0      0      0      0     80     80      0      0      0
+P9         0      0      0      0      0      0      0      0      0      0      0      0     20    100     40      0
+P10        0      0      0      0      0      0      0      0      0      0      0      0      0      0     60    100
+Coût total : 154400
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(3, 4), (4, 6), (9, 14), (8, 12), (1, 3), (6, 11), (3, 6), (5, 9), (0, 1), (2, 4), (1, 2), (8, 14), (7, 12), (6, 10), (4, 7), (3, 5), (0, 0), (5, 8), (1, 1), (9, 15), (2, 3), (8, 13), (7, 11), (6, 9)} | proposition=[[100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 40, 100, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 80, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 100, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 100, 60, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 100, 20, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 80, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 100, 40, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 100]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'P3', 'C0', 'C3', 'C5', 'P2', 'C7', 'C2', 'P4', 'C6', 'C4'}
+  Sous-graphe 2 : {'P7', 'C12', 'C14', 'C9', 'C13', 'P8', 'P6', 'C8', 'C10', 'P5', 'P9', 'C11', 'C15'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C1', 'P1', 'P0', 'P3', 'C0', 'C3', 'C5', 'P2', 'C7', 'C2', 'P4', 'C6', 'C4'}
+  Sous-graphe 2 : {'P7', 'C12', 'C14', 'C9', 'C13', 'P8', 'P6', 'C8', 'C10', 'P5', 'P9', 'C11', 'C15'}
+Ajout case dégénérée : P2C13 = 0
+Proposition connexe
+Potentiels u : [0, -20, -30, -50, -70, -90, -110, -130, -150, -170]
+Potentiels v : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
+P2 : [166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151]
+P3 : [156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141]
+P4 : [136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121]
+P5 : [116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101]
+P6 : [96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81]
+P7 : [76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61]
+P8 : [56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41]
+P9 : [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21]
+P10 : [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P2 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P3 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P4 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P5 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P6 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P7 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P8 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P9 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P10 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16  | Provisions
+-----------------------------------------------------------------------------------------------------------------------------------
+P1       186    185    184    183    182    181    180    179    178    177    176    175    174    173    172    171  | 160
+P2       166    165    164    163    162    161    160    159    158    157    156    155    154    153    152    151  | 160
+P3       156    155    154    153    152    151    150    149    148    147    146    145    144    143    142    141  | 160
+P4       136    135    134    133    132    131    130    129    128    127    126    125    124    123    122    121  | 160
+P5       116    115    114    113    112    111    110    109    108    107    106    105    104    103    102    101  | 160
+P6        96     95     94     93     92     91     90     89     88     87     86     85     84     83     82     81  | 160
+P7        76     75     74     73     72     71     70     69     68     67     66     65     64     63     62     61  | 160
+P8        56     55     54     53     52     51     50     49     48     47     46     45     44     43     42     41  | 160
+P9        36     35     34     33     32     31     30     29     28     27     26     25     24     23     22     21  | 160
+P10       16     15     14     13     12     11     10      9      8      7      6      5      4      3      2      1  | 160
+-----------------------------------------------------------------------------------------------------------------------------------
+Cmd      100    100    100    100    100    100    100    100    100    100    100    100    100    100    100    100
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16
+P1       100     60      0      0      0      0      0      0      0      0      0      0      0      0      0      0
+P2         0     40    100     20      0      0      0      0      0      0      0      0      0      0      0      0
+P3         0      0      0     80     80      0      0      0      0      0      0      0      0      0      0      0
+P4         0      0      0      0     20    100     40      0      0      0      0      0      0      0      0      0
+P5         0      0      0      0      0      0     60    100      0      0      0      0      0      0      0      0
+P6         0      0      0      0      0      0      0      0    100     60      0      0      0      0      0      0
+P7         0      0      0      0      0      0      0      0      0     40    100     20      0      0      0      0
+P8         0      0      0      0      0      0      0      0      0      0      0     80     80      0      0      0
+P9         0      0      0      0      0      0      0      0      0      0      0      0     20    100     40      0
+P10        0      0      0      0      0      0      0      0      0      0      0      0      0      0     60    100
+Coût total optimal : 154400
+
+========================================
+  Algorithme : Balas-Hammer
+========================================
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée → F10C1 = 100
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [-1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F10C2 = 60
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]
+Pénalités colonnes : [-1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée → F9C2 = 40
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]
+Pénalités colonnes : [-1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée → F9C3 = 100
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]
+Pénalités colonnes : [-1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F9C4 = 20
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée → F8C4 = 80
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [4]
+Colonne C5 sélectionnée → F8C5 = 80
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [4]
+Colonne C5 sélectionnée → F7C5 = 20
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [5]
+Colonne C6 sélectionnée → F7C6 = 100
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [6]
+Colonne C7 sélectionnée → F7C7 = 40
+Pénalités lignes : [1, 1, 1, 1, 1, 1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [6]
+Colonne C7 sélectionnée → F6C7 = 60
+Pénalités lignes : [1, 1, 1, 1, 1, 1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [7]
+Colonne C8 sélectionnée → F6C8 = 100
+Pénalités lignes : [1, 1, 1, 1, 1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [8]
+Colonne C9 sélectionnée → F5C9 = 100
+Pénalités lignes : [1, 1, 1, 1, 1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [9]
+Colonne C10 sélectionnée → F5C10 = 60
+Pénalités lignes : [1, 1, 1, 1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [9]
+Colonne C10 sélectionnée → F4C10 = 40
+Pénalités lignes : [1, 1, 1, 1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [10]
+Colonne C11 sélectionnée → F4C11 = 100
+Pénalités lignes : [1, 1, 1, 1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [11]
+Colonne C12 sélectionnée → F4C12 = 20
+Pénalités lignes : [1, 1, 1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [11]
+Colonne C12 sélectionnée → F3C12 = 80
+Pénalités lignes : [1, 1, 1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [12]
+Colonne C13 sélectionnée → F3C13 = 80
+Pénalités lignes : [1, 1, -1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [12]
+Colonne C13 sélectionnée → F2C13 = 20
+Pénalités lignes : [1, 1, -1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [13]
+Colonne C14 sélectionnée → F2C14 = 100
+Pénalités lignes : [1, 1, -1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 20, 20]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [14]
+Colonne C15 sélectionnée → F2C15 = 40
+Pénalités lignes : [1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0]
+Pénalité maximale : 1
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée → P1C16 = 100
+Pénalités lignes : [0, -1, -1, -1, -1, -1, -1, -1, -1, -1]
+Pénalités colonnes : [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1]
+Pénalité maximale : 0
+Candidats lignes : [0], Candidats colonnes : [14]
+Ligne P1 sélectionnée → P1C15 = 60
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16  | Provisions
+-----------------------------------------------------------------------------------------------------------------------------------
+P1       186    185    184    183    182    181    180    179    178    177    176    175    174    173    172    171  | 160
+P2       166    165    164    163    162    161    160    159    158    157    156    155    154    153    152    151  | 160
+P3       156    155    154    153    152    151    150    149    148    147    146    145    144    143    142    141  | 160
+P4       136    135    134    133    132    131    130    129    128    127    126    125    124    123    122    121  | 160
+P5       116    115    114    113    112    111    110    109    108    107    106    105    104    103    102    101  | 160
+P6        96     95     94     93     92     91     90     89     88     87     86     85     84     83     82     81  | 160
+P7        76     75     74     73     72     71     70     69     68     67     66     65     64     63     62     61  | 160
+P8        56     55     54     53     52     51     50     49     48     47     46     45     44     43     42     41  | 160
+P9        36     35     34     33     32     31     30     29     28     27     26     25     24     23     22     21  | 160
+P10       16     15     14     13     12     11     10      9      8      7      6      5      4      3      2      1  | 160
+-----------------------------------------------------------------------------------------------------------------------------------
+Cmd      100    100    100    100    100    100    100    100    100    100    100    100    100    100    100    100
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16
+P1         0      0      0      0      0      0      0      0      0      0      0      0      0      0     60    100
+P2         0      0      0      0      0      0      0      0      0      0      0      0     20    100     40      0
+P3         0      0      0      0      0      0      0      0      0      0      0     80     80      0      0      0
+P4         0      0      0      0      0      0      0      0      0     40    100     20      0      0      0      0
+P5         0      0      0      0      0      0      0      0    100     60      0      0      0      0      0      0
+P6         0      0      0      0      0      0     60    100      0      0      0      0      0      0      0      0
+P7         0      0      0      0     20    100     40      0      0      0      0      0      0      0      0      0
+P8         0      0      0     80     80      0      0      0      0      0      0      0      0      0      0      0
+P9         0     40    100     20      0      0      0      0      0      0      0      0      0      0      0      0
+P10      100     60      0      0      0      0      0      0      0      0      0      0      0      0      0      0
+Coût total : 154400
+
+--- Méthode du marche-pied ---
+
+--- Itération | base={(4, 9), (3, 10), (5, 7), (8, 3), (0, 14), (2, 11), (1, 12), (7, 4), (6, 5), (3, 9), (5, 6), (4, 8), (8, 2), (9, 1), (1, 14), (6, 4), (7, 3), (3, 11), (9, 0), (8, 1), (1, 13), (0, 15), (2, 12), (6, 6)} | proposition=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 100], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 100, 40, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 80, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 100, 20, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 100, 60, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 100, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 80, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 40, 100, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C12', 'C14', 'P1', 'P0', 'P3', 'C13', 'C9', 'P2', 'C8', 'C10', 'P4', 'C11', 'C15'}
+  Sous-graphe 2 : {'P7', 'C1', 'C0', 'C3', 'P8', 'C5', 'P6', 'P5', 'C7', 'C2', 'C6', 'P9', 'C4'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'C12', 'C14', 'P1', 'P0', 'P3', 'C13', 'C9', 'P2', 'C8', 'C10', 'P4', 'C11', 'C15'}
+  Sous-graphe 2 : {'P7', 'C1', 'C0', 'C3', 'P8', 'C5', 'P6', 'P5', 'C7', 'C2', 'C6', 'P9', 'C4'}
+Ajout case dégénérée : P2C2 = 0
+Proposition connexe
+Potentiels u : [0, -20, -30, -50, -70, -90, -110, -130, -150, -170]
+Potentiels v : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
+P2 : [166, 165, 164, 163, 162, 161, 160, 159, 158, 157, 156, 155, 154, 153, 152, 151]
+P3 : [156, 155, 154, 153, 152, 151, 150, 149, 148, 147, 146, 145, 144, 143, 142, 141]
+P4 : [136, 135, 134, 133, 132, 131, 130, 129, 128, 127, 126, 125, 124, 123, 122, 121]
+P5 : [116, 115, 114, 113, 112, 111, 110, 109, 108, 107, 106, 105, 104, 103, 102, 101]
+P6 : [96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81]
+P7 : [76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61]
+P8 : [56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41]
+P9 : [36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21]
+P10 : [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P2 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P3 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P4 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P5 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P6 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P7 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P8 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P9 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+P10 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16  | Provisions
+-----------------------------------------------------------------------------------------------------------------------------------
+P1       186    185    184    183    182    181    180    179    178    177    176    175    174    173    172    171  | 160
+P2       166    165    164    163    162    161    160    159    158    157    156    155    154    153    152    151  | 160
+P3       156    155    154    153    152    151    150    149    148    147    146    145    144    143    142    141  | 160
+P4       136    135    134    133    132    131    130    129    128    127    126    125    124    123    122    121  | 160
+P5       116    115    114    113    112    111    110    109    108    107    106    105    104    103    102    101  | 160
+P6        96     95     94     93     92     91     90     89     88     87     86     85     84     83     82     81  | 160
+P7        76     75     74     73     72     71     70     69     68     67     66     65     64     63     62     61  | 160
+P8        56     55     54     53     52     51     50     49     48     47     46     45     44     43     42     41  | 160
+P9        36     35     34     33     32     31     30     29     28     27     26     25     24     23     22     21  | 160
+P10       16     15     14     13     12     11     10      9      8      7      6      5      4      3      2      1  | 160
+-----------------------------------------------------------------------------------------------------------------------------------
+Cmd      100    100    100    100    100    100    100    100    100    100    100    100    100    100    100    100
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7     C8     C9    C10    C11    C12    C13    C14    C15    C16
+P1         0      0      0      0      0      0      0      0      0      0      0      0      0      0     60    100
+P2         0      0      0      0      0      0      0      0      0      0      0      0     20    100     40      0
+P3         0      0      0      0      0      0      0      0      0      0      0     80     80      0      0      0
+P4         0      0      0      0      0      0      0      0      0     40    100     20      0      0      0      0
+P5         0      0      0      0      0      0      0      0    100     60      0      0      0      0      0      0
+P6         0      0      0      0      0      0     60    100      0      0      0      0      0      0      0      0
+P7         0      0      0      0     20    100     40      0      0      0      0      0      0      0      0      0
+P8         0      0      0     80     80      0      0      0      0      0      0      0      0      0      0      0
+P9         0     40    100     20      0      0      0      0      0      0      0      0      0      0      0      0
+P10      100     60      0      0      0      0      0      0      0      0      0      0      0      0      0      0
+Coût total optimal : 154400
