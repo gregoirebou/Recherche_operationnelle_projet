@@ -161,6 +161,7 @@ class TransportProblem:
 
     def fix_degeneracy(self):
         g = self.graph
+        self.last_degenerate_edges = []
         while not g.is_connected():
             components = g.get_connected_components()
             comp1, comp2 = components[0], components[1]
@@ -173,6 +174,7 @@ class TransportProblem:
                             self.proposition[i][j] = 0
                             g.add_edge(f"P{i}", f"C{j}", 0)
                             self.base.add((i, j))
+                            self.last_degenerate_edges.append((i, j))
                             print(f"Ajout case dégénérée : P{i + 1}C{j + 1} = 0")
                             break
                     break
@@ -290,19 +292,21 @@ class TransportProblem:
             i, j = case_supprimee
             self.base.discard((i, j))
             print(f"Arête supprimée : P{i + 1}C{j + 1}")
+        return delta
 
     def stepping_stone(self):
         self.graph = self.to_graph()
         self.base = {(i, j) for i in range(self.n) for j in range(self.m) if self.proposition[i][j] > 0}
-        print(f"\n--- Itération | base={self.base} | proposition={self.proposition} ---")
 
         while True:
+            print(f"\n--- Itération | base={self.base} | proposition={self.proposition} ---")
             self.graph = self.to_graph()
 
-            if not self.graph.is_acyclic():
+            while not self.graph.is_acyclic():
                 self.maximize_cycle()
                 self.graph = self.to_graph()
 
+            self.last_degenerate_edges = []
             if not self.graph.is_connected():
                 self.fix_degeneracy()
 
@@ -313,8 +317,15 @@ class TransportProblem:
                 i, j = best
                 self.proposition[i][j] = 0
                 self.base.add((i, j))
-                print(f"Arête P{i + 1}C{j + 1} ajoutée à la proposition")
-                self.maximize_cycle(new_edge=(i, j))
+                print(f"Arête P{i+1}C{j+1} ajoutée à la proposition")
+                delta = self.maximize_cycle(new_edge=(i, j))
+
+                if delta == 0:
+                    print("Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité")
+                    for di, dj in self.last_degenerate_edges:
+                        self.proposition[di][dj] = 0
+                        self.base.discard((di, dj))
+                        print(f"Arête dégénérée retirée : P{di+1}C{dj+1}")
             else:
                 break
 #

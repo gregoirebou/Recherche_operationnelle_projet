@@ -97,7 +97,7 @@ def run_all_problems():
                     print(t)
                     print(f"Coût total optimal : {t.totalcost()}")
 
-    print("Trace écrite dans trace_execution.txt")
+    print("Trace écrite dans trace_execution_2.2.txt")
 
 
 if __name__ == "__main__":
