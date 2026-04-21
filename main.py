@@ -1,14 +1,12 @@
+from Complexite import Complexite
 from TransportProblem import TransportProblem
 import contextlib
 import sys
-
-sys.setrecursionlimit(100)
 
 
 def main():
     continuer = True
     while continuer:
-        # Choisir le problème
         num = input("\nEntrez le numéro du problème à traiter (1-12) : ")
         filename = f"Probleme{num}.txt"
 
@@ -17,12 +15,8 @@ def main():
         except FileNotFoundError:
             print(f"Fichier {filename} introuvable.")
             continue
-
-        # Afficher le tableau
         print("\n--- Tableau de contraintes ---")
         print(transport)
-
-        # Choisir l'algorithme initial
         print("\nChoisissez l'algorithme pour la proposition initiale :")
         print("  1. Nord-Ouest")
         print("  2. Balas-Hammer")
@@ -41,16 +35,12 @@ def main():
         print("\n--- Proposition initiale ---")
         print(transport)
         print(f"Coût total : {transport.totalcost()}")
-
-        # Méthode du marche-pied
         print("\n--- Méthode du marche-pied ---")
         transport.stepping_stone()
 
         print("\n--- Proposition optimale ---")
         print(transport)
         print(f"Coût total optimal : {transport.totalcost()}")
-
-        # Continuer ?
         rep = input("\nVoulez-vous tester un autre problème ? (o/n) : ")
         continuer = rep.strip().lower() == "o"
 
@@ -80,7 +70,7 @@ def run_all_problems():
                     print(f"  Algorithme : {nom}")
                     print(f"{'='*40}")
 
-                    t = TransportProblem(filename)  # instance fraîche
+                    t = TransportProblem(filename)
                     if algo == "NW":
                         t.NorthWest()
                     else:
@@ -99,7 +89,15 @@ def run_all_problems():
 
     print("Trace écrite dans trace_execution_2.2.txt")
 
+def run_complexity_study():
+    print("\n" + "="*50)
+    print("  LANCEMENT DE L'ÉTUDE DE COMPLEXITÉ ")
+    print("="*50)
+    etude = Complexite()
+    etude.lancer_etude()
+    print("\nCalculs terminés ! Génération des graphiques en cours...")
+    etude.tracer_graphiques()
+    print("Étude de complexité terminée.")
 
 if __name__ == "__main__":
-    run_all_problems()
-    #main()
+    run_complexity_study()

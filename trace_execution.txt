@@ -35,10 +35,10 @@ Coût total : 8000
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Ajout case dégénérée : P1C2 = 0
 Proposition connexe
 Potentiels u : [0, 30]
@@ -195,10 +195,10 @@ Coût total : 2000
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Ajout case dégénérée : P1C2 = 0
 Proposition connexe
 Potentiels u : [0, -10]
@@ -262,10 +262,10 @@ Coût total : 2000
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C1', 'P1'}
 Ajout case dégénérée : P1C2 = 0
 Proposition connexe
 Potentiels u : [0, -10]
@@ -1151,42 +1151,12 @@ Coût total : 18000
 --- Itération | base={(1, 0), (3, 1), (2, 1), (0, 0)} | proposition=[[100, 0], [200, 0], [0, 100], [0, 200]] ---
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P1', 'P0'}
-  Sous-graphe 2 : {'P2', 'C1', 'P3'}
+  Sous-graphe 1 : {'C0', 'P0', 'P1'}
+  Sous-graphe 2 : {'C1', 'P3', 'P2'}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P1', 'P0'}
-  Sous-graphe 2 : {'P2', 'C1', 'P3'}
-Ajout case dégénérée : P2C2 = 0
-Proposition connexe
-Potentiels u : [0, -40, -50, -55]
-Potentiels v : [50, 90]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [50, 90]
-P2 : [10, 50]
-P3 : [0, 40]
-P4 : [-5, 35]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -70]
-P2 : [0, 0]
-P3 : [50, 0]
-P4 : [50, 0]
-
-Meilleure arête améliorante : P1C2 (coût marginal = -70)
-Arête P1C2 ajoutée à la proposition
-Cycle : C0 -> P0 -> C1 -> P1 -> C0
-  P1C1 = 100 (-)
-  P1C2 = 0 (+)
-  P2C2 = 0 (-)
-  P2C1 = 200 (+)
-Delta = 0
-Arête supprimée : P2C2
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-Arête dégénérée retirée : P2C2
-
---- Itération | base={(0, 1), (2, 1), (0, 0), (3, 1), (1, 0)} | proposition=[[100, 0], [200, 0], [0, 100], [0, 200]] ---
-Proposition acyclique
+  Sous-graphe 1 : {'C0', 'P0', 'P1'}
+  Sous-graphe 2 : {'C1', 'P3', 'P2'}
+Ajout case dégénérée : P1C2 = 0
 Proposition connexe
 Potentiels u : [0, -40, 20, 15]
 Potentiels v : [50, 20]
@@ -1383,10 +1353,10 @@ Coût total : 21600
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P1', 'P0'}
-  Sous-graphe 2 : {'P2', 'P3', 'C1', 'P4'}
+  Sous-graphe 2 : {'P4', 'C1', 'P3', 'P2'}
 Proposition non connexe : 2 sous-graphes
   Sous-graphe 1 : {'C0', 'P1', 'P0'}
-  Sous-graphe 2 : {'P2', 'P3', 'C1', 'P4'}
+  Sous-graphe 2 : {'P4', 'C1', 'P3', 'P2'}
 Ajout case dégénérée : P2C2 = 0
 Proposition connexe
 Potentiels u : [0, -40, -50, -45, -82]
@@ -1638,213 +1608,224 @@ Coût total : 15500
 --- Itération | base={(6, 2), (0, 0), (2, 0), (5, 1), (3, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [0, 100, 0], [0, 0, 100]] ---
 Proposition acyclique
 Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {'C0', 'P2', 'P1', 'P3', 'P0'}
-  Sous-graphe 2 : {'P5', 'C1', 'P4'}
-  Sous-graphe 3 : {'C2', 'P6'}
+  Sous-graphe 1 : {'P6', 'C2'}
+  Sous-graphe 2 : {'C0', 'P3', 'P0', 'P2', 'P1'}
+  Sous-graphe 3 : {'C1', 'P5', 'P4'}
 Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {'C0', 'P2', 'P1', 'P3', 'P0'}
-  Sous-graphe 2 : {'P5', 'C1', 'P4'}
-  Sous-graphe 3 : {'C2', 'P6'}
-Ajout case dégénérée : P3C2 = 0
+  Sous-graphe 1 : {'P6', 'C2'}
+  Sous-graphe 2 : {'C0', 'P3', 'P0', 'P2', 'P1'}
+  Sous-graphe 3 : {'C1', 'P5', 'P4'}
+Ajout case dégénérée : P7C1 = 0
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'C1', 'P4', 'P1', 'P3', 'P0'}
-  Sous-graphe 2 : {'C2', 'P6'}
-Ajout case dégénérée : P6C3 = 0
+  Sous-graphe 1 : {'P6', 'C0', 'C2', 'P0', 'P3', 'P2', 'P1'}
+  Sous-graphe 2 : {'C1', 'P5', 'P4'}
+Ajout case dégénérée : P7C2 = 0
 Proposition connexe
-Potentiels u : [0, -20, -21, -24, 9, 7, 2]
-Potentiels v : [30, 31, 20]
+Potentiels u : [0, -20, -21, -24, 56, 54, 20]
+Potentiels v : [30, -16, 2]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 31, 20]
-P2 : [10, 11, 0]
-P3 : [9, 10, -1]
-P4 : [6, 7, -4]
-P5 : [39, 40, 29]
-P6 : [37, 38, 27]
-P7 : [32, 33, 22]
+P1 : [30, -16, 2]
+P2 : [10, -36, -18]
+P3 : [9, -37, -19]
+P4 : [6, -40, -22]
+P5 : [86, 40, 58]
+P6 : [84, 38, 56]
+P7 : [50, 4, 22]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -11, -5]
-P2 : [0, 39, 2]
-P3 : [0, 0, 31]
-P4 : [0, -5, 33]
-P5 : [11, 0, -26]
-P6 : [-32, 0, 0]
-P7 : [18, -29, 0]
+P1 : [0, 36, 13]
+P2 : [0, 86, 20]
+P3 : [0, 47, 49]
+P4 : [0, 42, 51]
+P5 : [-36, 0, -55]
+P6 : [-79, 0, -29]
+P7 : [0, 0, 0]
 
-Meilleure arête améliorante : P6C1 (coût marginal = -32)
+Meilleure arête améliorante : P6C1 (coût marginal = -79)
 Arête P6C1 ajoutée à la proposition
-Cycle : C0 -> P5 -> C1 -> P2 -> C0
-  P6C1 = 0 (+)
+Cycle : C0 -> P6 -> C1 -> P5 -> C0
+  P7C1 = 0 (-)
+  P7C2 = 0 (+)
   P6C2 = 100 (-)
-  P3C2 = 0 (+)
-  P3C1 = 100 (-)
+  P6C1 = 0 (+)
+Delta = 0
+Arête supprimée : P7C1
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+Arête dégénérée retirée : P7C1
+Arête dégénérée retirée : P7C2
+
+--- Itération | base={(6, 2), (0, 0), (2, 0), (5, 1), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [0, 100, 0], [0, 0, 100]] ---
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'P6', 'C2'}
+  Sous-graphe 2 : {'C0', 'P3', 'P0', 'P4', 'P5', 'P2', 'C1', 'P1'}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {'P6', 'C2'}
+  Sous-graphe 2 : {'C0', 'P3', 'P0', 'P4', 'P5', 'P2', 'C1', 'P1'}
+Ajout case dégénérée : P7C1 = 0
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, -23, -25, 20]
+Potentiels v : [30, 63, 2]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 63, 2]
+P2 : [10, 43, -18]
+P3 : [9, 42, -19]
+P4 : [6, 39, -22]
+P5 : [7, 40, -21]
+P6 : [5, 38, -23]
+P7 : [50, 83, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -43, 13]
+P2 : [0, 7, 20]
+P3 : [0, -32, 49]
+P4 : [0, -37, 51]
+P5 : [43, 0, 24]
+P6 : [0, 0, 50]
+P7 : [0, -79, 0]
+
+Meilleure arête améliorante : P7C2 (coût marginal = -79)
+Arête P7C2 ajoutée à la proposition
+Cycle : C0 -> P6 -> C1 -> P5 -> C0
+  P7C1 = 0 (-)
+  P7C2 = 0 (+)
+  P6C2 = 100 (-)
+  P6C1 = 0 (+)
+Delta = 0
+Arête supprimée : P7C1
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+Arête dégénérée retirée : P7C1
+
+--- Itération | base={(6, 2), (0, 0), (6, 1), (2, 0), (5, 1), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [0, 100, 0], [0, 0, 100]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, -23, -25, -59]
+Potentiels v : [30, 63, 81]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 63, 81]
+P2 : [10, 43, 61]
+P3 : [9, 42, 60]
+P4 : [6, 39, 57]
+P5 : [7, 40, 58]
+P6 : [5, 38, 56]
+P7 : [-29, 4, 22]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -43, -66]
+P2 : [0, 7, -59]
+P3 : [0, -32, -30]
+P4 : [0, -37, -28]
+P5 : [43, 0, -55]
+P6 : [0, 0, -29]
+P7 : [79, 0, 0]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -66)
+Arête P1C3 ajoutée à la proposition
+Cycle : P5 -> C1 -> P6 -> C2 -> P0 -> C0 -> P5
+  P6C2 = 100 (-)
+  P7C2 = 0 (+)
+  P7C3 = 100 (-)
+  P1C3 = 0 (+)
+  P1C1 = 100 (-)
+  P6C1 = 0 (+)
 Delta = 100
 Arête supprimée : P6C2
 
---- Itération | base={(6, 2), (2, 1), (0, 0), (2, 0), (3, 0), (5, 0), (1, 0), (4, 1), (5, 2)} | proposition=[[100, 0, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 0, 100]] ---
+--- Itération | base={(6, 2), (0, 0), (6, 1), (2, 0), (3, 0), (0, 2), (5, 0), (1, 0), (4, 1)} | proposition=[[0, 0, 100], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 100, 0]] ---
 Proposition acyclique
 Proposition connexe
-Potentiels u : [0, -20, -21, -24, 9, -25, -30]
-Potentiels v : [30, 31, 52]
+Potentiels u : [0, -20, -21, -24, 43, -25, 7]
+Potentiels v : [30, -3, 15]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 31, 52]
-P2 : [10, 11, 32]
-P3 : [9, 10, 31]
-P4 : [6, 7, 28]
-P5 : [39, 40, 61]
-P6 : [5, 6, 27]
-P7 : [0, 1, 22]
+P1 : [30, -3, 15]
+P2 : [10, -23, -5]
+P3 : [9, -24, -6]
+P4 : [6, -27, -9]
+P5 : [73, 40, 58]
+P6 : [5, -28, -10]
+P7 : [37, 4, 22]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -11, -37]
-P2 : [0, 39, -30]
-P3 : [0, 0, -1]
-P4 : [0, -5, 1]
-P5 : [11, 0, -58]
-P6 : [0, 32, 0]
-P7 : [50, 3, 0]
+P1 : [0, 23, 0]
+P2 : [0, 73, 7]
+P3 : [0, 34, 36]
+P4 : [0, 29, 38]
+P5 : [-23, 0, -55]
+P6 : [0, 66, 37]
+P7 : [13, 0, 0]
 
-Meilleure arête améliorante : P5C3 (coût marginal = -58)
+Meilleure arête améliorante : P5C3 (coût marginal = -55)
 Arête P5C3 ajoutée à la proposition
-Cycle : C0 -> P5 -> C2 -> P4 -> C1 -> P2 -> C0
-  P6C1 = 100 (+)
-  P6C3 = 0 (-)
-  P5C3 = 0 (+)
-  P5C2 = 100 (-)
-  P3C2 = 100 (+)
-  P3C1 = 0 (-)
-Delta = 0
-Arête supprimée : P6C3
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-
---- Itération | base={(6, 2), (2, 1), (0, 0), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 0, 100]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, -20, -21, -24, 9, -25, 28]
-Potentiels v : [30, 31, -6]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 31, -6]
-P2 : [10, 11, -26]
-P3 : [9, 10, -27]
-P4 : [6, 7, -30]
-P5 : [39, 40, 3]
-P6 : [5, 6, -31]
-P7 : [58, 59, 22]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -11, 21]
-P2 : [0, 39, 28]
-P3 : [0, 0, 57]
-P4 : [0, -5, 59]
-P5 : [11, 0, 0]
-P6 : [0, 32, 58]
-P7 : [-8, -55, 0]
-
-Meilleure arête améliorante : P7C2 (coût marginal = -55)
-Arête P7C2 ajoutée à la proposition
 Cycle : C1 -> P6 -> C2 -> P4 -> C1
-  P7C2 = 0 (+)
-  P7C3 = 100 (-)
+  P7C2 = 100 (+)
+  P7C3 = 0 (-)
   P5C3 = 0 (+)
   P5C2 = 100 (-)
-Delta = 100
-Arête supprimée : P7C3
-
---- Itération | base={(2, 1), (0, 0), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[100, 0, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, -20, -21, -24, 9, -25, -27]
-Potentiels v : [30, 31, -6]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 31, -6]
-P2 : [10, 11, -26]
-P3 : [9, 10, -27]
-P4 : [6, 7, -30]
-P5 : [39, 40, 3]
-P6 : [5, 6, -31]
-P7 : [3, 4, -33]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -11, 21]
-P2 : [0, 39, 28]
-P3 : [0, 0, 57]
-P4 : [0, -5, 59]
-P5 : [11, 0, 0]
-P6 : [0, 32, 58]
-P7 : [47, 0, 55]
-
-Meilleure arête améliorante : P1C2 (coût marginal = -11)
-Arête P1C2 ajoutée à la proposition
-Cycle : C0 -> P0 -> C1 -> P2 -> C0
-  P1C1 = 100 (-)
-  P1C2 = 0 (+)
-  P3C2 = 100 (-)
-  P3C1 = 0 (+)
-Delta = 100
-Arête supprimée : P1C1
-
---- Itération | base={(0, 1), (2, 1), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, -9, -10, -13, 20, -14, -16]
-Potentiels v : [19, 20, -17]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [19, 20, -17]
-P2 : [10, 11, -26]
-P3 : [9, 10, -27]
-P4 : [6, 7, -30]
-P5 : [39, 40, 3]
-P6 : [5, 6, -31]
-P7 : [3, 4, -33]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [11, 0, 32]
-P2 : [0, 39, 28]
-P3 : [0, 0, 57]
-P4 : [0, -5, 59]
-P5 : [11, 0, 0]
-P6 : [0, 32, 58]
-P7 : [47, 0, 55]
-
-Meilleure arête améliorante : P4C2 (coût marginal = -5)
-Arête P4C2 ajoutée à la proposition
-Cycle : P3 -> C1 -> P2 -> C0 -> P3
-  P4C2 = 0 (+)
-  P3C2 = 0 (-)
-  P3C1 = 100 (+)
-  P4C1 = 100 (-)
 Delta = 0
-Arête supprimée : P3C2
+Arête supprimée : P7C3
 Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
 
---- Itération | base={(0, 1), (3, 1), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
+--- Itération | base={(0, 0), (6, 1), (2, 0), (4, 2), (3, 0), (0, 2), (5, 0), (1, 0), (4, 1)} | proposition=[[0, 0, 100], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 100, 0], [100, 0, 0], [0, 100, 0]] ---
 Proposition acyclique
 Proposition connexe
-Potentiels u : [0, -14, -15, -18, 20, -19, -16]
-Potentiels v : [24, 20, -17]
+Potentiels u : [0, -20, -21, -24, -12, -25, -48]
+Potentiels v : [30, 52, 15]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [24, 20, -17]
-P2 : [10, 6, -31]
-P3 : [9, 5, -32]
-P4 : [6, 2, -35]
-P5 : [44, 40, 3]
-P6 : [5, 1, -36]
-P7 : [8, 4, -33]
+P1 : [30, 52, 15]
+P2 : [10, 32, -5]
+P3 : [9, 31, -6]
+P4 : [6, 28, -9]
+P5 : [18, 40, 3]
+P6 : [5, 27, -10]
+P7 : [-18, 4, -33]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [6, 0, 32]
-P2 : [0, 44, 33]
-P3 : [0, 5, 62]
-P4 : [0, 0, 64]
-P5 : [6, 0, 0]
-P6 : [0, 37, 63]
-P7 : [42, 0, 55]
+P1 : [0, -32, 0]
+P2 : [0, 18, 7]
+P3 : [0, -21, 36]
+P4 : [0, -26, 38]
+P5 : [32, 0, 0]
+P6 : [0, 11, 37]
+P7 : [68, 0, 55]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -32)
+Arête P1C2 ajoutée à la proposition
+Cycle : C2 -> P0 -> C1 -> P4 -> C2
+  P1C3 = 100 (-)
+  P1C2 = 0 (+)
+  P5C2 = 100 (-)
+  P5C3 = 0 (+)
+Delta = 100
+Arête supprimée : P1C3
+
+--- Itération | base={(0, 1), (0, 0), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0), (4, 1)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, -21, -24, 20, -25, -16]
+Potentiels v : [30, 20, -17]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20, -17]
+P2 : [10, 0, -37]
+P3 : [9, -1, -38]
+P4 : [6, -4, -41]
+P5 : [50, 40, 3]
+P6 : [5, -5, -42]
+P7 : [14, 4, -33]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 32]
+P2 : [0, 50, 39]
+P3 : [0, 11, 68]
+P4 : [0, 6, 70]
+P5 : [0, 0, 0]
+P6 : [0, 43, 69]
+P7 : [36, 0, 55]
 
 Aucune arête améliorante, solution optimale.
 
@@ -1940,121 +1921,119 @@ Coût total : 5700
 --- Itération | base={(0, 1), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
 Proposition acyclique
 Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'P1', 'P3'}
-  Sous-graphe 2 : {'P6', 'C1', 'P0'}
+  Sous-graphe 1 : {'P6', 'C1', 'P0'}
+  Sous-graphe 2 : {'C0', 'P3', 'P5', 'P2', 'P1'}
   Sous-graphe 3 : {'C2', 'P4'}
 Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'P1', 'P3'}
-  Sous-graphe 2 : {'P6', 'C1', 'P0'}
+  Sous-graphe 1 : {'P6', 'C1', 'P0'}
+  Sous-graphe 2 : {'C0', 'P3', 'P5', 'P2', 'P1'}
   Sous-graphe 3 : {'C2', 'P4'}
-Ajout case dégénérée : P6C2 = 0
+Ajout case dégénérée : P7C1 = 0
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'C1', 'P1', 'P6', 'P3', 'P0'}
+  Sous-graphe 1 : {'P6', 'C0', 'P0', 'P3', 'P5', 'P2', 'C1', 'P1'}
   Sous-graphe 2 : {'C2', 'P4'}
-Ajout case dégénérée : P6C3 = 0
+Ajout case dégénérée : P7C3 = 0
 Proposition connexe
-Potentiels u : [0, 23, 22, 19, -6, 18, -16]
-Potentiels v : [-13, 20, 9]
+Potentiels u : [0, -56, -57, -60, -35, -61, -16]
+Potentiels v : [66, 20, 38]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [-13, 20, 9]
-P2 : [10, 43, 32]
-P3 : [9, 42, 31]
-P4 : [6, 39, 28]
-P5 : [-19, 14, 3]
-P6 : [5, 38, 27]
-P7 : [-29, 4, -7]
+P1 : [66, 20, 38]
+P2 : [10, -36, -18]
+P3 : [9, -37, -19]
+P4 : [6, -40, -22]
+P5 : [31, -15, 3]
+P6 : [5, -41, -23]
+P7 : [50, 4, 22]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [43, 0, 6]
-P2 : [0, 7, -30]
-P3 : [0, -32, -1]
-P4 : [0, -37, 1]
-P5 : [69, 26, 0]
-P6 : [0, 0, 0]
-P7 : [79, 0, 29]
+P1 : [-36, 0, -23]
+P2 : [0, 86, 20]
+P3 : [0, 47, 49]
+P4 : [0, 42, 51]
+P5 : [19, 55, 0]
+P6 : [0, 79, 50]
+P7 : [0, 0, 0]
 
-Meilleure arête améliorante : P4C2 (coût marginal = -37)
-Arête P4C2 ajoutée à la proposition
-Cycle : P5 -> C1 -> P3 -> C0 -> P5
-  P6C2 = 0 (-)
-  P4C2 = 0 (+)
-  P4C1 = 100 (-)
-  P6C1 = 100 (+)
+Meilleure arête améliorante : P1C1 (coût marginal = -36)
+Arête P1C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P6 -> C0
+  P1C1 = 0 (+)
+  P1C2 = 100 (-)
+  P7C2 = 100 (+)
+  P7C1 = 0 (-)
 Delta = 0
-Arête supprimée : P6C2
+Arête supprimée : P7C1
 Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-Arête dégénérée retirée : P6C2
-Arête dégénérée retirée : P6C3
+Arête dégénérée retirée : P7C1
+Arête dégénérée retirée : P7C3
 
---- Itération | base={(0, 1), (3, 1), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
+--- Itération | base={(0, 1), (0, 0), (6, 1), (2, 0), (4, 2), (3, 0), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'C1', 'P1', 'P6', 'P3', 'P0'}
+  Sous-graphe 1 : {'C0', 'P6', 'P3', 'P0', 'P5', 'P2', 'C1', 'P1'}
   Sous-graphe 2 : {'C2', 'P4'}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'P5', 'P2', 'C1', 'P1', 'P6', 'P3', 'P0'}
+  Sous-graphe 1 : {'C0', 'P6', 'P3', 'P0', 'P5', 'P2', 'C1', 'P1'}
   Sous-graphe 2 : {'C2', 'P4'}
-Ajout case dégénérée : P6C3 = 0
+Ajout case dégénérée : P7C3 = 0
 Proposition connexe
-Potentiels u : [0, -14, -15, -18, -43, -19, -16]
-Potentiels v : [24, 20, 46]
+Potentiels u : [0, -20, -21, -24, -35, -25, -16]
+Potentiels v : [30, 20, 38]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [24, 20, 46]
-P2 : [10, 6, 32]
-P3 : [9, 5, 31]
-P4 : [6, 2, 28]
-P5 : [-19, -23, 3]
-P6 : [5, 1, 27]
-P7 : [8, 4, 30]
+P1 : [30, 20, 38]
+P2 : [10, 0, 18]
+P3 : [9, -1, 17]
+P4 : [6, -4, 14]
+P5 : [-5, -15, 3]
+P6 : [5, -5, 13]
+P7 : [14, 4, 22]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [6, 0, -31]
-P2 : [0, 44, -30]
-P3 : [0, 5, -1]
-P4 : [0, 0, 1]
-P5 : [69, 63, 0]
-P6 : [0, 37, 0]
-P7 : [42, 0, -8]
+P1 : [0, 0, -23]
+P2 : [0, 50, -16]
+P3 : [0, 11, 13]
+P4 : [0, 6, 15]
+P5 : [55, 55, 0]
+P6 : [0, 43, 14]
+P7 : [36, 0, 0]
 
-Meilleure arête améliorante : P1C3 (coût marginal = -31)
+Meilleure arête améliorante : P1C3 (coût marginal = -23)
 Arête P1C3 ajoutée à la proposition
-Cycle : P5 -> C2 -> P0 -> C1 -> P3 -> C0 -> P5
-  P6C3 = 0 (-)
+Cycle : C2 -> P0 -> C1 -> P6 -> C2
   P1C3 = 0 (+)
   P1C2 = 100 (-)
-  P4C2 = 0 (+)
-  P4C1 = 100 (-)
-  P6C1 = 100 (+)
+  P7C2 = 100 (+)
+  P7C3 = 0 (-)
 Delta = 0
-Arête supprimée : P6C3
+Arête supprimée : P7C3
 Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-Arête dégénérée retirée : P6C3
+Arête dégénérée retirée : P7C3
 
---- Itération | base={(0, 1), (3, 1), (6, 1), (2, 0), (4, 2), (3, 0), (0, 2), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
+--- Itération | base={(0, 1), (0, 0), (6, 1), (2, 0), (4, 2), (3, 0), (0, 2), (5, 0), (1, 0)} | proposition=[[0, 100, 0], [100, 0, 0], [100, 0, 0], [100, 0, 0], [0, 0, 100], [100, 0, 0], [0, 100, 0]] ---
 Proposition acyclique
 Proposition connexe
-Potentiels u : [0, -14, -15, -18, -12, -19, -16]
-Potentiels v : [24, 20, 15]
+Potentiels u : [0, -20, -21, -24, -12, -25, -16]
+Potentiels v : [30, 20, 15]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [24, 20, 15]
-P2 : [10, 6, 1]
-P3 : [9, 5, 0]
-P4 : [6, 2, -3]
-P5 : [12, 8, 3]
-P6 : [5, 1, -4]
-P7 : [8, 4, -1]
+P1 : [30, 20, 15]
+P2 : [10, 0, -5]
+P3 : [9, -1, -6]
+P4 : [6, -4, -9]
+P5 : [18, 8, 3]
+P6 : [5, -5, -10]
+P7 : [14, 4, -1]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [6, 0, 0]
-P2 : [0, 44, 1]
-P3 : [0, 5, 30]
-P4 : [0, 0, 32]
-P5 : [38, 32, 0]
-P6 : [0, 37, 31]
-P7 : [42, 0, 23]
+P1 : [0, 0, 0]
+P2 : [0, 50, 7]
+P3 : [0, 11, 36]
+P4 : [0, 6, 38]
+P5 : [32, 32, 0]
+P6 : [0, 43, 37]
+P7 : [36, 0, 23]
 
 Aucune arête améliorante, solution optimale.
 
@@ -2121,148 +2100,93 @@ Coût total : 218500
 Proposition acyclique
 Proposition non connexe : 3 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'C5', 'C6', 'P2', 'C3', 'C4', 'C2'}
-  Sous-graphe 3 : {'P1', 'C1'}
+  Sous-graphe 2 : {'C2', 'C3', 'C5', 'C6', 'P2', 'C4'}
+  Sous-graphe 3 : {'C1', 'P1'}
 Proposition non connexe : 3 sous-graphes
   Sous-graphe 1 : {'C0', 'P0'}
-  Sous-graphe 2 : {'C5', 'C6', 'P2', 'C3', 'C4', 'C2'}
-  Sous-graphe 3 : {'P1', 'C1'}
-Ajout case dégénérée : P1C6 = 0
+  Sous-graphe 2 : {'C2', 'C3', 'C5', 'C6', 'P2', 'C4'}
+  Sous-graphe 3 : {'C1', 'P1'}
+Ajout case dégénérée : P1C3 = 0
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'C5', 'C6', 'P2', 'C3', 'C4', 'C2', 'P0'}
-  Sous-graphe 2 : {'P1', 'C1'}
-Ajout case dégénérée : P3C2 = 0
+  Sous-graphe 1 : {'C0', 'C2', 'P0', 'C3', 'C5', 'C6', 'P2', 'C4'}
+  Sous-graphe 2 : {'C1', 'P1'}
+Ajout case dégénérée : P1C2 = 0
 Proposition connexe
-Potentiels u : [0, 18, 8]
-Potentiels v : [300, 32, 22, -5, 17, 18, -5]
+Potentiels u : [0, 30, 15]
+Potentiels v : [300, 20, 15, -12, 10, 11, -12]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [300, 32, 22, -5, 17, 18, -5]
-P2 : [318, 50, 40, 13, 35, 36, 13]
-P3 : [308, 40, 30, 3, 25, 26, 3]
+P1 : [300, 20, 15, -12, 10, 11, -12]
+P2 : [330, 50, 45, 18, 40, 41, 18]
+P3 : [315, 35, 30, 3, 25, 26, 3]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -12, -7, 21, 0, 0, 25]
-P2 : [-317, 0, -16, 17, -13, -9, 6]
-P3 : [-233, 0, 0, 0, 0, 0, 0]
+P1 : [0, 0, 0, 28, 7, 7, 32]
+P2 : [-329, 0, -21, 12, -18, -14, 1]
+P3 : [-240, 5, 0, 0, 0, 0, 0]
 
-Meilleure arête améliorante : P2C1 (coût marginal = -317)
+Meilleure arête améliorante : P2C1 (coût marginal = -329)
 Arête P2C1 ajoutée à la proposition
-Cycle : P0 -> C5 -> P2 -> C1 -> P1 -> C0 -> P0
-  P1C6 = 0 (+)
-  P3C6 = 500 (-)
-  P3C2 = 0 (+)
+Cycle : C0 -> P0 -> C1 -> P1 -> C0
+  P1C1 = 500 (-)
+  P1C2 = 0 (+)
   P2C2 = 500 (-)
   P2C1 = 0 (+)
-  P1C1 = 500 (-)
 Delta = 500
-Arête supprimée : P3C6
-
---- Itération | base={(2, 4), (2, 1), (0, 0), (1, 1), (2, 3), (2, 6), (0, 5), (2, 2), (1, 0)} | proposition=[[0, 0, 0, 0, 0, 500, 0], [500, 0, 0, 0, 0, 0, 0], [0, 500, 500, 500, 500, 0, 500]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, -299, -309]
-Potentiels v : [300, 349, 339, 312, 334, 18, 312]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [300, 349, 339, 312, 334, 18, 312]
-P2 : [1, 50, 40, 13, 35, -281, 13]
-P3 : [-9, 40, 30, 3, 25, -291, 3]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -329, -324, -296, -317, 0, -292]
-P2 : [0, 0, -16, 17, -13, 308, 6]
-P3 : [84, 0, 0, 0, 0, 317, 0]
-
-Meilleure arête améliorante : P1C2 (coût marginal = -329)
-Arête P1C2 ajoutée à la proposition
-Cycle : C0 -> P0 -> C1 -> P1 -> C0
-  P1C1 = 0 (-)
-  P1C2 = 0 (+)
-  P2C2 = 0 (-)
-  P2C1 = 500 (+)
-Delta = 0
 Arête supprimée : P1C1
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
 
---- Itération | base={(0, 1), (2, 4), (2, 1), (1, 1), (2, 3), (2, 6), (0, 5), (2, 2), (1, 0)} | proposition=[[0, 0, 0, 0, 0, 500, 0], [500, 0, 0, 0, 0, 0, 0], [0, 500, 500, 500, 500, 0, 500]] ---
+--- Itération | base={(0, 1), (2, 4), (1, 1), (2, 3), (0, 2), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
 Proposition acyclique
 Proposition connexe
-Potentiels u : [0, 30, 20]
-Potentiels v : [-29, 20, 10, -17, 5, 18, -17]
+Potentiels u : [0, 30, 15]
+Potentiels v : [-29, 20, 15, -12, 10, 11, -12]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [-29, 20, 10, -17, 5, 18, -17]
-P2 : [1, 50, 40, 13, 35, 48, 13]
-P3 : [-9, 40, 30, 3, 25, 38, 3]
+P1 : [-29, 20, 15, -12, 10, 11, -12]
+P2 : [1, 50, 45, 18, 40, 41, 18]
+P3 : [-14, 35, 30, 3, 25, 26, 3]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [329, 0, 5, 33, 12, 0, 37]
-P2 : [0, 0, -16, 17, -13, -21, 6]
-P3 : [84, 0, 0, 0, 0, -12, 0]
+P1 : [329, 0, 0, 28, 7, 7, 32]
+P2 : [0, 0, -21, 12, -18, -14, 1]
+P3 : [89, 5, 0, 0, 0, 0, 0]
 
-Meilleure arête améliorante : P2C6 (coût marginal = -21)
-Arête P2C6 ajoutée à la proposition
-Cycle : C5 -> P0 -> C1 -> P1 -> C5
-  P1C6 = 500 (-)
-  P1C2 = 0 (+)
-  P2C2 = 0 (-)
-  P2C6 = 0 (+)
-Delta = 0
-Arête supprimée : P2C2
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-
---- Itération | base={(0, 1), (2, 4), (2, 1), (1, 5), (2, 3), (2, 6), (0, 5), (2, 2), (1, 0)} | proposition=[[0, 0, 0, 0, 0, 500, 0], [500, 0, 0, 0, 0, 0, 0], [0, 500, 500, 500, 500, 0, 500]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, 9, 20]
-Potentiels v : [-8, 20, 10, -17, 5, 18, -17]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [-8, 20, 10, -17, 5, 18, -17]
-P2 : [1, 29, 19, -8, 14, 27, -8]
-P3 : [12, 40, 30, 3, 25, 38, 3]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [308, 0, 5, 33, 12, 0, 37]
-P2 : [0, 21, 5, 38, 8, 0, 27]
-P3 : [63, 0, 0, 0, 0, -12, 0]
-
-Meilleure arête améliorante : P3C6 (coût marginal = -12)
-Arête P3C6 ajoutée à la proposition
-Cycle : C5 -> P0 -> C1 -> P2 -> C5
-  P1C6 = 500 (-)
-  P1C2 = 0 (+)
-  P3C2 = 500 (-)
-  P3C6 = 0 (+)
-Delta = 500
-Arête supprimée : P1C6
-
---- Itération | base={(0, 1), (2, 4), (2, 1), (1, 5), (2, 3), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, 21, 20]
-Potentiels v : [-20, 20, 10, -17, 5, 6, -17]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [-20, 20, 10, -17, 5, 6, -17]
-P2 : [1, 41, 31, 4, 26, 27, 4]
-P3 : [0, 40, 30, 3, 25, 26, 3]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [320, 0, 5, 33, 12, 12, 37]
-P2 : [0, 9, -7, 26, -4, 0, 15]
-P3 : [75, 0, 0, 0, 0, 0, 0]
-
-Meilleure arête améliorante : P2C3 (coût marginal = -7)
+Meilleure arête améliorante : P2C3 (coût marginal = -21)
 Arête P2C3 ajoutée à la proposition
-Cycle : C5 -> P2 -> C2 -> P1 -> C5
-  P3C6 = 500 (+)
+Cycle : C2 -> P0 -> C1 -> P1 -> C2
+  P1C3 = 0 (-)
+  P1C2 = 500 (+)
+  P2C2 = 0 (-)
+  P2C3 = 0 (+)
+Delta = 0
+Arête supprimée : P1C3
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+
+--- Itération | base={(0, 1), (2, 4), (1, 2), (1, 1), (2, 3), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30, 36]
+Potentiels v : [-29, 20, -6, -33, -11, -10, -33]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-29, 20, -6, -33, -11, -10, -33]
+P2 : [1, 50, 24, -3, 19, 20, -3]
+P3 : [7, 56, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [329, 0, 21, 49, 28, 28, 53]
+P2 : [0, 0, 0, 33, 3, 7, 22]
+P3 : [68, -16, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P3C2 (coût marginal = -16)
+Arête P3C2 ajoutée à la proposition
+Cycle : P1 -> C1 -> P2 -> C2 -> P1
+  P2C2 = 0 (-)
+  P3C2 = 0 (+)
   P3C3 = 500 (-)
   P2C3 = 0 (+)
-  P2C6 = 0 (-)
 Delta = 0
-Arête supprimée : P2C6
+Arête supprimée : P2C2
 Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
 
 --- Itération | base={(0, 1), (2, 4), (1, 2), (2, 1), (2, 3), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
@@ -2360,51 +2284,15 @@ Coût total : 54000
 Proposition acyclique
 Proposition non connexe : 3 sous-graphes
   Sous-graphe 1 : {'C0', 'P1'}
-  Sous-graphe 2 : {'C5', 'C6', 'P2', 'C3', 'C4', 'C2'}
+  Sous-graphe 2 : {'C2', 'C3', 'C5', 'C6', 'P2', 'C4'}
   Sous-graphe 3 : {'C1', 'P0'}
 Proposition non connexe : 3 sous-graphes
   Sous-graphe 1 : {'C0', 'P1'}
-  Sous-graphe 2 : {'C5', 'C6', 'P2', 'C3', 'C4', 'C2'}
+  Sous-graphe 2 : {'C2', 'C3', 'C5', 'C6', 'P2', 'C4'}
   Sous-graphe 3 : {'C1', 'P0'}
-Ajout case dégénérée : P2C6 = 0
+Ajout case dégénérée : P2C3 = 0
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'C5', 'C6', 'P2', 'C3', 'P1', 'C4', 'C2'}
-  Sous-graphe 2 : {'C1', 'P0'}
-Ajout case dégénérée : P3C2 = 0
-Proposition connexe
-Potentiels u : [0, 21, 20]
-Potentiels v : [-20, 20, 10, -17, 5, 6, -17]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [-20, 20, 10, -17, 5, 6, -17]
-P2 : [1, 41, 31, 4, 26, 27, 4]
-P3 : [0, 40, 30, 3, 25, 26, 3]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [320, 0, 5, 33, 12, 12, 37]
-P2 : [0, 9, -7, 26, -4, 0, 15]
-P3 : [75, 0, 0, 0, 0, 0, 0]
-
-Meilleure arête améliorante : P2C3 (coût marginal = -7)
-Arête P2C3 ajoutée à la proposition
-Cycle : C5 -> P2 -> C2 -> P1 -> C5
-  P3C6 = 500 (+)
-  P3C3 = 500 (-)
-  P2C3 = 0 (+)
-  P2C6 = 0 (-)
-Delta = 0
-Arête supprimée : P2C6
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-Arête dégénérée retirée : P2C6
-Arête dégénérée retirée : P3C2
-
---- Itération | base={(0, 1), (2, 4), (1, 2), (2, 3), (2, 6), (2, 2), (1, 0), (2, 5)} | proposition=[[0, 500, 0, 0, 0, 0, 0], [500, 0, 0, 0, 0, 0, 0], [0, 0, 500, 500, 500, 500, 500]] ---
-Proposition acyclique
-Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'C5', 'C6', 'P2', 'C3', 'P1', 'C4', 'C2'}
-  Sous-graphe 2 : {'C1', 'P0'}
-Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C0', 'C5', 'C6', 'P2', 'C3', 'P1', 'C4', 'C2'}
+  Sous-graphe 1 : {'C0', 'C2', 'C3', 'C5', 'C6', 'P2', 'P1', 'C4'}
   Sous-graphe 2 : {'C1', 'P0'}
 Ajout case dégénérée : P3C2 = 0
 Proposition connexe
@@ -3049,12 +2937,12 @@ Coût total : 154400
 --- Itération | base={(3, 4), (4, 6), (9, 14), (8, 12), (1, 3), (6, 11), (3, 6), (5, 9), (0, 1), (2, 4), (1, 2), (8, 14), (7, 12), (6, 10), (4, 7), (3, 5), (0, 0), (5, 8), (1, 1), (9, 15), (2, 3), (8, 13), (7, 11), (6, 9)} | proposition=[[100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 40, 100, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 80, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 100, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 100, 60, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 100, 20, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 80, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 100, 40, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 100]] ---
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C13', 'C10', 'P5', 'P8', 'C11', 'C12', 'P7', 'C9', 'C8', 'P9', 'P6', 'C14', 'C15'}
-  Sous-graphe 2 : {'C0', 'C5', 'C6', 'C7', 'P2', 'C1', 'P4', 'C3', 'P1', 'C4', 'P3', 'C2', 'P0'}
+  Sous-graphe 1 : {'P6', 'P9', 'P7', 'C11', 'C8', 'C15', 'C13', 'P5', 'C14', 'P8', 'C9', 'C12', 'C10'}
+  Sous-graphe 2 : {'C0', 'C7', 'C2', 'P0', 'P3', 'P4', 'C3', 'C5', 'C6', 'P2', 'C1', 'P1', 'C4'}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C13', 'C10', 'P5', 'P8', 'C11', 'C12', 'P7', 'C9', 'C8', 'P9', 'P6', 'C14', 'C15'}
-  Sous-graphe 2 : {'C0', 'C5', 'C6', 'C7', 'P2', 'C1', 'P4', 'C3', 'P1', 'C4', 'P3', 'C2', 'P0'}
-Ajout case dégénérée : P6C1 = 0
+  Sous-graphe 1 : {'P6', 'P9', 'P7', 'C11', 'C8', 'C15', 'C13', 'P5', 'C14', 'P8', 'C9', 'C12', 'C10'}
+  Sous-graphe 2 : {'C0', 'C7', 'C2', 'P0', 'P3', 'P4', 'C3', 'C5', 'C6', 'P2', 'C1', 'P1', 'C4'}
+Ajout case dégénérée : P7C1 = 0
 Proposition connexe
 Potentiels u : [0, -20, -30, -50, -70, -90, -110, -130, -150, -170]
 Potentiels v : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]
@@ -3274,12 +3162,12 @@ Coût total : 154400
 --- Itération | base={(4, 9), (3, 10), (5, 7), (8, 3), (0, 14), (2, 11), (1, 12), (7, 4), (6, 5), (3, 9), (5, 6), (4, 8), (8, 2), (9, 1), (1, 14), (6, 4), (7, 3), (3, 11), (9, 0), (8, 1), (1, 13), (0, 15), (2, 12), (6, 6)} | proposition=[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 100], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 100, 40, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80, 80, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 100, 20, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 100, 60, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 60, 100, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 20, 100, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 80, 80, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 40, 100, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [100, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] ---
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C13', 'C10', 'C11', 'P2', 'C12', 'C9', 'P4', 'C8', 'P1', 'C14', 'P3', 'P0', 'C15'}
-  Sous-graphe 2 : {'C0', 'P5', 'C5', 'C7', 'C6', 'P7', 'P8', 'C3', 'C1', 'P9', 'P6', 'C4', 'C2'}
+  Sous-graphe 1 : {'P6', 'C7', 'C2', 'C0', 'P9', 'P7', 'C3', 'C5', 'P5', 'C6', 'P8', 'C1', 'C4'}
+  Sous-graphe 2 : {'P0', 'P3', 'C9', 'P4', 'C11', 'C8', 'C15', 'C13', 'C14', 'P2', 'C12', 'C10', 'P1'}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {'C13', 'C10', 'C11', 'P2', 'C12', 'C9', 'P4', 'C8', 'P1', 'C14', 'P3', 'P0', 'C15'}
-  Sous-graphe 2 : {'C0', 'P5', 'C5', 'C7', 'C6', 'P7', 'P8', 'C3', 'C1', 'P9', 'P6', 'C4', 'C2'}
-Ajout case dégénérée : P3C1 = 0
+  Sous-graphe 1 : {'P6', 'C7', 'C2', 'C0', 'P9', 'P7', 'C3', 'C5', 'P5', 'C6', 'P8', 'C1', 'C4'}
+  Sous-graphe 2 : {'P0', 'P3', 'C9', 'P4', 'C11', 'C8', 'C15', 'C13', 'C14', 'P2', 'C12', 'C10', 'P1'}
+Ajout case dégénérée : P7C10 = 0
 Proposition connexe
 Potentiels u : [0, -20, -30, -50, -70, -90, -110, -130, -150, -170]
 Potentiels v : [186, 185, 184, 183, 182, 181, 180, 179, 178, 177, 176, 175, 174, 173, 172, 171]

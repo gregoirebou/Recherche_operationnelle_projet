@@ -1,16 +1,24 @@
 from Graph import Graph
 
 class TransportProblem:
-    def __init__(self, file):
-        self.n = 0  # nombre de fournisseurs
-        self.m = 0  # nombre de clients
-        self.couts = []       # matrice n x m des coûts unitaires
-        self.provisions = []  # liste de taille n
-        self.commandes = []   # liste de taille m
-        self.proposition = [] # matrice n x m de la proposition de transport
+    def __init__(self, file=None, from_data=None):
+        self.n = 0
+        self.m = 0
+        self.couts = []
+        self.provisions = []
+        self.commandes = []
+        self.proposition = []
         self.graph = None
         self.base = None
-        self.load_from_file(file)
+        if file is not None:
+            self.load_from_file(file)
+        elif from_data is not None:
+            self.n, self.couts, self.provisions, self.commandes = from_data
+            self.m = self.n
+            self.proposition = [[0] * self.m for _ in range(self.n)]
+            self.graph = self.to_graph()
+        else:
+            raise ValueError("Veuillez fournir soit 'file' soit 'from_data'")
         self.t_couts = [list(col) for col in zip(*self.couts)]
 
 
@@ -30,24 +38,16 @@ class TransportProblem:
 
     def __str__(self):
         lignes = []
-
-        # En-tête des colonnes
         header = "       " + "  ".join(f"{'C'+str(j+1):>5}" for j in range(self.m)) + "  | Provisions"
         lignes.append(header)
         lignes.append("-" * len(header))
-
-        # Lignes fournisseurs : coûts + provision
         for i in range(self.n):
             row = f"P{i + 1:<4}  " + "  ".join(f"{self.couts[i][j]:>5}" for j in range(self.m))
             row += f"  | {self.provisions[i]}"
             lignes.append(row)
 
         lignes.append("-" * len(header))
-
-        # Ligne des commandes
         lignes.append("Cmd    " + "  ".join(f"{self.commandes[j]:>5}" for j in range(self.m)))
-
-        # Proposition si non vide
         if any(self.proposition[i][j] != 0 for i in range(self.n) for j in range(self.m)):
             lignes.append("\nProposition :")
             lignes.append("       " + "  ".join(f"{'C'+str(j+1):>5}" for j in range(self.m)))
@@ -134,13 +134,13 @@ class TransportProblem:
                 self.proposition[other_index][best_index] = val_max_to_insert
                 provisions[other_index] -= val_max_to_insert
                 cmd[best_index] -= val_max_to_insert
-                print(f"Colonne C{best_index + 1} sélectionnée → F{other_index + 1}C{best_index + 1} = {val_max_to_insert}")
+                print(f"Colonne C{best_index + 1} sélectionnée -> F{other_index + 1}C{best_index + 1} = {val_max_to_insert}")
 
             else:
                 self.proposition[best_index][other_index] = val_max_to_insert
                 provisions[best_index] -= val_max_to_insert
                 cmd[other_index] -= val_max_to_insert
-                print(f"Ligne P{best_index + 1} sélectionnée → P{best_index + 1}C{other_index + 1} = {val_max_to_insert}")
+                print(f"Ligne P{best_index + 1} sélectionnée -> P{best_index + 1}C{other_index + 1} = {val_max_to_insert}")
 
     def totalcost(self):
         total_cost = 0
@@ -196,8 +196,6 @@ class TransportProblem:
                         elif v[j] is not None and u[i] is None:
                             u[i] = self.couts[i][j] - v[j]
                             changed = True
-
-        # Vérification
         if None in u or None in v:
             print(f"AVERTISSEMENT : potentiels incomplets u={u} v={v}")
             print("La base n'est pas connexe, fix_degeneracy insuffisant.")
@@ -225,7 +223,7 @@ class TransportProblem:
             for j in range(self.m):
                 if u[i] is None or v[j] is None:
                     row.append(None)
-                    continue  # ← manquait le continue
+                    continue
                 marginal = self.couts[i][j] - u[i] - v[j]
                 row.append(marginal)
                 if marginal < best_val:
@@ -268,18 +266,12 @@ class TransportProblem:
 
         delta = min(self.proposition[i][j] for i, j, s in values if s == "-")
         print(f"Delta = {delta}")
-
-        # Mise à jour
         for i, j, signe in values:
             if signe == "+":
                 self.proposition[i][j] += delta
             else:
                 self.proposition[i][j] -= delta
-
-        # Supprimer UNE case "-" à 0, en évitant new_edge si possible
         cases_a_supprimer = [(i, j) for i, j, s in values if s == "-" and self.proposition[i][j] == 0]
-
-        # Préférer supprimer une case qui n'est pas new_edge
         case_supprimee = None
         for i, j in cases_a_supprimer:
             if (i, j) != new_edge:
@@ -328,15 +320,6 @@ class TransportProblem:
                         print(f"Arête dégénérée retirée : P{di+1}C{dj+1}")
             else:
                 break
-#
-# Transport1 = TransportProblem("Probleme11.txt")
-# Transport1.BalasHammer()
-# print(Transport1)
-# print(Transport1.totalcost())
-#
-# Transport1.stepping_stone()
-# print(Transport1)
-# print(Transport1.totalcost())
 
 
     
