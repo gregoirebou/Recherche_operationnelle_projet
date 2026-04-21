@@ -8,7 +8,7 @@ import pickle
 
 class Complexite:
     def __init__(self):
-        self.tailles_n = [10, 40, 100, 400, 1000, 4000, 10000]
+        self.tailles_n = [10, 40, 100, 400]#, #1000, 4000, 10000]
         self.nb_iterations = 5
         self.fichier_sauvegarde = "sauvegarde_complexite.pkl"
         if os.path.exists(self.fichier_sauvegarde):
@@ -94,7 +94,6 @@ class Complexite:
                 print()
 
         except KeyboardInterrupt:
-            # Ce bloc s'exécute si tu fais Ctrl+C dans le terminal
             print("\n\nPAUSE D'URGENCE ACTIVÉE !\nL'itération en cours a été annulée.\nToutes les itérations précédentes sont sauvegardées.")
 
     def tracer_graphiques(self):
@@ -179,3 +178,55 @@ class Complexite:
         plt.grid(True, which="both", ls="-", alpha=0.5)
         plt.legend()
         plt.show()
+
+    def analyser_complexite_empirique(self):
+        import math
+
+        print("\n" + "="*70)
+        print("   ANALYSE PIRE CAS DE LA COMPLEXITÉ")
+        print("="*70)
+
+        metriques = [
+            ("total_NO", "Nord-Ouest + Marche-Pied"),
+            ("total_BH", "Balas-Hammer + Marche-Pied")
+        ]
+
+        for cle_metrique, nom_metrique in metriques:
+            print(f"\n[{nom_metrique}]")
+
+            print("\n1. Ratios Temps / n^k (On cherche la colonne qui se stabilise) :")
+            print(f"{'n':<8} | {'Temps max(s)':<12} | {'T / n':<12} | {'T / n^2':<12} | {'T / n^3':<12} | {'T / n^4':<12}")
+            print("-" * 65)
+
+            temps_max_par_n = {}
+            for n in self.tailles_n:
+                if not self.resultats[cle_metrique].get(n):
+                    continue
+                t_max = max(self.resultats[cle_metrique][n])
+                temps_max_par_n[n] = t_max
+
+                t_n = t_max / n
+                t_n2 = t_max / (n**2)
+                t_n3 = t_max / (n**3)
+                t_n4 = t_max / (n**4)
+
+                print(f"{n:<8} | {t_max:<12.5f} | {t_n:<12.6f} | {t_n2:<12.8f} | {t_n3:<12.10f} | {t_n3:<12.10f}")
+
+            print("\n2. Rapports de croissance entre étapes :")
+            etapes = [(10, 40), (40, 100), (100, 400), (40, 400)]
+
+            for n1, n2 in etapes:
+                if n1 in temps_max_par_n and n2 in temps_max_par_n:
+                    t1 = temps_max_par_n[n1]
+                    t2 = temps_max_par_n[n2]
+
+                    if t1 > 0:
+                        ratio_temps = t2 / t1
+                        ratio_n = n2 / n1
+
+                        k_empirique = math.log(ratio_temps) / math.log(ratio_n)
+
+                        print(f"  > Passage de n={n1} à n={n2} (Taille x{ratio_n:.1f})")
+                        print(f"    - Le temps a été multiplié par : x{ratio_temps:.2f}")
+                        print(f"    - Puissance déduite (O(n^k))   : k ≈ {k_empirique:.2f}")
+            print("-" * 70)

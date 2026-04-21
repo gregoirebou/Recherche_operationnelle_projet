@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Graph:
     def __init__(self):
         self.graph = {}
@@ -14,10 +17,10 @@ class Graph:
 
     def bfs(self, start):
         visited = {start: None}  # sommet: parent
-        queue = [start]
+        queue = deque([start])
         cycle = None
         while queue:
-            node = queue.pop(0)
+            node = queue.popleft()
             for neighbor, _ in self.graph[node]:
                 if neighbor not in visited:
                     visited[neighbor] = node
@@ -61,11 +64,11 @@ class Graph:
         """Retourne le cycle complet sous forme de liste de sommets."""
         start = next(iter(self.graph))
         visited = {start: None}
-        queue = [start]
+        queue = deque([start])
         cycle_edge = None
 
         while queue and not cycle_edge:
-            node = queue.pop(0)
+            node = queue.popleft()
             for neighbor, _ in self.graph[node]:
                 if neighbor not in visited:
                     visited[neighbor] = node

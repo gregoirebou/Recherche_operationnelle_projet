@@ -1,8 +1,6 @@
 from Complexite import Complexite
 from TransportProblem import TransportProblem
 import contextlib
-import sys
-
 
 def main():
     continuer = True
@@ -97,7 +95,10 @@ def run_complexity_study():
     etude.lancer_etude()
     print("\nCalculs terminés ! Génération des graphiques en cours...")
     etude.tracer_graphiques()
+
+    etude.analyser_complexite_empirique()
     print("Étude de complexité terminée.")
 
 if __name__ == "__main__":
     run_complexity_study()
+    #main()

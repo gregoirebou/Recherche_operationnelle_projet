@@ -1,4 +1,5 @@
 from Graph import Graph
+import heapq
 
 class TransportProblem:
     def __init__(self, file=None, from_data=None):
@@ -97,7 +98,7 @@ class TransportProblem:
                 if len(couts_dispo) < 2:
                     penalty_row[i] = 0
                 else:
-                    s = sorted(couts_dispo)
+                    s = heapq.nsmallest(2, couts_dispo)
                     penalty_row[i] = s[1] - s[0]
 
             for j in range(self.m):
@@ -108,7 +109,7 @@ class TransportProblem:
                 if len(couts_dispo) < 2:
                     penalty_col[j] = 0
                 else:
-                    s = sorted(couts_dispo)
+                    s = heapq.nsmallest(2, couts_dispo)
                     penalty_col[j] = s[1] - s[0]
             print(f"Pénalités lignes : {penalty_row}")
             print(f"Pénalités colonnes : {penalty_col}")
@@ -143,17 +144,16 @@ class TransportProblem:
                 print(f"Ligne P{best_index + 1} sélectionnée -> P{best_index + 1}C{other_index + 1} = {val_max_to_insert}")
 
     def totalcost(self):
-        total_cost = 0
-        for i in range(self.n):
-            for j in range(self.m):
-                total_cost += self.proposition[i][j] * self.couts[i][j]
-        return total_cost
+        if self.base:
+            return sum(self.proposition[i][j] * self.couts[i][j] for i, j in self.base)
+
+        return sum(self.proposition[i][j] * self.couts[i][j] for i in range(self.n) for j in range(self.m) if self.proposition[i][j] > 0)
 
     def to_graph(self):
         g = Graph()
         source = self.base if self.base else {(i, j) for i in range(self.n) for j in range(self.m) if self.proposition[i][j] > 0}
         for i, j in source:
-            g.add_edge(f"P{i}", f"C{j}", self.proposition[i][j])
+            g.add_edge(('P', i), ('C', j), self.proposition[i][j])
         return g
 
     def is_acyclic(self):
@@ -166,13 +166,13 @@ class TransportProblem:
             components = g.get_connected_components()
             comp1, comp2 = components[0], components[1]
             for node in comp1:
-                if node.startswith("P"):
-                    i = int(node[1:])
+                if node[0] == "P":
+                    i = node[1]
                     for node2 in comp2:
-                        if node2.startswith("C"):
-                            j = int(node2[1:])
+                        if node2[0] == "C":
+                            j = node2[1]
                             self.proposition[i][j] = 0
-                            g.add_edge(f"P{i}", f"C{j}", 0)
+                            g.add_edge(('P', i), ('C', j), 0)
                             self.base.add((i, j))
                             self.last_degenerate_edges.append((i, j))
                             print(f"Ajout case dégénérée : P{i + 1}C{j + 1} = 0")
@@ -187,15 +187,13 @@ class TransportProblem:
         changed = True
         while changed:
             changed = False
-            for i in range(self.n):
-                for j in range(self.m):
-                    if (i, j) in self.base:
-                        if u[i] is not None and v[j] is None:
-                            v[j] = self.couts[i][j] - u[i]
-                            changed = True
-                        elif v[j] is not None and u[i] is None:
-                            u[i] = self.couts[i][j] - v[j]
-                            changed = True
+            for i, j in self.base:
+                if u[i] is not None and v[j] is None:
+                    v[j] = self.couts[i][j] - u[i]
+                    changed = True
+                elif v[j] is not None and u[i] is None:
+                    u[i] = self.couts[i][j] - v[j]
+                    changed = True
         if None in u or None in v:
             print(f"AVERTISSEMENT : potentiels incomplets u={u} v={v}")
             print("La base n'est pas connexe, fix_degeneracy insuffisant.")
@@ -239,16 +237,17 @@ class TransportProblem:
     def maximize_cycle(self, new_edge=None):
         g = self.to_graph()
         cycle = g.find_cycle()
-        print(f"Cycle : {' -> '.join(cycle)} -> {cycle[0]}")
+        cycle_str = [f"{n[0]}{n[1]}" for n in cycle]
+        print(f"Cycle : {' -> '.join(cycle_str)} -> {cycle_str[0]}")
 
         raw = []
         for k in range(len(cycle)):
             node_a = cycle[k]
             node_b = cycle[(k + 1) % len(cycle)]
-            if node_a.startswith("P"):
-                i, j = int(node_a[1:]), int(node_b[1:])
+            if node_a[0] == "P":
+                i, j = node_a[1], node_b[1]
             else:
-                i, j = int(node_b[1:]), int(node_a[1:])
+                i, j = node_b[1], node_a[1]
             raw.append((i, j, k))
 
         flip = False
