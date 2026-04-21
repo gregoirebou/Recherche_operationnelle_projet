@@ -15,14 +15,16 @@ class Complexite:
             print("\nSauvegarde trouvée, reprise des calculs là où ils s'étaient arrêtés")
             with open(self.fichier_sauvegarde, 'rb') as f:
                 self.resultats = pickle.load(f)
-        self.resultats = {
-            "theta_NO": {n: [] for n in self.tailles_n},
-            "theta_BH": {n: [] for n in self.tailles_n},
-            "t_NO": {n: [] for n in self.tailles_n},
-            "t_BH": {n: [] for n in self.tailles_n},
-            "total_NO" : {},
-            "total_BH" : {}
-        }
+        else:
+            print("\nNouvelle étude de complexité (Aucune sauvegarde trouvée).")
+            self.resultats = {
+                "theta_NO": {n: [] for n in self.tailles_n},
+                "theta_BH": {n: [] for n in self.tailles_n},
+                "t_NO": {n: [] for n in self.tailles_n},
+                "t_BH": {n: [] for n in self.tailles_n},
+                "total_NO" : {},
+                "total_BH" : {}
+            }
 
     def generer_probleme_aleatoire(self, n):
         couts = [[random.randint(1, 100) for _ in range(n)] for _ in range(n)]
@@ -68,7 +70,7 @@ class Complexite:
                 iterations_deja_faites = len(self.resultats["theta_NO"][n])
 
                 if iterations_deja_faites >= self.nb_iterations:
-                    print(f"n={n} déjà terminé ({self.nb_iterations}/{self.nb_iterations}). On passe au suivant.")
+                    print(f"n={n} déjà terminé ({self.nb_iterations}/{self.nb_iterations}).")
                     continue
 
                 print(f"\nReprise des tests pour n = {n} (à partir de l'itération {iterations_deja_faites + 1})")
