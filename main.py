@@ -2,6 +2,7 @@ from Complexite import Complexite
 from TransportProblem import TransportProblem
 import contextlib
 
+
 def main():
     continuer = True
     while continuer:
@@ -13,6 +14,7 @@ def main():
         except FileNotFoundError:
             print(f"Fichier {filename} introuvable.")
             continue
+
         print("\n--- Tableau de contraintes ---")
         print(transport)
         print("\nChoisissez l'algorithme pour la proposition initiale :")
@@ -77,15 +79,14 @@ def run_all_problems():
                     print("\n--- Proposition initiale ---")
                     print(t)
                     print(f"Coût total : {t.totalcost()}")
-
                     print("\n--- Méthode du marche-pied ---")
                     t.stepping_stone()
-
                     print("\n--- Proposition optimale ---")
                     print(t)
                     print(f"Coût total optimal : {t.totalcost()}")
 
-    print("Trace écrite dans trace_execution_2.2.txt")
+    print("Trace écrite dans trace_execution.txt")
+
 
 def run_complexity_study():
     print("\n" + "="*50)
@@ -95,10 +96,10 @@ def run_complexity_study():
     etude.lancer_etude()
     print("\nCalculs terminés ! Génération des graphiques en cours...")
     etude.tracer_graphiques()
-
     etude.analyser_complexite_empirique()
     print("Étude de complexité terminée.")
 
+
 if __name__ == "__main__":
     run_complexity_study()
-    #main()
+    # main()
