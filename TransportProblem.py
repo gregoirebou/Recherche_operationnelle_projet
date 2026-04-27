@@ -26,7 +26,6 @@ class TransportProblem:
         else:
             raise ValueError("Veuillez fournir soit 'file' soit 'from_data'")
 
-        self.t_couts = [list(col) for col in zip(*self.couts)]
 
     def load_from_file(self, filepath):
         with open(f"TransportFiles/{filepath}", 'r') as f:
@@ -82,10 +81,13 @@ class TransportProblem:
     def NorthWest(self):
         cmd = self.commandes.copy()
         provisions = self.provisions.copy()
+        self.base = set()
         i, j = 0, 0
         while i < self.n and j < self.m:
             val = min(cmd[j], provisions[i])
             self.proposition[i][j] = val
+            if val > 0:
+                self.base.add((i, j))
             cmd[j] -= val
             provisions[i] -= val
             if provisions[i] == 0:
@@ -98,12 +100,13 @@ class TransportProblem:
         return min(provisions[i], cmd[j_min]), j_min
 
     def _get_capacity_col(self, j, active_rows, cmd, provisions):
-        i_min = min(active_rows, key=lambda i: self.t_couts[j][i])
+        i_min = min(active_rows, key=lambda i: self.couts[i][j])
         return min(provisions[i_min], cmd[j]), i_min
 
     def BalasHammer(self):
         cmd = self.commandes.copy()
         provisions = self.provisions.copy()
+        self.base = set()
         active_rows = set(range(self.n))
         active_cols = set(range(self.m))
         penalty_row = [0] * self.n
@@ -111,20 +114,12 @@ class TransportProblem:
 
         while active_rows and active_cols:
             for i in active_rows:
-                couts_dispo = [self.couts[i][j] for j in active_cols]
-                if len(couts_dispo) < 2:
-                    penalty_row[i] = 0
-                else:
-                    s = heapq.nsmallest(2, couts_dispo)
-                    penalty_row[i] = s[1] - s[0]
+                s = heapq.nsmallest(2, (self.couts[i][j] for j in active_cols))
+                penalty_row[i] = s[1] - s[0] if len(s) >= 2 else 0
 
             for j in active_cols:
-                couts_dispo = [self.t_couts[j][i] for i in active_rows]
-                if len(couts_dispo) < 2:
-                    penalty_col[j] = 0
-                else:
-                    s = heapq.nsmallest(2, couts_dispo)
-                    penalty_col[j] = s[1] - s[0]
+                s = heapq.nsmallest(2, (self.couts[i][j] for i in active_rows))
+                penalty_col[j] = s[1] - s[0] if len(s) >= 2 else 0
 
             if self.verbose:
                 print(f"Pénalités lignes : {penalty_row}")
@@ -151,6 +146,7 @@ class TransportProblem:
 
             if best_type == 1:
                 self.proposition[other_index][best_index] = val_max
+                self.base.add((other_index, best_index))
                 provisions[other_index] -= val_max
                 cmd[best_index] -= val_max
                 if self.verbose:
@@ -161,6 +157,7 @@ class TransportProblem:
                     active_cols.discard(best_index)
             else:
                 self.proposition[best_index][other_index] = val_max
+                self.base.add((best_index, other_index))
                 provisions[best_index] -= val_max
                 cmd[other_index] -= val_max
                 if self.verbose:
@@ -242,6 +239,16 @@ class TransportProblem:
     def compute_marginal_costs(self, u, v):
         best, best_val = None, 0
 
+        for i in range(self.n):
+            if u[i] is None:
+                continue
+            for j in range(self.m):
+                if v[j] is None:
+                    continue
+                marginal = self.couts[i][j] - u[i] - v[j]
+                if marginal < best_val:
+                    best_val, best = marginal, (i, j)
+
         if self.verbose:
             print("\nTable des coûts potentiels (u[i] + v[j]) :")
             for i in range(self.n):
@@ -251,33 +258,23 @@ class TransportProblem:
                 row = [u[i] + v[j] if v[j] is not None else None for j in range(self.m)]
                 print(f"P{i + 1} : {row}")
             print("\nTable des coûts marginaux (c[i][j] - u[i] - v[j]) :")
-
-        for i in range(self.n):
-            if u[i] is None:
-                continue
-            row = []
-            for j in range(self.m):
-                if v[j] is None:
-                    row.append(None)
-                    continue
-                marginal = self.couts[i][j] - u[i] - v[j]
-                row.append(marginal)
-                if marginal < best_val:
-                    best_val, best = marginal, (i, j)
-            if self.verbose:
+            for i in range(self.n):
+                row = [
+                    None if (u[i] is None or v[j] is None) else self.couts[i][j] - u[i] - v[j]
+                    for j in range(self.m)
+                ]
                 print(f"P{i + 1} : {row}")
-
-        if self.verbose:
             if best:
                 print(f"\nMeilleure arête améliorante : P{best[0] + 1}C{best[1] + 1} (coût marginal = {best_val})")
             else:
                 print("\nAucune arête améliorante, solution optimale.")
+
         return best
 
     def _maximize_cycle(self, graph, new_edge=None):
         cycle = graph.find_cycle()
-        cycle_str = [f"{n[0]}{n[1]}" for n in cycle]
         if self.verbose:
+            cycle_str = [f"{n[0]}{n[1]}" for n in cycle]
             print(f"Cycle : {' -> '.join(cycle_str)} -> {cycle_str[0]}")
 
         raw = []
@@ -336,10 +333,11 @@ class TransportProblem:
     # ------------------------------------------------------------------
 
     def stepping_stone(self):
-        self.base = {
-            (i, j) for i in range(self.n) for j in range(self.m)
-            if self.proposition[i][j] > 0
-        }
+        if self.base is None:  # fallback if called without NorthWest/BalasHammer
+            self.base = {
+                (i, j) for i in range(self.n) for j in range(self.m)
+                if self.proposition[i][j] > 0
+            }
         self.graph = self._build_graph()  # single initial build
 
         while True:

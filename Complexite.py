@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 import os
 import pickle
-from TransportProblemOptiClaude import TransportProblem
+from TransportProblem import TransportProblem
 
 
 class Complexite:
