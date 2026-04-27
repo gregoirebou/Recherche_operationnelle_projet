@@ -1,0 +1,114 @@
+============================================================
+  PROBLÈME 1 — Nord-Ouest
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+--- Méthode Nord-Ouest ---
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 8000
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 8000
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('C', 0)}
+  Sous-graphe 2 : {('P', 1), ('C', 1)}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('C', 0)}
+  Sous-graphe 2 : {('P', 1), ('C', 1)}
+Ajout case dégénérée : P1C2 = 0
+Proposition connexe
+Potentiels u : [0, 30]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [60, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [-50, 0]
+
+Meilleure arête améliorante : P2C1 (coût marginal = -50)
+Arête P2C1 ajoutée à la proposition
+Cycle : C0 -> P1 -> C1 -> P0 -> C0
+  P2C1 = 0 (+)
+  P2C2 = 100 (-)
+  P1C2 = 0 (+)
+  P1C1 = 100 (-)
+Delta = 100
+Arête supprimée : P2C2
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       100      0
+Coût total : 3000
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [0, 50]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 100
+P2        10     50  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       100      0
+Coût total optimal : 3000

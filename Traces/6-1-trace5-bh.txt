@@ -1,0 +1,105 @@
+============================================================
+  PROBLÈME 5 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [2, 1, 1]
+Pénalités colonnes : [1, 0, 2]
+Pénalité maximale : 2
+Candidats lignes : [0], Candidats colonnes : [2]
+Ligne P1 sélectionnée -> P1C1 = 25
+Pénalités lignes : [2, 1, 1]
+Pénalités colonnes : [0, 1, 2]
+Pénalité maximale : 2
+Candidats lignes : [], Candidats colonnes : [2]
+Colonne C3 sélectionnée -> F2C3 = 20
+Pénalités lignes : [2, 2, 1]
+Pénalités colonnes : [0, 1, 2]
+Pénalité maximale : 2
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée -> P2C1 = 5
+Pénalités lignes : [2, 2, 1]
+Pénalités colonnes : [0, 0, 2]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C1 = 5
+Pénalités lignes : [2, 2, 0]
+Pénalités colonnes : [0, 0, 2]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [1]
+Ligne P3 sélectionnée -> P3C2 = 20
+
+--- Proposition initiale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total : 425
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total : 425
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 1, 1]
+Potentiels v : [5, 6, 4]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [5, 6, 4]
+P2 : [6, 7, 5]
+P3 : [6, 7, 5]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 1, 4]
+P2 : [0, 1, 0]
+P3 : [0, 0, 2]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3  | Provisions
+----------------------------------------
+P1         5      7      8  | 25
+P2         6      8      5  | 25
+P3         6      7      7  | 25
+----------------------------------------
+Cmd       35     20     20
+
+Proposition :
+          C1     C2     C3
+P1        25      0      0
+P2         5      0     20
+P3         5     20      0
+Coût total optimal : 425

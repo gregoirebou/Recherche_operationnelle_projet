@@ -1,0 +1,128 @@
+============================================================
+  PROBLÈME 8 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [2, 12]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée -> P2C1 = 200
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [23, 12]
+Pénalité maximale : 30
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée -> P1C2 = 100
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [23, 32]
+Pénalité maximale : 32
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée -> F5C2 = 200
+Pénalités lignes : [30, 40, 15, 10, 4]
+Pénalités colonnes : [20, 5]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée -> F4C1 = 100
+Pénalités lignes : [30, 40, 0, 0, 4]
+Pénalités colonnes : [20, 5]
+Pénalité maximale : 5
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée -> F3C2 = 100
+Pénalités lignes : [30, 40, 0, 0, 4]
+Pénalités colonnes : [20, 0]
+Pénalité maximale : 0
+Candidats lignes : [3], Candidats colonnes : [1]
+Ligne P4 sélectionnée -> P4C2 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total : 17600
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total : 17600
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 0, 20, 25, -12]
+Potentiels v : [10, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 20]
+P2 : [10, 20]
+P3 : [30, 40]
+P4 : [35, 45]
+P5 : [-2, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [40, 0]
+P2 : [0, 30]
+P3 : [25, 0]
+P4 : [0, 0]
+P5 : [14, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total optimal : 17600

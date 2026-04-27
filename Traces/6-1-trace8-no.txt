@@ -1,0 +1,153 @@
+============================================================
+  PROBLÈME 8 — Nord-Ouest
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+--- Méthode Nord-Ouest ---
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1       100      0
+P2       200      0
+P3         0    100
+P4         0    200
+P5         0    200
+Coût total : 21600
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1       100      0
+P2       200      0
+P3         0    100
+P4         0    200
+P5         0    200
+Coût total : 21600
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('P', 1), ('C', 0)}
+  Sous-graphe 2 : {('P', 2), ('C', 1), ('P', 3), ('P', 4)}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('P', 1), ('C', 0)}
+  Sous-graphe 2 : {('P', 2), ('C', 1), ('P', 3), ('P', 4)}
+Ajout case dégénérée : P1C2 = 0
+Proposition connexe
+Potentiels u : [0, -40, 20, 25, -12]
+Potentiels v : [50, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [50, 20]
+P2 : [10, -20]
+P3 : [70, 40]
+P4 : [75, 45]
+P5 : [38, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [0, 70]
+P3 : [-15, 0]
+P4 : [-40, 0]
+P5 : [-26, 0]
+
+Meilleure arête améliorante : P4C1 (coût marginal = -40)
+Arête P4C1 ajoutée à la proposition
+Cycle : P0 -> C1 -> P3 -> C0 -> P0
+  P1C2 = 0 (+)
+  P4C2 = 200 (-)
+  P4C1 = 0 (+)
+  P1C1 = 100 (-)
+Delta = 100
+Arête supprimée : P1C1
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total : 17600
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 0, 20, 25, -12]
+Potentiels v : [10, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 20]
+P2 : [10, 20]
+P3 : [30, 40]
+P4 : [35, 45]
+P5 : [-2, 8]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [40, 0]
+P2 : [0, 30]
+P3 : [25, 0]
+P4 : [0, 0]
+P5 : [14, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        55     40  | 100
+P4        35     45  | 200
+P5        12      8  | 200
+---------------------------------
+Cmd      300    500
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3         0    100
+P4       100    100
+P5         0    200
+Coût total optimal : 17600

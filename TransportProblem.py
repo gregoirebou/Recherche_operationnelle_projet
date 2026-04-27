@@ -328,30 +328,26 @@ class TransportProblem:
                 print(f"Arête supprimée : P{i + 1}C{j + 1}")
         return delta
 
-    # ------------------------------------------------------------------
-    # Stepping-stone (main optimisation loop)
-    # ------------------------------------------------------------------
-
     def stepping_stone(self):
         if self.base is None:  # fallback if called without NorthWest/BalasHammer
             self.base = {
                 (i, j) for i in range(self.n) for j in range(self.m)
                 if self.proposition[i][j] > 0
             }
-        self.graph = self._build_graph()  # single initial build
+        self.graph = self._build_graph()
 
         while True:
             if self.verbose:
-                print(f"\n--- Itération | base={self.base} | proposition={self.proposition} ---")
+                print(f"\n--- Itération ---")
+                print(self)
+                print(f"Coût total : {self.totalcost()}")
 
-            # Remove any cycles in the current basis (initial step only in practice)
             while not self.graph.is_acyclic():
                 self._maximize_cycle(self.graph)
-                # graph is updated in place; no rebuild needed
 
             self.last_degenerate_edges = []
             if not self.graph.is_connected():
-                self.fix_degeneracy()  # already updates self.graph in place
+                self.fix_degeneracy()
 
             u, v = self.compute_potentials()
             best = self.compute_marginal_costs(u, v)
@@ -360,12 +356,11 @@ class TransportProblem:
                 i, j = best
                 self.proposition[i][j] = 0
                 self.base.add((i, j))
-                self.graph.add_edge(('P', i), ('C', j), 0)  # incremental add
+                self.graph.add_edge(('P', i), ('C', j), 0)
                 if self.verbose:
                     print(f"Arête P{i+1}C{j+1} ajoutée à la proposition")
 
                 delta = self._maximize_cycle(self.graph, new_edge=(i, j))
-                # _maximize_cycle removes the leaving edge from self.graph
 
                 if delta == 0:
                     if self.verbose:

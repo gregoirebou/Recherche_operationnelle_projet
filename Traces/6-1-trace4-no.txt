@@ -1,0 +1,107 @@
+============================================================
+  PROBLÈME 4 — Nord-Ouest
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+--- Méthode Nord-Ouest ---
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1       100    500
+P2         0    500
+Coût total : 18500
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1       100    500
+P2         0    500
+Coût total : 18500
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 29]
+Potentiels v : [30, 1]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 1]
+P2 : [59, 30]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [-58, 0]
+
+Meilleure arête améliorante : P2C1 (coût marginal = -58)
+Arête P2C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P1 -> C0
+  P1C1 = 100 (-)
+  P1C2 = 500 (+)
+  P2C2 = 500 (-)
+  P2C1 = 0 (+)
+Delta = 100
+Arête supprimée : P1C1
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total : 12700
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 29]
+Potentiels v : [-28, 1]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-28, 1]
+P2 : [1, 30]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [58, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30      1  | 600
+P2         1     30  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 12700

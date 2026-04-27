@@ -33,22 +33,9 @@ class Complexite:
 
     def generer_probleme_aleatoire(self, n):
         couts = [[random.randint(1, 100) for _ in range(n)] for _ in range(n)]
-
-        # Each part guaranteed positive; average ≈ total/n ≈ 100
-        total = n * random.randint(50, 150)
-
-        def split_total(total, n):
-            if n == 1:
-                return [total]
-            cuts = sorted(random.sample(range(1, total), n - 1))
-            parts = [cuts[0]]
-            for k in range(1, n - 1):
-                parts.append(cuts[k] - cuts[k - 1])
-            parts.append(total - cuts[-1])
-            return parts
-
-        provisions = split_total(total, n)
-        commandes = split_total(total, n)
+        temp = [[random.randint(1, 100) for _ in range(n)] for _ in range(n)]
+        provisions = [sum(row) for row in temp]
+        commandes = [sum(col) for col in zip(*temp)]
         return couts, provisions, commandes
 
     def mesurer_temps(self, n):

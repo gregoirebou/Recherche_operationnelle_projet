@@ -1,0 +1,78 @@
+============================================================
+  PROBLÈME 2 — Nord-Ouest
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+--- Méthode Nord-Ouest ---
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 2000
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total : 2000
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('C', 0)}
+  Sous-graphe 2 : {('P', 1), ('C', 1)}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 0), ('C', 0)}
+  Sous-graphe 2 : {('P', 1), ('C', 1)}
+Ajout case dégénérée : P1C2 = 0
+Proposition connexe
+Potentiels u : [0, -10]
+Potentiels v : [10, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 20]
+P2 : [0, 10]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0]
+P2 : [30, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        10     20  | 100
+P2        30     10  | 100
+---------------------------------
+Cmd      100    100
+
+Proposition :
+          C1     C2
+P1       100      0
+P2         0    100
+Coût total optimal : 2000

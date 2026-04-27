@@ -1,0 +1,86 @@
+============================================================
+  PROBLÈME 3 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [10, 40]
+Pénalités colonnes : [20, 30]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée -> P2C1 = 100
+Pénalités lignes : [0, 0]
+Pénalités colonnes : [20, 30]
+Pénalité maximale : 30
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée -> F1C2 = 600
+Pénalités lignes : [0, 0]
+Pénalités colonnes : [20, 0]
+Pénalité maximale : 0
+Candidats lignes : [1], Candidats colonnes : [1]
+Ligne P2 sélectionnée -> P2C2 = 400
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total : 33000
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total : 33000
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 30]
+Potentiels v : [-20, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-20, 20]
+P2 : [10, 50]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [50, 0]
+P2 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        30     20  | 600
+P2        10     50  | 500
+---------------------------------
+Cmd      100   1000
+
+Proposition :
+          C1     C2
+P1         0    600
+P2       100    400
+Coût total optimal : 33000

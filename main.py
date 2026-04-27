@@ -47,45 +47,48 @@ def main():
     print("Fin du programme.")
 
 
-def run_all_problems():
-    with open("trace_execution.txt", "w", encoding="utf-8") as f:
-        with contextlib.redirect_stdout(f):
-            for num in range(1, 13):
-                filename = f"Probleme{num}.txt"
-                print(f"\n{'='*60}")
-                print(f"  PROBLÈME {num}")
-                print(f"{'='*60}")
+def run_all_problems(groupe=6, equipe=1):
+    for num in range(1, 13):
+        filename = f"Probleme{num}.txt"
 
-                try:
-                    transport = TransportProblem(filename)
-                except FileNotFoundError:
-                    print(f"Fichier {filename} introuvable, problème ignoré.")
-                    continue
+        try:
+            TransportProblem(filename)  # vérifie que le fichier existe
+        except FileNotFoundError:
+            print(f"Fichier {filename} introuvable, problème ignoré.")
+            continue
 
-                print("\n--- Tableau de contraintes ---")
-                print(transport)
+        for algo, nom, suffixe in [("NW", "Nord-Ouest", "no"), ("BH", "Balas-Hammer", "bh")]:
+            trace_filename = f"{groupe}-{equipe}-trace{num}-{suffixe}.txt"
 
-                for algo, nom in [("NW", "Nord-Ouest"), ("BH", "Balas-Hammer")]:
-                    print(f"\n{'='*40}")
-                    print(f"  Algorithme : {nom}")
-                    print(f"{'='*40}")
+            with open(trace_filename, "w", encoding="utf-8") as f:
+                with contextlib.redirect_stdout(f):
+                    print(f"{'='*60}")
+                    print(f"  PROBLÈME {num} — {nom}")
+                    print(f"{'='*60}")
 
                     t = TransportProblem(filename)
+                    print("\n--- Tableau de contraintes ---")
+                    print(t)
+
                     if algo == "NW":
+                        print("\n--- Méthode Nord-Ouest ---")
                         t.NorthWest()
                     else:
+                        print("\n--- Méthode Balas-Hammer ---")
                         t.BalasHammer()
 
                     print("\n--- Proposition initiale ---")
                     print(t)
                     print(f"Coût total : {t.totalcost()}")
+
                     print("\n--- Méthode du marche-pied ---")
                     t.stepping_stone()
+
                     print("\n--- Proposition optimale ---")
                     print(t)
                     print(f"Coût total optimal : {t.totalcost()}")
 
-    print("Trace écrite dans trace_execution.txt")
+            print(f"Trace écrite : {trace_filename}")
 
 
 def run_complexity_study():
@@ -101,5 +104,6 @@ def run_complexity_study():
 
 
 if __name__ == "__main__":
-    run_complexity_study()
+    #run_complexity_study()
     # main()
+    run_all_problems(6,1)

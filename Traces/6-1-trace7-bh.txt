@@ -1,0 +1,162 @@
+============================================================
+  PROBLÈME 7 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [30, 40, 10, 10]
+Pénalités colonnes : [35, 15]
+Pénalité maximale : 40
+Candidats lignes : [1], Candidats colonnes : []
+Ligne P2 sélectionnée -> P2C1 = 200
+Pénalités lignes : [30, 40, 10, 10]
+Pénalités colonnes : [5, 15]
+Pénalité maximale : 30
+Candidats lignes : [0], Candidats colonnes : []
+Ligne P1 sélectionnée -> P1C2 = 100
+Pénalités lignes : [30, 40, 10, 10]
+Pénalités colonnes : [5, 5]
+Pénalité maximale : 10
+Candidats lignes : [2, 3], Candidats colonnes : []
+Ligne P4 sélectionnée -> P4C2 = 200
+Pénalités lignes : [30, 40, 0, 10]
+Pénalités colonnes : [0, 5]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [0]
+Ligne P3 sélectionnée -> P3C1 = 100
+
+--- Proposition initiale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3       100      0
+P4         0    200
+Coût total : 16000
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3       100      0
+P4         0    200
+Coût total : 16000
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 1), ('C', 0), ('P', 2)}
+  Sous-graphe 2 : {('P', 0), ('C', 1), ('P', 3)}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('P', 1), ('C', 0), ('P', 2)}
+  Sous-graphe 2 : {('P', 0), ('C', 1), ('P', 3)}
+Ajout case dégénérée : P2C2 = 0
+Proposition connexe
+Potentiels u : [0, 30, 70, 15]
+Potentiels v : [-20, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-20, 20]
+P2 : [10, 50]
+P3 : [50, 90]
+P4 : [-5, 35]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [70, 0]
+P2 : [0, 0]
+P3 : [0, -50]
+P4 : [50, 0]
+
+Meilleure arête améliorante : P3C2 (coût marginal = -50)
+Arête P3C2 ajoutée à la proposition
+Cycle : C1 -> P1 -> C0 -> P2 -> C1
+  P2C2 = 0 (-)
+  P2C1 = 200 (+)
+  P3C1 = 100 (-)
+  P3C2 = 0 (+)
+Delta = 0
+Arête supprimée : P2C2
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+Arête dégénérée retirée : P2C2
+
+--- Itération ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3       100      0
+P4         0    200
+Coût total : 16000
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -20, 20, 15]
+Potentiels v : [30, 20]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [30, 20]
+P2 : [10, 0]
+P3 : [50, 40]
+P4 : [45, 35]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [20, 0]
+P2 : [0, 50]
+P3 : [0, 0]
+P4 : [0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2  | Provisions
+---------------------------------
+P1        50     20  | 100
+P2        10     50  | 200
+P3        50     40  | 100
+P4        45     35  | 200
+---------------------------------
+Cmd      300    300
+
+Proposition :
+          C1     C2
+P1         0    100
+P2       200      0
+P3       100      0
+P4         0    200
+Coût total optimal : 16000

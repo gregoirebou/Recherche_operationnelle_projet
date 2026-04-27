@@ -1,0 +1,220 @@
+============================================================
+  PROBLÈME 10 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [1, 18, 0]
+Pénalités colonnes : [74, 20, 9, 13, 5, 8, 16]
+Pénalité maximale : 74
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée -> F2C1 = 500
+Pénalités lignes : [1, 18, 0]
+Pénalités colonnes : [74, 20, 15, 13, 8, 8, 17]
+Pénalité maximale : 20
+Candidats lignes : [], Candidats colonnes : [1]
+Colonne C2 sélectionnée -> F1C2 = 500
+Pénalités lignes : [1, 18, 0]
+Pénalités colonnes : [74, 20, 0, 0, 0, 0, 0]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [2, 3, 4, 5, 6]
+Ligne P3 sélectionnée -> P3C4 = 500
+Pénalités lignes : [1, 18, 22]
+Pénalités colonnes : [74, 20, 0, 0, 0, 0, 0]
+Pénalité maximale : 22
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C7 = 500
+Pénalités lignes : [1, 18, 1]
+Pénalités colonnes : [74, 20, 0, 0, 0, 0, 0]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C5 = 500
+Pénalités lignes : [1, 18, 4]
+Pénalités colonnes : [74, 20, 0, 0, 0, 0, 0]
+Pénalité maximale : 4
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C6 = 500
+Pénalités lignes : [1, 18, 0]
+Pénalités colonnes : [74, 20, 0, 0, 0, 0, 0]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [2]
+Ligne P3 sélectionnée -> P3C3 = 500
+
+--- Proposition initiale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 54000
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 54000
+Proposition acyclique
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {('C', 5), ('C', 2), ('C', 4), ('C', 3), ('C', 6), ('P', 2)}
+  Sous-graphe 2 : {('P', 1), ('C', 0)}
+  Sous-graphe 3 : {('P', 0), ('C', 1)}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {('C', 5), ('C', 2), ('C', 4), ('C', 3), ('C', 6), ('P', 2)}
+  Sous-graphe 2 : {('P', 1), ('C', 0)}
+  Sous-graphe 3 : {('P', 0), ('C', 1)}
+Ajout case dégénérée : P3C1 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('C', 5), ('C', 2), ('P', 1), ('C', 4), ('C', 0), ('C', 3), ('C', 6), ('P', 2)}
+  Sous-graphe 2 : {('P', 0), ('C', 1)}
+Ajout case dégénérée : P2C2 = 0
+Proposition connexe
+Potentiels u : [0, 30, 104]
+Potentiels v : [-29, 20, -74, -101, -79, -78, -101]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [-29, 20, -74, -101, -79, -78, -101]
+P2 : [1, 50, -44, -71, -49, -48, -71]
+P3 : [75, 124, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [329, 0, 89, 117, 96, 96, 121]
+P2 : [0, 0, 68, 101, 71, 75, 90]
+P3 : [0, -84, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P3C2 (coût marginal = -84)
+Arête P3C2 ajoutée à la proposition
+Cycle : P2 -> C1 -> P1 -> C0 -> P2
+  P3C2 = 0 (+)
+  P2C2 = 0 (-)
+  P2C1 = 500 (+)
+  P3C1 = 0 (-)
+Delta = 0
+Arête supprimée : P2C2
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+Arête dégénérée retirée : P3C1
+Arête dégénérée retirée : P2C2
+
+--- Itération ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 54000
+Proposition acyclique
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('C', 5), ('C', 2), ('C', 1), ('C', 4), ('P', 0), ('C', 3), ('C', 6), ('P', 2)}
+  Sous-graphe 2 : {('P', 1), ('C', 0)}
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('C', 5), ('C', 2), ('C', 1), ('C', 4), ('P', 0), ('C', 3), ('C', 6), ('P', 2)}
+  Sous-graphe 2 : {('P', 1), ('C', 0)}
+Ajout case dégénérée : P1C1 = 0
+Proposition connexe
+Potentiels u : [0, -299, 20]
+Potentiels v : [300, 20, 10, -17, 5, 6, -17]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [300, 20, 10, -17, 5, 6, -17]
+P2 : [1, -279, -289, -316, -294, -293, -316]
+P3 : [320, 40, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, 0, 5, 33, 12, 12, 37]
+P2 : [0, 329, 313, 346, 316, 320, 335]
+P3 : [-245, 0, 0, 0, 0, 0, 0]
+
+Meilleure arête améliorante : P3C1 (coût marginal = -245)
+Arête P3C1 ajoutée à la proposition
+Cycle : C0 -> P0 -> C1 -> P2 -> C0
+  P1C1 = 0 (-)
+  P1C2 = 500 (+)
+  P3C2 = 0 (-)
+  P3C1 = 0 (+)
+Delta = 0
+Arête supprimée : P1C1
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
+Arête dégénérée retirée : P1C1
+
+--- Itération ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total : 54000
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, -54, 20]
+Potentiels v : [55, 20, 10, -17, 5, 6, -17]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [55, 20, 10, -17, 5, 6, -17]
+P2 : [1, -34, -44, -71, -49, -48, -71]
+P3 : [75, 40, 30, 3, 25, 26, 3]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [245, 0, 5, 33, 12, 12, 37]
+P2 : [0, 84, 68, 101, 71, 75, 90]
+P3 : [0, 0, 0, 0, 0, 0, 0]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4     C5     C6     C7  | Provisions
+--------------------------------------------------------------------
+P1       300     20     15     16     17     18     20  | 500
+P2         1     50     24     30     22     27     19  | 500
+P3        75     40     30      3     25     26      3  | 2500
+--------------------------------------------------------------------
+Cmd      500    500    500    500    500    500    500
+
+Proposition :
+          C1     C2     C3     C4     C5     C6     C7
+P1         0    500      0      0      0      0      0
+P2       500      0      0      0      0      0      0
+P3         0      0    500    500    500    500    500
+Coût total optimal : 54000

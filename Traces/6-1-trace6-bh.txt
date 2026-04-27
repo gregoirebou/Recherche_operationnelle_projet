@@ -1,0 +1,190 @@
+============================================================
+  PROBLÈME 6 — Balas-Hammer
+============================================================
+
+--- Tableau de contraintes ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+--- Méthode Balas-Hammer ---
+Pénalités lignes : [0, 1, 1]
+Pénalités colonnes : [6, 4, 5, 8]
+Pénalité maximale : 8
+Candidats lignes : [], Candidats colonnes : [3]
+Colonne C4 sélectionnée -> F1C4 = 25
+Pénalités lignes : [1, 1, 1]
+Pénalités colonnes : [6, 4, 5, 8]
+Pénalité maximale : 6
+Candidats lignes : [], Candidats colonnes : [0]
+Colonne C1 sélectionnée -> F1C1 = 35
+Pénalités lignes : [1, 1, 1]
+Pénalités colonnes : [2, 5, 5, 8]
+Pénalité maximale : 5
+Candidats lignes : [], Candidats colonnes : [1, 2]
+Colonne C2 sélectionnée -> F2C2 = 30
+Pénalités lignes : [1, 1, 1]
+Pénalités colonnes : [0, 0, 0, 8]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C1 = 15
+Pénalités lignes : [1, 1, 1]
+Pénalités colonnes : [0, 0, 0, 8]
+Pénalité maximale : 1
+Candidats lignes : [2], Candidats colonnes : []
+Ligne P3 sélectionnée -> P3C3 = 30
+Pénalités lignes : [1, 1, 0]
+Pénalités colonnes : [0, 0, 0, 8]
+Pénalité maximale : 0
+Candidats lignes : [2], Candidats colonnes : [1]
+Ligne P3 sélectionnée -> P3C2 = 45
+
+--- Proposition initiale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1        35      0      0     25
+P2         0     30      0      0
+P3        15     45     30      0
+Coût total : 2945
+
+--- Méthode du marche-pied ---
+
+--- Itération ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1        35      0      0     25
+P2         0     30      0      0
+P3        15     45     30      0
+Coût total : 2945
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 12, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 12, 10]
+P2 : [14, 16, 15, 13]
+P3 : [19, 21, 20, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, -2, 0]
+P2 : [3, 0, 0, 5]
+P3 : [0, 0, 0, 4]
+
+Meilleure arête améliorante : P1C3 (coût marginal = -2)
+Arête P1C3 ajoutée à la proposition
+Cycle : C2 -> P2 -> C0 -> P0 -> C2
+  P3C3 = 30 (-)
+  P3C1 = 15 (+)
+  P1C1 = 35 (-)
+  P1C3 = 0 (+)
+Delta = 30
+Arête supprimée : P3C3
+
+--- Itération ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1         5      0     30     25
+P2         0     30      0      0
+P3        45     45      0      0
+Coût total : 2885
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 3, 8]
+Potentiels v : [11, 13, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [11, 13, 10, 10]
+P2 : [14, 16, 13, 13]
+P3 : [19, 21, 18, 18]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [0, -1, 0, 0]
+P2 : [3, 0, 2, 5]
+P3 : [0, 0, 2, 4]
+
+Meilleure arête améliorante : P1C2 (coût marginal = -1)
+Arête P1C2 ajoutée à la proposition
+Cycle : C0 -> P2 -> C1 -> P0 -> C0
+  P3C1 = 45 (+)
+  P3C2 = 45 (-)
+  P1C2 = 0 (+)
+  P1C1 = 5 (-)
+Delta = 5
+Arête supprimée : P1C1
+
+--- Itération ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1         0      5     30     25
+P2         0     30      0      0
+P3        50     40      0      0
+Coût total : 2880
+Proposition acyclique
+Proposition connexe
+Potentiels u : [0, 4, 9]
+Potentiels v : [10, 12, 10, 10]
+
+Table des coûts potentiels (u[i] + v[j]) :
+P1 : [10, 12, 10, 10]
+P2 : [14, 16, 14, 14]
+P3 : [19, 21, 19, 19]
+
+Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
+P1 : [1, 0, 0, 0]
+P2 : [3, 0, 1, 4]
+P3 : [0, 0, 1, 3]
+
+Aucune arête améliorante, solution optimale.
+
+--- Proposition optimale ---
+          C1     C2     C3     C4  | Provisions
+-----------------------------------------------
+P1        11     12     10     10  | 60
+P2        17     16     15     18  | 30
+P3        19     21     20     22  | 90
+-----------------------------------------------
+Cmd       50     75     30     25
+
+Proposition :
+          C1     C2     C3     C4
+P1         0      5     30     25
+P2         0     30      0      0
+P3        50     40      0      0
+Coût total optimal : 2880
