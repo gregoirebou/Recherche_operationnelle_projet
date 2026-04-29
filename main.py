@@ -99,11 +99,23 @@ def run_complexity_study():
     etude.lancer_etude()
     print("\nCalculs terminés ! Génération des graphiques en cours...")
     etude.tracer_graphiques()
+    etude.tracer_comparaison()
     etude.analyser_complexite_empirique()
     print("Étude de complexité terminée.")
 
 
 if __name__ == "__main__":
-    run_complexity_study()
-    # main()
-    #run_all_problems(6,1)
+    print("\nQue souhaitez-vous faire ?")
+    print("  1. Mode interactif (résoudre un problème)")
+    print("  2. Générer toutes les traces d'exécution")
+    print("  3. Étude de complexité")
+    choix = input("Votre choix : ").strip()
+
+    if choix == "1":
+        main()
+    elif choix == "2":
+        run_all_problems(6, 1)
+    elif choix == "3":
+        run_complexity_study()
+    else:
+        print("Choix invalide.")

@@ -153,25 +153,31 @@ class Complexite:
         plt.show()
 
     def tracer_comparaison(self):
-        x_n, y_ratio_max = [], []
+        x_points, y_points = [], []
+        x_max, y_ratio_max = [], []
+
         for n in self.tailles_n:
             ratios = []
             for i in range(self.nb_iterations):
                 total_no = self.resultats["theta_NO"][n][i] + self.resultats["t_NO"][n][i]
                 total_bh = self.resultats["theta_BH"][n][i] + self.resultats["t_BH"][n][i]
                 ratios.append(total_no / total_bh if total_bh > 0 else 1.0)
-            x_n.append(n)
+            x_points.extend([n] * self.nb_iterations)
+            y_points.extend(ratios)
+            x_max.append(n)
             y_ratio_max.append(max(ratios))
 
         plt.figure(figsize=(10, 6))
-        plt.plot(x_n, y_ratio_max, 'b-o', linewidth=2, label="Ratio Max (NO / BH)")
-        plt.axhline(y=1, color='r', linestyle='--', label="Égalité (Ratio = 1)")
+        plt.scatter(x_points, y_points, alpha=0.2, s=5, label=f"Réalisations ({self.nb_iterations}/n)")
+        plt.plot(x_max, y_ratio_max, 'r-o', linewidth=2, label="Pire cas (Max)")
+        plt.axhline(y=1, color='g', linestyle='--', linewidth=1.5, label="Égalité (Ratio = 1)")
         plt.xscale('log')
         plt.xlabel("Taille n")
-        plt.ylabel(r"Ratio $\frac{t_{NO} + \theta_{NO}}{t_{BH} + \theta_{BH}}$")
-        plt.title("Comparaison de la complexité dans le pire des cas (Ratio Max)")
+        plt.ylabel(r"Ratio $\frac{\theta_{NO} + t_{NO}}{\theta_{BH} + t_{BH}}$")
+        plt.title("Comparaison de la complexité dans le pire des cas")
         plt.grid(True, which="both", ls="-", alpha=0.5)
         plt.legend()
+        plt.tight_layout()
         plt.show()
 
     def analyser_complexite_empirique(self):
