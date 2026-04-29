@@ -104,6 +104,6 @@ def run_complexity_study():
 
 
 if __name__ == "__main__":
-    #run_complexity_study()
+    run_complexity_study()
     # main()
-    run_all_problems(6,1)
+    #run_all_problems(6,1)

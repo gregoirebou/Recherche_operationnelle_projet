@@ -12,7 +12,7 @@ class Complexite:
     SAVE_INTERVAL = 5  # save checkpoint every N iterations
 
     def __init__(self):
-        self.tailles_n = [10, 40, 100, 400, 1000, 4000, 10000]
+        self.tailles_n = [10, 40, 100, 400, 1000]#, 4000, 10000]
         self.nb_iterations = 100
         self.fichier_sauvegarde = "sauvegarde_complexite.pkl"
 
@@ -195,6 +195,7 @@ class Complexite:
             print("-" * len(header))
 
             temps_max_par_n = {}
+            temps_moyen_par_n = {}
             for n in self.tailles_n:
                 liste_temps = self.resultats[cle_metrique].get(n)
                 if not liste_temps:
@@ -202,22 +203,26 @@ class Complexite:
                 t_max = max(liste_temps)
                 t_moyen = sum(liste_temps) / len(liste_temps)
                 temps_max_par_n[n] = t_max
+                temps_moyen_par_n[n] = t_moyen
                 print(
                     f"{n:<8} | {t_max:<10.5f} | {t_moyen:<10.5f} | "
                     f"{t_max/n:<10.5f} | {t_max/n**2:<10.7f} | "
                     f"{t_max/n**3:<10.9f} | {t_max/n**4:<10.11f}"
                 )
 
-            print("\n2. Rapports de croissance entre étapes (Basés sur le temps MAX) :")
-            etapes = [(10, 40), (40, 100), (100, 400), (40, 400)]
-            for n1, n2 in etapes:
-                if n1 in temps_max_par_n and n2 in temps_max_par_n:
-                    t1, t2 = temps_max_par_n[n1], temps_max_par_n[n2]
-                    if t1 > 0:
-                        ratio_temps = t2 / t1
-                        ratio_n = n2 / n1
-                        k_empirique = math.log(ratio_temps) / math.log(ratio_n)
-                        print(f"  > Passage de n={n1} à n={n2} (Taille x{ratio_n:.1f})")
-                        print(f"    - Le temps a été multiplié par : x{ratio_temps:.2f}")
-                        print(f"    - Puissance déduite (O(n^k))   : k ≈ {k_empirique:.2f}")
-            print("-" * 85)
+            etapes = [(10, 40), (40, 100), (100, 400), (400, 1000), (10, 1000)]
+            for metrics in ["max", "moyen"]:
+                print(f"\n2. Rapports de croissance entre étapes (Basés sur le temps {metrics}) :")
+                for n1, n2 in etapes:
+                        if metrics == "max":
+                            t1, t2 = temps_max_par_n[n1], temps_max_par_n[n2]
+                        else:
+                            t1, t2 = temps_moyen_par_n[n1], temps_moyen_par_n[n2]
+                        if t1 > 0:
+                            ratio_temps = t2 / t1
+                            ratio_n = n2 / n1
+                            k_empirique = math.log(ratio_temps) / math.log(ratio_n)
+                            print(f"  > Passage de n={n1} à n={n2} (Taille x{ratio_n:.1f})")
+                            print(f"    - Le temps a été multiplié par : x{ratio_temps:.2f}")
+                            print(f"    - Puissance déduite (O(n^k))   : k ≈ {k_empirique:.2f}")
+                print("-" * 85)
