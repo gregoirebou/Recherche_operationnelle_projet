@@ -9,7 +9,7 @@ P1         1      2      3      4      5      6      7      8      9     10  | 1
 P2        11     12     13     14     15     16     17     18     19     20  | 20
 P3        21     22     23     24     25     26     27     28     29     30  | 30
 P4        31     32     33     34     35     36     37     38     39     40  | 40
-P5        41     41     43     44     45     46     47     48     49     50  | 50
+P5        41     42     43     44     45     46     47     48     49     50  | 50
 P6        51     52     53     54     55     56     57     58     59     60  | 60
 P7        61     62     63     64     65     66     67     68     69     70  | 70
 P8        71     72     73     74     75     76     77     78     79     80  | 80
@@ -29,142 +29,142 @@ P20      191    192    193    194    195    196    197    198    199    200  | 2
 Cmd      120    140    160    180    200    220    240    260    280    300
 
 --- Méthode Balas-Hammer ---
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C1 sélectionnée -> F1C1 = 10
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C1 sélectionnée -> F2C1 = 20
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C1 sélectionnée -> F3C1 = 30
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-Pénalités colonnes : [10, 9, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
-Candidats lignes : [], Candidats colonnes : [0, 2, 3, 4, 5, 6, 7, 8, 9]
+Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C1 sélectionnée -> F4C1 = 40
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-Pénalités colonnes : [10, 11, 10, 10, 10, 10, 10, 10, 10, 10]
-Pénalité maximale : 11
-Candidats lignes : [], Candidats colonnes : [1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+Pénalité maximale : 10
+Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C2 sélectionnée -> F5C2 = 50
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C2 sélectionnée -> F6C2 = 60
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C3 sélectionnée -> F7C3 = 70
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C3 sélectionnée -> F8C3 = 80
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C4 sélectionnée -> F9C4 = 90
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C5 sélectionnée -> F10C5 = 100
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C6 sélectionnée -> F11C6 = 110
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C7 sélectionnée -> F12C7 = 120
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C8 sélectionnée -> F13C8 = 130
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C9 sélectionnée -> F14C9 = 140
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C10 sélectionnée -> F15C10 = 150
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 Colonne C10 sélectionnée -> F16C10 = 150
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8]
 Colonne C1 sélectionnée -> F16C1 = 10
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7, 8]
 Colonne C9 sélectionnée -> F17C9 = 140
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 1, 2, 3, 4, 5, 6, 7]
 Colonne C2 sélectionnée -> F17C2 = 30
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 2, 3, 4, 5, 6, 7]
 Colonne C8 sélectionnée -> F18C8 = 130
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 2, 3, 4, 5, 6]
 Colonne C4 sélectionnée -> F18C4 = 50
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 2, 3, 4, 5, 6]
 Colonne C7 sélectionnée -> F19C7 = 120
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
 Pénalités colonnes : [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 Pénalité maximale : 10
 Candidats lignes : [], Candidats colonnes : [0, 2, 3, 4, 5]
 Colonne C5 sélectionnée -> F19C5 = 70
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2]
 Pénalités colonnes : [0, 10, 0, 0, 0, 0, 10, 10, 10, 10]
 Pénalité maximale : 2
 Candidats lignes : [19], Candidats colonnes : []
 Ligne P20 sélectionnée -> P20C1 = 10
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
 Pénalités colonnes : [0, 10, 0, 0, 0, 0, 10, 10, 10, 10]
 Pénalité maximale : 1
 Candidats lignes : [19], Candidats colonnes : []
 Ligne P20 sélectionnée -> P20C3 = 10
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
 Pénalités colonnes : [0, 10, 0, 0, 0, 0, 10, 10, 10, 10]
 Pénalité maximale : 1
 Candidats lignes : [19], Candidats colonnes : []
 Ligne P20 sélectionnée -> P20C4 = 40
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1]
 Pénalités colonnes : [0, 10, 0, 0, 0, 0, 10, 10, 10, 10]
 Pénalité maximale : 1
 Candidats lignes : [19], Candidats colonnes : []
 Ligne P20 sélectionnée -> P20C5 = 30
-Pénalités lignes : [1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0]
+Pénalités lignes : [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 0]
 Pénalités colonnes : [0, 10, 0, 0, 0, 0, 10, 10, 10, 10]
 Pénalité maximale : 0
 Candidats lignes : [19], Candidats colonnes : [5]
@@ -177,7 +177,7 @@ P1         1      2      3      4      5      6      7      8      9     10  | 1
 P2        11     12     13     14     15     16     17     18     19     20  | 20
 P3        21     22     23     24     25     26     27     28     29     30  | 30
 P4        31     32     33     34     35     36     37     38     39     40  | 40
-P5        41     41     43     44     45     46     47     48     49     50  | 50
+P5        41     42     43     44     45     46     47     48     49     50  | 50
 P6        51     52     53     54     55     56     57     58     59     60  | 60
 P7        61     62     63     64     65     66     67     68     69     70  | 70
 P8        71     72     73     74     75     76     77     78     79     80  | 80
@@ -218,7 +218,7 @@ P17        0     30      0      0      0      0      0      0    140      0
 P18        0      0      0     50      0      0      0    130      0      0
 P19        0      0      0      0     70      0    120      0      0      0
 P20       10      0     10     40     30    110      0      0      0      0
-Coût total : 279150
+Coût total : 279200
 
 --- Méthode du marche-pied ---
 
@@ -229,7 +229,7 @@ P1         1      2      3      4      5      6      7      8      9     10  | 1
 P2        11     12     13     14     15     16     17     18     19     20  | 20
 P3        21     22     23     24     25     26     27     28     29     30  | 30
 P4        31     32     33     34     35     36     37     38     39     40  | 40
-P5        41     41     43     44     45     46     47     48     49     50  | 50
+P5        41     42     43     44     45     46     47     48     49     50  | 50
 P6        51     52     53     54     55     56     57     58     59     60  | 60
 P7        61     62     63     64     65     66     67     68     69     70  | 70
 P8        71     72     73     74     75     76     77     78     79     80  | 80
@@ -270,17 +270,17 @@ P17        0     30      0      0      0      0      0      0    140      0
 P18        0      0      0     50      0      0      0    130      0      0
 P19        0      0      0      0     70      0    120      0      0      0
 P20       10      0     10     40     30    110      0      0      0      0
-Coût total : 279150
+Coût total : 279200
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('P', 18), ('C', 0), ('C', 3), ('C', 6), ('P', 2), ('C', 9), ('P', 8), ('P', 14), ('P', 11), ('P', 17), ('C', 5), ('C', 2), ('P', 1), ('P', 7), ('P', 10), ('P', 19), ('C', 7), ('C', 4), ('P', 0), ('P', 3), ('P', 9), ('P', 6), ('P', 12), ('P', 15)}
-  Sous-graphe 2 : {('C', 8), ('C', 1), ('P', 4), ('P', 16), ('P', 13), ('P', 5)}
+  Sous-graphe 1 : {('C', 2), ('C', 5), ('P', 2), ('P', 11), ('P', 8), ('P', 14), ('P', 17), ('C', 4), ('C', 7), ('P', 1), ('P', 7), ('P', 10), ('P', 19), ('C', 0), ('C', 3), ('C', 9), ('C', 6), ('P', 0), ('P', 3), ('P', 9), ('P', 6), ('P', 12), ('P', 15), ('P', 18)}
+  Sous-graphe 2 : {('P', 4), ('P', 16), ('P', 13), ('C', 8), ('C', 1), ('P', 5)}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('P', 18), ('C', 0), ('C', 3), ('C', 6), ('P', 2), ('C', 9), ('P', 8), ('P', 14), ('P', 11), ('P', 17), ('C', 5), ('C', 2), ('P', 1), ('P', 7), ('P', 10), ('P', 19), ('C', 7), ('C', 4), ('P', 0), ('P', 3), ('P', 9), ('P', 6), ('P', 12), ('P', 15)}
-  Sous-graphe 2 : {('C', 8), ('C', 1), ('P', 4), ('P', 16), ('P', 13), ('P', 5)}
-Ajout case dégénérée : P19C9 = 0
+  Sous-graphe 1 : {('C', 2), ('C', 5), ('P', 2), ('P', 11), ('P', 8), ('P', 14), ('P', 17), ('C', 4), ('C', 7), ('P', 1), ('P', 7), ('P', 10), ('P', 19), ('C', 0), ('C', 3), ('C', 9), ('C', 6), ('P', 0), ('P', 3), ('P', 9), ('P', 6), ('P', 12), ('P', 15), ('P', 18)}
+  Sous-graphe 2 : {('P', 4), ('P', 16), ('P', 13), ('C', 8), ('C', 1), ('P', 5)}
+Ajout case dégénérée : P3C9 = 0
 Proposition connexe
-Potentiels u : [0, 10, 20, 30, 39, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190]
+Potentiels u : [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190]
 Potentiels v : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 Table des coûts potentiels (u[i] + v[j]) :
@@ -288,7 +288,7 @@ P1 : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 P2 : [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 P3 : [21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
 P4 : [31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
-P5 : [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+P5 : [41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
 P6 : [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 P7 : [61, 62, 63, 64, 65, 66, 67, 68, 69, 70]
 P8 : [71, 72, 73, 74, 75, 76, 77, 78, 79, 80]
@@ -310,7 +310,7 @@ P1 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P2 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P3 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P4 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-P5 : [1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+P5 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P6 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P7 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 P8 : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -336,7 +336,7 @@ P1         1      2      3      4      5      6      7      8      9     10  | 1
 P2        11     12     13     14     15     16     17     18     19     20  | 20
 P3        21     22     23     24     25     26     27     28     29     30  | 30
 P4        31     32     33     34     35     36     37     38     39     40  | 40
-P5        41     41     43     44     45     46     47     48     49     50  | 50
+P5        41     42     43     44     45     46     47     48     49     50  | 50
 P6        51     52     53     54     55     56     57     58     59     60  | 60
 P7        61     62     63     64     65     66     67     68     69     70  | 70
 P8        71     72     73     74     75     76     77     78     79     80  | 80
@@ -377,4 +377,4 @@ P17        0     30      0      0      0      0      0      0    140      0
 P18        0      0      0     50      0      0      0    130      0      0
 P19        0      0      0      0     70      0    120      0      0      0
 P20       10      0     10     40     30    110      0      0      0      0
-Coût total optimal : 279150
+Coût total optimal : 279200

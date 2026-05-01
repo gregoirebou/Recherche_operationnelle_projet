@@ -53,11 +53,11 @@ P2         0    100
 Coût total : 2000
 Proposition acyclique
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('P', 0), ('C', 0)}
-  Sous-graphe 2 : {('P', 1), ('C', 1)}
+  Sous-graphe 1 : {('C', 0), ('P', 0)}
+  Sous-graphe 2 : {('C', 1), ('P', 1)}
 Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('P', 0), ('C', 0)}
-  Sous-graphe 2 : {('P', 1), ('C', 1)}
+  Sous-graphe 1 : {('C', 0), ('P', 0)}
+  Sous-graphe 2 : {('C', 1), ('P', 1)}
 Ajout case dégénérée : P1C2 = 0
 Proposition connexe
 Potentiels u : [0, -10]

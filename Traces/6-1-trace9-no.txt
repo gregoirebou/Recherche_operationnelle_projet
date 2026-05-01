@@ -68,52 +68,49 @@ P7         0      0    100
 Coût total : 15500
 Proposition acyclique
 Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {('P', 6), ('C', 2)}
-  Sous-graphe 2 : {('P', 1), ('P', 0), ('C', 0), ('P', 3), ('P', 2)}
-  Sous-graphe 3 : {('C', 1), ('P', 4), ('P', 5)}
-Proposition non connexe : 3 sous-graphes
-  Sous-graphe 1 : {('P', 6), ('C', 2)}
-  Sous-graphe 2 : {('P', 1), ('P', 0), ('C', 0), ('P', 3), ('P', 2)}
-  Sous-graphe 3 : {('C', 1), ('P', 4), ('P', 5)}
-Ajout case dégénérée : P7C1 = 0
-Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('C', 2), ('P', 1), ('P', 0), ('C', 0), ('P', 3), ('P', 6), ('P', 2)}
+  Sous-graphe 1 : {('C', 0), ('P', 1), ('P', 0), ('P', 3), ('P', 2)}
   Sous-graphe 2 : {('C', 1), ('P', 4), ('P', 5)}
+  Sous-graphe 3 : {('C', 2), ('P', 6)}
+Proposition non connexe : 3 sous-graphes
+  Sous-graphe 1 : {('C', 0), ('P', 1), ('P', 0), ('P', 3), ('P', 2)}
+  Sous-graphe 2 : {('C', 1), ('P', 4), ('P', 5)}
+  Sous-graphe 3 : {('C', 2), ('P', 6)}
 Ajout case dégénérée : P2C2 = 0
+Proposition non connexe : 2 sous-graphes
+  Sous-graphe 1 : {('C', 0), ('P', 4), ('P', 1), ('P', 0), ('P', 3), ('P', 2), ('C', 1), ('P', 5)}
+  Sous-graphe 2 : {('C', 2), ('P', 6)}
+Ajout case dégénérée : P5C3 = 0
 Proposition connexe
-Potentiels u : [0, -20, -21, -24, -30, -32, 20]
-Potentiels v : [30, 70, 2]
+Potentiels u : [0, -20, -21, -24, -30, -32, -11]
+Potentiels v : [30, 70, 33]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 70, 2]
-P2 : [10, 50, -18]
-P3 : [9, 49, -19]
-P4 : [6, 46, -22]
-P5 : [0, 40, -28]
-P6 : [-2, 38, -30]
-P7 : [50, 90, 22]
+P1 : [30, 70, 33]
+P2 : [10, 50, 13]
+P3 : [9, 49, 12]
+P4 : [6, 46, 9]
+P5 : [0, 40, 3]
+P6 : [-2, 38, 1]
+P7 : [19, 59, 22]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -50, 13]
-P2 : [0, 0, 20]
-P3 : [0, -39, 49]
-P4 : [0, -44, 51]
-P5 : [50, 0, 31]
-P6 : [7, 0, 57]
-P7 : [0, -86, 0]
+P1 : [0, -50, -18]
+P2 : [0, 0, -11]
+P3 : [0, -39, 18]
+P4 : [0, -44, 20]
+P5 : [50, 0, 0]
+P6 : [7, 0, 26]
+P7 : [31, -55, 0]
 
-Meilleure arête améliorante : P7C2 (coût marginal = -86)
+Meilleure arête améliorante : P7C2 (coût marginal = -55)
 Arête P7C2 ajoutée à la proposition
-Cycle : C1 -> P6 -> C0 -> P1 -> C1
+Cycle : C1 -> P6 -> C2 -> P4 -> C1
   P7C2 = 0 (+)
-  P7C1 = 0 (-)
-  P2C1 = 100 (+)
-  P2C2 = 0 (-)
-Delta = 0
-Arête supprimée : P7C1
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-Arête dégénérée retirée : P7C1
-Arête dégénérée retirée : P2C2
+  P7C3 = 100 (-)
+  P5C3 = 0 (+)
+  P5C2 = 100 (-)
+Delta = 100
+Arête supprimée : P7C3
 
 --- Itération ---
           C1     C2     C3  | Provisions
@@ -134,49 +131,43 @@ P1       100      0      0
 P2       100      0      0
 P3       100      0      0
 P4       100      0      0
-P5         0    100      0
+P5         0      0    100
 P6         0    100      0
-P7         0      0    100
-Coût total : 15500
+P7         0    100      0
+Coût total : 10000
 Proposition acyclique
-Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('C', 2), ('C', 1), ('P', 4), ('P', 6), ('P', 5)}
-  Sous-graphe 2 : {('P', 1), ('P', 0), ('C', 0), ('P', 3), ('P', 2)}
-Proposition non connexe : 2 sous-graphes
-  Sous-graphe 1 : {('C', 2), ('C', 1), ('P', 4), ('P', 6), ('P', 5)}
-  Sous-graphe 2 : {('P', 1), ('P', 0), ('C', 0), ('P', 3), ('P', 2)}
-Ajout case dégénérée : P5C1 = 0
 Proposition connexe
-Potentiels u : [0, -20, -21, -24, 20, 18, -16]
-Potentiels v : [30, 20, 38]
+Potentiels u : [0, -20, -21, -24, -30, -32, -66]
+Potentiels v : [30, 70, 33]
 
 Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 20, 38]
-P2 : [10, 0, 18]
-P3 : [9, -1, 17]
-P4 : [6, -4, 14]
-P5 : [50, 40, 58]
-P6 : [48, 38, 56]
-P7 : [14, 4, 22]
+P1 : [30, 70, 33]
+P2 : [10, 50, 13]
+P3 : [9, 49, 12]
+P4 : [6, 46, 9]
+P5 : [0, 40, 3]
+P6 : [-2, 38, 1]
+P7 : [-36, 4, -33]
 
 Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, 0, -23]
-P2 : [0, 50, -16]
-P3 : [0, 11, 13]
-P4 : [0, 6, 15]
-P5 : [0, 0, -55]
-P6 : [-43, 0, -29]
-P7 : [36, 0, 0]
+P1 : [0, -50, -18]
+P2 : [0, 0, -11]
+P3 : [0, -39, 18]
+P4 : [0, -44, 20]
+P5 : [50, 0, 0]
+P6 : [7, 0, 26]
+P7 : [86, 0, 55]
 
-Meilleure arête améliorante : P5C3 (coût marginal = -55)
-Arête P5C3 ajoutée à la proposition
-Cycle : C1 -> P6 -> C2 -> P4 -> C1
-  P7C2 = 0 (+)
-  P7C3 = 100 (-)
-  P5C3 = 0 (+)
-  P5C2 = 100 (-)
-Delta = 100
-Arête supprimée : P7C3
+Meilleure arête améliorante : P1C2 (coût marginal = -50)
+Arête P1C2 ajoutée à la proposition
+Cycle : P0 -> C1 -> P1 -> C0 -> P0
+  P1C2 = 0 (+)
+  P2C2 = 0 (-)
+  P2C1 = 100 (+)
+  P1C1 = 100 (-)
+Delta = 0
+Arête supprimée : P2C2
+Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
 
 --- Itération ---
           C1     C2     C3  | Provisions
@@ -226,63 +217,6 @@ P7 : [36, 0, 55]
 
 Meilleure arête améliorante : P6C1 (coût marginal = -43)
 Arête P6C1 ajoutée à la proposition
-Cycle : P4 -> C1 -> P5 -> C0 -> P4
-  P5C2 = 0 (+)
-  P6C2 = 100 (-)
-  P6C1 = 0 (+)
-  P5C1 = 0 (-)
-Delta = 0
-Arête supprimée : P5C1
-Delta=0 : suppression des arêtes dégénérées et nouvelle tentative de connexité
-
---- Itération ---
-          C1     C2     C3  | Provisions
-----------------------------------------
-P1        30     20     15  | 100
-P2        10     50      2  | 100
-P3         9     10     30  | 100
-P4         6      2     29  | 100
-P5        50     40      3  | 100
-P6         5     38     27  | 100
-P7        50      4     22  | 100
-----------------------------------------
-Cmd      400    200    100
-
-Proposition :
-          C1     C2     C3
-P1       100      0      0
-P2       100      0      0
-P3       100      0      0
-P4       100      0      0
-P5         0      0    100
-P6         0    100      0
-P7         0    100      0
-Coût total : 10000
-Proposition acyclique
-Proposition connexe
-Potentiels u : [0, -20, -21, -24, -23, -25, -59]
-Potentiels v : [30, 63, 26]
-
-Table des coûts potentiels (u[i] + v[j]) :
-P1 : [30, 63, 26]
-P2 : [10, 43, 6]
-P3 : [9, 42, 5]
-P4 : [6, 39, 2]
-P5 : [7, 40, 3]
-P6 : [5, 38, 1]
-P7 : [-29, 4, -33]
-
-Table des coûts marginaux (c[i][j] - u[i] - v[j]) :
-P1 : [0, -43, -11]
-P2 : [0, 7, -4]
-P3 : [0, -32, 25]
-P4 : [0, -37, 27]
-P5 : [43, 0, 0]
-P6 : [0, 0, 26]
-P7 : [79, 0, 55]
-
-Meilleure arête améliorante : P1C2 (coût marginal = -43)
-Arête P1C2 ajoutée à la proposition
 Cycle : P0 -> C1 -> P5 -> C0 -> P0
   P1C2 = 0 (+)
   P6C2 = 100 (-)
